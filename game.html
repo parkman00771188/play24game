@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>24 GAME - 빠른 시작</title>
+    <meta name="description" content="24 GAME 빠른 시작 플레이 화면" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell play-app" aria-label="24 GAME 빠른 시작">
+      <div class="sky-layer" aria-hidden="true">
+        <span class="cloud cloud-one"></span>
+        <span class="cloud cloud-two"></span>
+        <span class="cloud cloud-three"></span>
+        <span class="spark sparkle-a"></span>
+        <span class="spark sparkle-b"></span>
+        <span class="spark sparkle-c"></span>
+      </div>
+
+      <section class="play-screen">
+        <header class="play-top-card">
+          <a class="brand-mark play-brand" href="./index.html" aria-label="홈으로 이동">
+            <span class="brand-number">24</span>
+            <span class="brand-game">GAME</span>
+          </a>
+          <div class="room-title">
+            <strong>방 #2408</strong>
+            <span>플레이어 3 진행 중 · 대기 9명</span>
+          </div>
+          <div class="room-actions" aria-label="방 메뉴">
+            <button class="room-icon" type="button" aria-label="참가자 보기">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 11a4 4 0 1 0-8 0" />
+                <path d="M4 21c.8-4.4 4-7 8-7s7.2 2.6 8 7" />
+              </svg>
+              <span>10</span>
+            </button>
+            <button class="room-icon js-fit" type="button" aria-label="화면 맞춤">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 3H4v4" />
+                <path d="M16 3h4v4" />
+                <path d="M8 21H4v-4" />
+                <path d="M16 21h4v-4" />
+              </svg>
+            </button>
+            <a class="room-icon leave-icon" href="./index.html" aria-label="방 나가기">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 4H5v16h5" />
+                <path d="M13 8l4 4-4 4" />
+                <path d="M9 12h8" />
+              </svg>
+            </a>
+          </div>
+        </header>
+
+        <section class="challenger-card" aria-label="도전자 현황">
+          <strong>도전자</strong>
+          <div class="challenger-avatars">
+            <span class="animal-avatar active polar" aria-label="북극곰 선택됨"></span>
+            <span class="animal-avatar dog" aria-label="강아지"></span>
+            <span class="animal-avatar frog" aria-label="개구리"></span>
+            <span class="animal-avatar rabbit" aria-label="토끼"></span>
+            <span class="animal-avatar penguin" aria-label="펭귄"></span>
+          </div>
+          <p>플레이어 3 진행 중 · 대기 9명</p>
+        </section>
+
+        <section class="round-dashboard" aria-label="게임 현황">
+          <article class="goal-card">
+            <span>목표 숫자</span>
+            <strong><i class="target-dot flat" aria-hidden="true"></i>24</strong>
+          </article>
+
+          <div class="round-mascot" aria-hidden="true">
+            <img src="./assets/mascot.png" alt="" />
+            <div>현재 도전자 플레이어 3</div>
+          </div>
+
+          <article class="timer-card">
+            <div>
+              <span>남은 시간</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 8v5l3 2" />
+                <path d="M9 2h6" />
+                <path d="M12 5a8 8 0 1 0 0 16 8 8 0 0 0 0-16z" />
+              </svg>
+            </div>
+            <strong class="js-time">00:06</strong>
+            <div class="time-track" aria-hidden="true"><span class="js-time-track"></span></div>
+          </article>
+        </section>
+
+        <section class="number-board" aria-label="숫자 카드">
+          <button class="number-card js-number-card" type="button">7</button>
+          <button class="number-card js-number-card" type="button">4</button>
+          <button class="number-card js-number-card" type="button">6</button>
+          <button class="number-card js-number-card bottom-card" type="button">2</button>
+        </section>
+
+        <section class="operator-panel" aria-label="연산자 선택">
+          <div class="operator-label">연산자 선택</div>
+          <div class="operator-grid">
+            <button class="operator-button active js-operator" type="button" data-operator="+">+</button>
+            <button class="operator-button js-operator" type="button" data-operator="-">−</button>
+            <button class="operator-button js-operator" type="button" data-operator="×">×</button>
+            <button class="operator-button js-operator" type="button" data-operator="÷">÷</button>
+          </div>
+        </section>
+
+        <section class="history-panel" aria-label="계산 히스토리">
+          <div class="history-title">
+            <span class="history-book" aria-hidden="true">24</span>
+            <strong>계산 히스토리</strong>
+          </div>
+          <p class="js-history">아직 적용된 연산이 없습니다</p>
+        </section>
+
+        <section class="challenge-cta" aria-label="다음 도전권">
+          <div class="flag" aria-hidden="true"></div>
+          <div>
+            <span>다음 도전권</span>
+            <strong>도전하고 싶다면 손들기!</strong>
+          </div>
+          <button class="hand-button js-hand" type="button">
+            <span aria-hidden="true">✋</span>
+            손들기
+          </button>
+        </section>
+      </section>
+
+      <div class="toast" role="status" aria-live="polite"></div>
+    </main>
+
+    <script src="./scripts/game.js"></script>
+  </body>
+</html>

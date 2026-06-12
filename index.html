@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>24 GAME - 홈</title>
+    <meta
+      name="description"
+      content="귀여운 24게임 로비 UI. 빠른 시작, 방 리스트, 랭킹, 미션과 프로필을 한 화면에서 확인하세요."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-label="24 GAME 홈">
+      <div class="sky-layer" aria-hidden="true">
+        <span class="cloud cloud-one"></span>
+        <span class="cloud cloud-two"></span>
+        <span class="cloud cloud-three"></span>
+        <span class="spark sparkle-a"></span>
+        <span class="spark sparkle-b"></span>
+        <span class="spark sparkle-c"></span>
+      </div>
+
+      <section class="home-screen">
+        <header class="top-bar">
+          <a class="brand-mark" href="#" aria-label="24 GAME 홈">
+            <span class="brand-number">24</span>
+            <span class="brand-game">GAME</span>
+          </a>
+
+          <div class="wallet" aria-label="보유 재화">
+            <div class="wallet-pill">
+              <span class="coin-icon" aria-hidden="true"></span>
+              <strong>12,450</strong>
+              <button class="mini-add" type="button" aria-label="코인 충전">+</button>
+            </div>
+            <div class="wallet-pill">
+              <span class="gem-icon" aria-hidden="true"></span>
+              <strong>350</strong>
+              <button class="mini-add" type="button" aria-label="젬 충전">+</button>
+            </div>
+            <button class="bell-button" type="button" aria-label="알림">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+                <path d="M10 21h4" />
+              </svg>
+              <span>3</span>
+            </button>
+            <button class="avatar-button js-profile" type="button" aria-label="프로필 열기">
+              <img src="./assets/character/transparent/char_boy_1.png" alt="" />
+              <i aria-hidden="true"></i>
+            </button>
+          </div>
+        </header>
+
+        <section class="hero-panel" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">안녕하세요, 플레이어!</p>
+            <h1 id="hero-title">오늘도 <strong>24</strong>를<br />만들어볼까요?</h1>
+            <p class="hero-subtitle">즐거운 계산, 재미있는 도전!</p>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <span class="confetti confetti-one"></span>
+            <span class="confetti confetti-two"></span>
+            <span class="confetti confetti-three"></span>
+            <img src="./assets/mascot.png" alt="" />
+            <div class="hero-ribbon">두뇌도 튼튼! 재미도 두 배!</div>
+          </div>
+        </section>
+
+        <section class="quick-actions" aria-label="주요 메뉴">
+          <a class="action-card action-blue js-quick-start" href="./game.html">
+            <span class="action-icon play-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M11 8.8v14.4c0 1.4 1.5 2.3 2.7 1.6l11.2-7.2c1.1-.7 1.1-2.4 0-3.1L13.7 7.2C12.5 6.5 11 7.4 11 8.8z" />
+              </svg>
+            </span>
+            <span>
+              <strong>빠른 시작</strong>
+              <small>즉시 매칭으로 바로 게임 시작!</small>
+            </span>
+          </a>
+
+          <a class="action-card action-green" href="./rooms.html">
+            <span class="action-icon list-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M9 10h14" />
+                <path d="M9 16h14" />
+                <path d="M9 22h14" />
+                <path d="M5 10h.1" />
+                <path d="M5 16h.1" />
+                <path d="M5 22h.1" />
+              </svg>
+            </span>
+            <span>
+              <strong>방 리스트</strong>
+              <small>다양한 방에서 플레이어들과 함께!</small>
+            </span>
+          </a>
+
+          <a class="action-card action-purple" href="./ranking.html">
+            <span class="action-icon trophy-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M10 6h12v7a6 6 0 0 1-12 0V6z" />
+                <path d="M10 9H6v3a5 5 0 0 0 5 5" />
+                <path d="M22 9h4v3a5 5 0 0 1-5 5" />
+                <path d="M16 19v5" />
+                <path d="M11 26h10" />
+              </svg>
+            </span>
+            <span>
+              <strong>랭킹</strong>
+              <small>실력을 겨루고 순위에 도전하세요!</small>
+            </span>
+          </a>
+
+          <button class="action-card action-yellow js-settings" type="button">
+            <span class="action-icon gear-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M16 11a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" />
+                <path
+                  d="M25.2 17.7v-3.4l-3-1.1c-.2-.5-.4-1-.7-1.5l1.3-2.9-2.4-2.4-2.9 1.3c-.5-.3-1-.5-1.5-.7l-1.1-3h-3.4l-1.1 3c-.5.2-1 .4-1.5.7L6 6.4 3.6 8.8l1.3 2.9c-.3.5-.5 1-.7 1.5l-3 1.1v3.4l3 1.1c.2.5.4 1 .7 1.5l-1.3 2.9L6 25.6l2.9-1.3c.5.3 1 .5 1.5.7l1.1 3h3.4l1.1-3c.5-.2 1-.4 1.5-.7l2.9 1.3 2.4-2.4-1.3-2.9c.3-.5.5-1 .7-1.5l3-1.1z"
+                />
+              </svg>
+            </span>
+            <span>
+              <strong>설정</strong>
+              <small>게임 설정과 계정을 관리하세요</small>
+            </span>
+          </button>
+        </section>
+
+        <section class="missions panel" aria-labelledby="mission-title">
+          <div class="section-heading">
+            <h2 id="mission-title">
+              <span class="target-dot" aria-hidden="true"></span>
+              오늘의 미션
+            </h2>
+            <p>
+              <span class="clock-mini" aria-hidden="true"></span>
+              매일 00:00 초기화
+            </p>
+          </div>
+
+          <div class="mission-grid">
+            <article class="mission-card mission-blue">
+              <div class="mission-illustration gamepad" aria-hidden="true">
+                <svg viewBox="0 0 80 58">
+                  <path d="M20 18h40c8 0 14 7 14 16v4c0 7-5 12-11 12-5 0-8-4-12-8H29c-4 4-7 8-12 8-6 0-11-5-11-12v-4c0-9 6-16 14-16z" />
+                  <path d="M23 31h12M29 25v12" />
+                  <circle cx="53" cy="31" r="4" />
+                  <circle cx="63" cy="26" r="3.5" />
+                </svg>
+              </div>
+              <h3>게임 3판 플레이</h3>
+              <div class="progress-line" aria-label="1/3 진행">
+                <span style="width: 33%"></span>
+              </div>
+              <div class="mission-foot">
+                <span>1/3</span>
+                <strong><i class="coin-icon tiny" aria-hidden="true"></i>x200</strong>
+              </div>
+            </article>
+
+            <article class="mission-card mission-sky">
+              <div class="mission-illustration bullseye" aria-hidden="true">
+                <svg viewBox="0 0 80 58">
+                  <circle cx="40" cy="30" r="20" />
+                  <circle cx="40" cy="30" r="12" />
+                  <circle cx="40" cy="30" r="5" />
+                  <path d="M47 23l17-15" />
+                  <path d="M57 8h9v9" />
+                </svg>
+              </div>
+              <h3>정답 10회 맞히기</h3>
+              <div class="progress-line" aria-label="6/10 진행">
+                <span style="width: 60%"></span>
+              </div>
+              <div class="mission-foot">
+                <span>6/10</span>
+                <strong><i class="gem-icon tiny" aria-hidden="true"></i>x10</strong>
+              </div>
+            </article>
+
+            <article class="mission-card mission-gold">
+              <div class="mission-illustration friends" aria-hidden="true">
+                <svg viewBox="0 0 80 58">
+                  <circle cx="28" cy="24" r="10" />
+                  <circle cx="52" cy="24" r="10" />
+                  <path d="M12 50c2-10 10-16 16-16s14 6 16 16" />
+                  <path d="M36 50c2-10 10-16 16-16s14 6 16 16" />
+                </svg>
+              </div>
+              <h3>친구와 1판 플레이</h3>
+              <div class="progress-line warm" aria-label="0/1 진행">
+                <span style="width: 0%"></span>
+              </div>
+              <div class="mission-foot">
+                <span>0/1</span>
+                <strong><i class="star-reward" aria-hidden="true"></i>x50</strong>
+              </div>
+            </article>
+          </div>
+
+          <button class="ribbon-link" type="button">더 많은 미션 보기</button>
+        </section>
+
+      </section>
+
+      <nav class="bottom-nav" aria-label="하단 메뉴">
+        <a class="nav-item active" href="#" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 10.7 12 3l9 7.7V21h-6v-6H9v6H3z" />
+          </svg>
+          <span>홈</span>
+        </a>
+        <a class="nav-item" href="#">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M16 11a4 4 0 1 0-8 0" />
+            <path d="M4 21c.8-4.4 4-7 8-7s7.2 2.6 8 7" />
+            <path d="M18 8a3 3 0 1 1 2.6 4.5" />
+          </svg>
+          <span>친구</span>
+        </a>
+        <button class="nav-mascot js-profile" type="button" aria-label="프로필">
+          <img src="./assets/mascot.png" alt="" />
+        </button>
+        <a class="nav-item" href="#">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 6h16l-2 8H7z" />
+            <path d="M8 6 7 3H3" />
+            <circle cx="9" cy="20" r="1.5" />
+            <circle cx="18" cy="20" r="1.5" />
+          </svg>
+          <span>상점</span>
+        </a>
+        <a class="nav-item gift-item" href="#">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 11h16v10H4z" />
+            <path d="M3 7h18v4H3z" />
+            <path d="M12 7v14" />
+            <path d="M12 7c-2.8 0-5-1.1-5-2.5S8.1 2 9.5 2C11.2 2 12 7 12 7z" />
+            <path d="M12 7c2.8 0 5-1.1 5-2.5S15.9 2 14.5 2C12.8 2 12 7 12 7z" />
+          </svg>
+          <span>이벤트</span>
+          <i>2</i>
+        </a>
+      </nav>
+    </main>
+
+    <dialog class="game-dialog" id="settingsDialog" aria-labelledby="settings-title">
+      <div class="dialog-card">
+        <div class="dialog-header">
+          <button class="back-button js-close-settings" type="button" aria-label="설정 닫기">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+          </button>
+          <h2 id="settings-title">설정</h2>
+        </div>
+        <div class="profile-strip">
+          <img src="./assets/character/transparent/char_boy_1.png" alt="" />
+          <div>
+            <strong>플레이어24</strong>
+            <span>지식왕 플레이어</span>
+          </div>
+          <em>Lv.12</em>
+        </div>
+        <div class="setting-group">
+          <label>
+            <span>알림</span>
+            <input type="checkbox" checked />
+          </label>
+          <label>
+            <span>사운드</span>
+            <input type="checkbox" checked />
+          </label>
+          <label>
+            <span>배경음</span>
+            <input type="range" min="0" max="100" value="70" />
+            <b>70%</b>
+          </label>
+          <label>
+            <span>진동</span>
+            <input type="checkbox" checked />
+          </label>
+        </div>
+        <button class="logout-button" type="button">로그아웃</button>
+      </div>
+    </dialog>
+
+    <dialog class="game-dialog profile-dialog" id="profileDialog" aria-labelledby="profile-title">
+      <div class="dialog-card profile-card">
+        <div class="dialog-header">
+          <button class="back-button js-close-profile" type="button" aria-label="프로필 닫기">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+          </button>
+          <h2 id="profile-title">프로필</h2>
+        </div>
+        <div class="profile-hero">
+          <img src="./assets/character/transparent/char_boy_1.png" alt="" />
+          <div>
+            <strong>플레이어24</strong>
+            <span>플래티넘 I</span>
+            <p>최근 10판 7승 · 승률 68%</p>
+          </div>
+        </div>
+        <div class="profile-stats">
+          <span><b>1,248승</b>총 승수</span>
+          <span><b>12연승</b>최고 연승</span>
+          <span><b>2,480P</b>내 포인트</span>
+        </div>
+      </div>
+    </dialog>
+
+    <div class="toast home-toast" role="status" aria-live="polite"></div>
+    <script src="./scripts/home.js"></script>
+  </body>
+</html>

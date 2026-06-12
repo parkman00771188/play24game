@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>24 GAME - 방 리스트</title>
+    <meta name="description" content="24 GAME 방 리스트 화면" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell rooms-app" aria-label="24 GAME 방 리스트">
+      <div class="sky-layer" aria-hidden="true">
+        <span class="cloud cloud-one"></span>
+        <span class="cloud cloud-two"></span>
+        <span class="cloud cloud-three"></span>
+        <span class="spark sparkle-a"></span>
+        <span class="spark sparkle-b"></span>
+        <span class="spark sparkle-c"></span>
+      </div>
+
+      <section class="rooms-screen">
+        <header class="rooms-top">
+          <a class="brand-mark rooms-brand" href="./index.html" aria-label="24 GAME 홈">
+            <span class="brand-number">24</span>
+            <span class="brand-game">GAME</span>
+          </a>
+
+          <div class="wallet rooms-wallet" aria-label="보유 재화">
+            <div class="wallet-pill">
+              <span class="coin-icon" aria-hidden="true"></span>
+              <strong>12,450</strong>
+              <button class="mini-add" type="button" aria-label="코인 충전">+</button>
+            </div>
+            <div class="wallet-pill">
+              <span class="gem-icon" aria-hidden="true"></span>
+              <strong>350</strong>
+              <button class="mini-add" type="button" aria-label="젬 충전">+</button>
+            </div>
+            <button class="bell-button" type="button" aria-label="알림">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+                <path d="M10 21h4" />
+              </svg>
+              <span>3</span>
+            </button>
+            <button class="avatar-button" type="button" aria-label="프로필">
+              <img src="./assets/character/transparent/char_boy_1.png" alt="" />
+              <i aria-hidden="true"></i>
+            </button>
+          </div>
+        </header>
+
+        <section class="rooms-panel" aria-labelledby="rooms-page-title">
+          <div class="rooms-titlebar">
+            <a class="rooms-circle-button" href="./index.html" aria-label="홈으로 돌아가기">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+            </a>
+            <h1 id="rooms-page-title">방 리스트</h1>
+            <button class="rooms-circle-button js-filter" type="button" aria-label="필터">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 5h16l-6 7v5l-4 2v-7z" />
+              </svg>
+            </button>
+          </div>
+
+          <nav class="room-tabs" aria-label="방 분류">
+            <button class="room-tab active js-room-tab" type="button">전체</button>
+            <button class="room-tab js-room-tab" type="button"><span class="sprout-icon" aria-hidden="true"></span>초보</button>
+            <button class="room-tab js-room-tab" type="button"><span class="flame-icon" aria-hidden="true"></span>인기</button>
+            <button class="room-tab js-room-tab" type="button"><span class="cube-icon" aria-hidden="true"></span>고수</button>
+            <button class="room-tab js-room-tab" type="button"><span class="wait-icon" aria-hidden="true"></span>대기중</button>
+          </nav>
+
+          <section class="rooms-searchbar" aria-label="방 검색 및 시간 필터">
+            <label class="room-search">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" />
+                <path d="m16.5 16.5 4 4" />
+              </svg>
+              <input class="js-room-search" type="search" placeholder="방 번호 또는 방 제목 검색" />
+            </label>
+            <div class="time-filters" aria-label="시간 필터">
+              <button class="js-time-filter" type="button">10분</button>
+              <button class="js-time-filter" type="button">15분</button>
+              <button class="js-time-filter" type="button">20분</button>
+              <button class="active js-time-filter" type="button">전체</button>
+            </div>
+          </section>
+
+          <section class="lobby-room-list" aria-label="방 목록">
+            <article class="lobby-room-card" data-title="24 마스터 도전방" data-time="15분" data-tag="인기">
+              <div class="lobby-room-info">
+                <h2><span class="crown-icon" aria-hidden="true"></span>24 마스터 도전방 <em class="tag purple">랭킹전</em></h2>
+                <p>#2408</p>
+                <div class="room-chip-row">
+                  <span><i class="target-mini" aria-hidden="true"></i>목표 <b>24</b></span>
+                  <span><i class="clock-chip" aria-hidden="true"></i>시간 <b>15분</b></span>
+                  <span><i class="card-chip" aria-hidden="true"></i>카드 <b>4장</b></span>
+                </div>
+              </div>
+              <div class="lobby-room-players">
+                <strong><i class="player-dot" aria-hidden="true"></i>7/10</strong>
+                <div class="face-stack wide" aria-label="참가자 아바타">
+                  <span class="face face-a"></span>
+                  <span class="face face-b"></span>
+                  <span class="face face-c"></span>
+                  <span class="face face-d"></span>
+                  <em>+2</em>
+                </div>
+              </div>
+              <a class="lobby-join-button" href="./game.html">입장</a>
+            </article>
+
+            <article class="lobby-room-card" data-title="초보 환영! 함께 즐겨요" data-time="10분" data-tag="초보">
+              <div class="lobby-room-info">
+                <h2>초보 환영! 함께 즐겨요 <span class="smile-text" aria-hidden="true">☺</span> <em class="tag green">초보 환영</em></h2>
+                <p>#2395</p>
+                <div class="room-chip-row">
+                  <span><i class="target-mini" aria-hidden="true"></i>목표 <b>24</b></span>
+                  <span><i class="clock-chip" aria-hidden="true"></i>시간 <b>10분</b></span>
+                  <span><i class="card-chip" aria-hidden="true"></i>카드 <b>4장</b></span>
+                </div>
+              </div>
+              <div class="lobby-room-players">
+                <strong><i class="player-dot" aria-hidden="true"></i>5/10</strong>
+                <div class="face-stack wide" aria-label="참가자 아바타">
+                  <span class="face face-e"></span>
+                  <span class="face face-f"></span>
+                  <span class="face face-h"></span>
+                  <span class="face ghost"></span>
+                  <span class="face ghost"></span>
+                </div>
+              </div>
+              <a class="lobby-join-button" href="./game.html">입장</a>
+            </article>
+
+            <article class="lobby-room-card" data-title="빠른 진행! 10분 한 판" data-time="10분" data-tag="인기">
+              <div class="lobby-room-info">
+                <h2>빠른 진행! 10분 한 판 <em class="tag blue">빠른 진행</em></h2>
+                <p>#2387</p>
+                <div class="room-chip-row">
+                  <span><i class="target-mini" aria-hidden="true"></i>목표 <b>24</b></span>
+                  <span><i class="clock-chip" aria-hidden="true"></i>시간 <b>10분</b></span>
+                  <span><i class="card-chip" aria-hidden="true"></i>카드 <b>3장</b></span>
+                </div>
+              </div>
+              <div class="lobby-room-players">
+                <strong><i class="player-dot" aria-hidden="true"></i>8/10</strong>
+                <div class="face-stack wide" aria-label="참가자 아바타">
+                  <span class="face face-g"></span>
+                  <span class="face face-f"></span>
+                  <span class="face face-c"></span>
+                  <span class="face face-h"></span>
+                  <em>+3</em>
+                </div>
+              </div>
+              <a class="lobby-join-button" href="./game.html">입장</a>
+            </article>
+
+            <article class="lobby-room-card" data-title="실력자 모여라!" data-time="20분" data-tag="고수">
+              <div class="lobby-room-info">
+                <h2>실력자 모여라! <em class="tag violet">고수 환영</em></h2>
+                <p>#2376</p>
+                <div class="room-chip-row">
+                  <span><i class="target-mini violet" aria-hidden="true"></i>목표 <b>36</b></span>
+                  <span><i class="clock-chip" aria-hidden="true"></i>시간 <b>20분</b></span>
+                  <span><i class="card-chip" aria-hidden="true"></i>카드 <b>4장</b></span>
+                </div>
+              </div>
+              <div class="lobby-room-players">
+                <strong><i class="player-dot" aria-hidden="true"></i>3/6</strong>
+                <div class="face-stack wide" aria-label="참가자 아바타">
+                  <span class="face face-e"></span>
+                  <span class="face face-f"></span>
+                  <span class="face face-g"></span>
+                  <span class="face ghost"></span>
+                  <span class="face ghost"></span>
+                </div>
+              </div>
+              <a class="lobby-join-button" href="./game.html">입장</a>
+            </article>
+
+            <article class="lobby-room-card" data-title="여유로운 15분 타임" data-time="15분" data-tag="대기중">
+              <div class="lobby-room-info">
+                <h2>여유로운 15분 타임</h2>
+                <p>#2361</p>
+                <div class="room-chip-row">
+                  <span><i class="target-mini" aria-hidden="true"></i>목표 <b>24</b></span>
+                  <span><i class="clock-chip" aria-hidden="true"></i>시간 <b>15분</b></span>
+                  <span><i class="card-chip" aria-hidden="true"></i>카드 <b>4장</b></span>
+                </div>
+              </div>
+              <div class="lobby-room-players">
+                <strong><i class="player-dot" aria-hidden="true"></i>6/10</strong>
+                <div class="face-stack wide" aria-label="참가자 아바타">
+                  <span class="face face-a"></span>
+                  <span class="face face-f"></span>
+                  <span class="face face-b"></span>
+                  <span class="face ghost"></span>
+                  <span class="face ghost"></span>
+                </div>
+              </div>
+              <a class="lobby-join-button" href="./game.html">입장</a>
+            </article>
+
+            <article class="lobby-room-card" data-title="24 러버들의 지혜 대결" data-time="10분" data-tag="초보 인기">
+              <div class="lobby-room-info">
+                <h2>24 러버들의 지혜 대결 <em class="tag green">초보 환영</em> <em class="tag blue">빠른 진행</em></h2>
+                <p>#2350</p>
+                <div class="room-chip-row">
+                  <span><i class="target-mini" aria-hidden="true"></i>목표 <b>24</b></span>
+                  <span><i class="clock-chip" aria-hidden="true"></i>시간 <b>10분</b></span>
+                  <span><i class="card-chip" aria-hidden="true"></i>카드 <b>4장</b></span>
+                </div>
+              </div>
+              <div class="lobby-room-players">
+                <strong><i class="player-dot" aria-hidden="true"></i>9/10</strong>
+                <div class="face-stack wide" aria-label="참가자 아바타">
+                  <span class="face face-e"></span>
+                  <span class="face face-c"></span>
+                  <span class="face face-f"></span>
+                  <span class="face face-h"></span>
+                  <em>+4</em>
+                </div>
+              </div>
+              <a class="lobby-join-button" href="./game.html">입장</a>
+            </article>
+          </section>
+
+          <section class="rooms-create-strip" aria-label="방 만들기">
+            <img src="./assets/mascot.png" alt="" />
+            <button class="create-room-button js-create-room" type="button">
+              <span aria-hidden="true">+</span>
+              방 만들기
+            </button>
+          </section>
+
+          <p class="rooms-tip">
+            <span aria-hidden="true">TIP</span>
+            친구와 함께하면 더 재미있어요! 방을 만들어 초대해 보세요!
+          </p>
+        </section>
+      </section>
+
+      <div class="toast" role="status" aria-live="polite"></div>
+    </main>
+
+    <script src="./scripts/rooms.js"></script>
+  </body>
+</html>

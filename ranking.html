@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>24 GAME - 랭킹</title>
+    <meta name="description" content="24 GAME 플레이어 랭킹 화면" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell ranking-app" aria-label="24 GAME 랭킹">
+      <div class="sky-layer" aria-hidden="true">
+        <span class="cloud cloud-one"></span>
+        <span class="cloud cloud-two"></span>
+        <span class="cloud cloud-three"></span>
+        <span class="spark sparkle-a"></span>
+        <span class="spark sparkle-b"></span>
+        <span class="spark sparkle-c"></span>
+      </div>
+
+      <section class="ranking-screen">
+        <header class="ranking-header">
+          <a class="ranking-back" href="./index.html" aria-label="홈으로 돌아가기">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+          </a>
+          <h1>랭킹</h1>
+          <button class="ranking-help js-ranking-help" type="button">
+            <span aria-hidden="true">?</span>
+            랭킹 안내
+          </button>
+        </header>
+
+        <section class="ranking-panel" aria-labelledby="ranking-list-title">
+          <div class="ranking-section-title">
+            <h2 id="ranking-list-title">플레이어 랭킹</h2>
+            <p><span class="clock-mini" aria-hidden="true"></span>시즌 종료까지 12일</p>
+          </div>
+
+          <ol class="ranking-list">
+            <li class="ranking-row top-rank">
+              <div class="ranking-place">
+                <img src="./assets/ranking/medal-1.png" alt="1위" />
+              </div>
+              <img class="rank-avatar" src="./assets/character/transparent/char_girl_5.png" alt="" />
+              <div class="rank-player">
+                <strong>수학천재윤이 <img src="./assets/ranking/verify.png" alt="인증" /></strong>
+              </div>
+              <div class="rank-grade">
+                <img src="./assets/medal/transparent/master.png" alt="" />
+                <span>마스터</span>
+              </div>
+              <div class="rank-score">
+                <strong><i class="score-star" aria-hidden="true"></i>7,850P</strong>
+                <span>승률 74% <em>🔥 12연승</em></span>
+              </div>
+            </li>
+
+            <li class="ranking-row top-rank">
+              <div class="ranking-place">
+                <img src="./assets/ranking/medal-2.png" alt="2위" />
+              </div>
+              <img class="rank-avatar" src="./assets/character/transparent/char_girl_1.png" alt="" />
+              <div class="rank-player">
+                <strong>24의 달인 <img src="./assets/ranking/verify.png" alt="인증" /></strong>
+              </div>
+              <div class="rank-grade">
+                <img src="./assets/medal/transparent/diamond.png" alt="" />
+                <span>다이아 III</span>
+              </div>
+              <div class="rank-score">
+                <strong><i class="score-star" aria-hidden="true"></i>6,430P</strong>
+                <span>승률 74% <em>🔥 8연승</em></span>
+              </div>
+            </li>
+
+            <li class="ranking-row top-rank">
+              <div class="ranking-place">
+                <img src="./assets/ranking/medal-3.png" alt="3위" />
+              </div>
+              <img class="rank-avatar" src="./assets/character/transparent/char_boy_2.png" alt="" />
+              <div class="rank-player">
+                <strong>계산왕지훈 <img src="./assets/ranking/verify.png" alt="인증" /></strong>
+              </div>
+              <div class="rank-grade">
+                <img src="./assets/medal/transparent/diamond.png" alt="" />
+                <span>다이아 I</span>
+              </div>
+              <div class="rank-score">
+                <strong><i class="score-star" aria-hidden="true"></i>5,210P</strong>
+                <span>승률 71% <em>🔥 6연승</em></span>
+              </div>
+            </li>
+
+            <li class="ranking-row current-player">
+              <div class="ranking-place numeric">4</div>
+              <img class="rank-avatar" src="./assets/character/transparent/char_boy_1.png" alt="" />
+              <div class="rank-player">
+                <strong>플레이어 <img src="./assets/ranking/verify.png" alt="인증" /></strong>
+              </div>
+              <div class="rank-grade">
+                <img src="./assets/medal/transparent/platinum.png" alt="" />
+                <span>플래티넘 I</span>
+              </div>
+              <div class="rank-score">
+                <strong><i class="score-star" aria-hidden="true"></i>2,480P</strong>
+                <span>승률 68% <em>🔥 3연승</em></span>
+              </div>
+            </li>
+
+            <li class="ranking-row">
+              <div class="ranking-place numeric">5</div>
+              <img class="rank-avatar" src="./assets/character/transparent/char_girl_2.png" alt="" />
+              <div class="rank-player">
+                <strong>두뇌짱서연 <img src="./assets/ranking/verify.png" alt="인증" /></strong>
+              </div>
+              <div class="rank-grade">
+                <img src="./assets/medal/transparent/platinum.png" alt="" />
+                <span>플래티넘 III</span>
+              </div>
+              <div class="rank-score">
+                <strong><i class="score-star" aria-hidden="true"></i>3,180P</strong>
+                <span>승률 65% <em>🔥 2연승</em></span>
+              </div>
+            </li>
+
+            <li class="ranking-row">
+              <div class="ranking-place numeric">6</div>
+              <img class="rank-avatar" src="./assets/character/transparent/char_boy_3.png" alt="" />
+              <div class="rank-player">
+                <strong>문제해결왕 <img src="./assets/ranking/verify.png" alt="인증" /></strong>
+              </div>
+              <div class="rank-grade">
+                <img src="./assets/medal/transparent/gold.png" alt="" />
+                <span>골드 II</span>
+              </div>
+              <div class="rank-score">
+                <strong><i class="score-star" aria-hidden="true"></i>2,750P</strong>
+                <span>승률 62% <em>🔥 2연승</em></span>
+              </div>
+            </li>
+
+            <li class="ranking-row">
+              <div class="ranking-place numeric">7</div>
+              <img class="rank-avatar" src="./assets/character/transparent/char_boy_5.png" alt="" />
+              <div class="rank-player">
+                <strong>퀴즈마스터 <img src="./assets/ranking/verify.png" alt="인증" /></strong>
+              </div>
+              <div class="rank-grade">
+                <img src="./assets/medal/transparent/gold.png" alt="" />
+                <span>골드 III</span>
+              </div>
+              <div class="rank-score">
+                <strong><i class="score-star" aria-hidden="true"></i>2,240P</strong>
+                <span>승률 60% <em>🔥 1연승</em></span>
+              </div>
+            </li>
+
+            <li class="ranking-row">
+              <div class="ranking-place numeric">8</div>
+              <img class="rank-avatar" src="./assets/character/transparent/char_boy_4.png" alt="" />
+              <div class="rank-player">
+                <strong>학습탐험가 <img src="./assets/ranking/verify.png" alt="인증" /></strong>
+              </div>
+              <div class="rank-grade">
+                <img src="./assets/medal/transparent/silver.png" alt="" />
+                <span>실버 I</span>
+              </div>
+              <div class="rank-score">
+                <strong><i class="score-star" aria-hidden="true"></i>1,650P</strong>
+                <span>승률 58% <em>🔥 1연승</em></span>
+              </div>
+            </li>
+
+            <li class="ranking-row">
+              <div class="ranking-place numeric">9</div>
+              <img class="rank-avatar" src="./assets/character/transparent/char_girl_6.png" alt="" />
+              <div class="rank-player">
+                <strong>공부의신 <img src="./assets/ranking/verify.png" alt="인증" /></strong>
+              </div>
+              <div class="rank-grade">
+                <img src="./assets/medal/transparent/silver.png" alt="" />
+                <span>실버 II</span>
+              </div>
+              <div class="rank-score">
+                <strong><i class="score-star" aria-hidden="true"></i>1,210P</strong>
+                <span>승률 56% <em>🔥 1연승</em></span>
+              </div>
+            </li>
+
+            <li class="ranking-row">
+              <div class="ranking-place numeric">10</div>
+              <img class="rank-avatar" src="./assets/character/transparent/char_boy_6.png" alt="" />
+              <div class="rank-player">
+                <strong>브레인파워 <img src="./assets/ranking/verify.png" alt="인증" /></strong>
+              </div>
+              <div class="rank-grade">
+                <img src="./assets/medal/transparent/bronze.png" alt="" />
+                <span>브론즈 III</span>
+              </div>
+              <div class="rank-score">
+                <strong><i class="score-star" aria-hidden="true"></i>980P</strong>
+                <span>승률 53% <em>🔥 1연승</em></span>
+              </div>
+            </li>
+          </ol>
+
+          <section class="ranking-cta" aria-label="내 순위 보기">
+            <div class="ranking-cta-mascot" aria-hidden="true">
+              <img src="./assets/ranking/mascot-trophy.png" alt="" />
+            </div>
+            <div>
+              <strong>더 높은 순위를 향해 도전해보세요!</strong>
+              <p>연승을 이어가면 더 높은 곳까지 갈 수 있어요!</p>
+            </div>
+            <button class="my-rank-button js-my-rank" type="button">
+              내 순위 보기
+              <span aria-hidden="true"></span>
+            </button>
+          </section>
+        </section>
+      </section>
+
+      <div class="toast" role="status" aria-live="polite"></div>
+    </main>
+
+    <script src="./scripts/ranking.js"></script>
+  </body>
+</html>

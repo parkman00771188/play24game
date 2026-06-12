@@ -1,0 +1,2050 @@
+{
+  "source": "assets/tilemapImage/resource tilemap.png",
+  "padding_px": 12,
+  "count": 85,
+  "files": [
+    {
+      "category": "button",
+      "name": "add_small_circle",
+      "file": "assets/tilemapImage/extracted/button/add_small_circle.png",
+      "size": [
+        66,
+        80
+      ]
+    },
+    {
+      "category": "button",
+      "name": "apply_button",
+      "file": "assets/tilemapImage/extracted/button/apply_button.png",
+      "size": [
+        299,
+        97
+      ]
+    },
+    {
+      "category": "button",
+      "name": "back_icon_button",
+      "file": "assets/tilemapImage/extracted/button/back_icon_button.png",
+      "size": [
+        79,
+        80
+      ]
+    },
+    {
+      "category": "button",
+      "name": "bottom_nav_bar",
+      "file": "assets/tilemapImage/extracted/button/bottom_nav_bar.png",
+      "size": [
+        595,
+        95
+      ]
+    },
+    {
+      "category": "button",
+      "name": "create_room_button",
+      "file": "assets/tilemapImage/extracted/button/create_room_button.png",
+      "size": [
+        304,
+        95
+      ]
+    },
+    {
+      "category": "button",
+      "name": "filter_icon_button",
+      "file": "assets/tilemapImage/extracted/button/filter_icon_button.png",
+      "size": [
+        81,
+        78
+      ]
+    },
+    {
+      "category": "button",
+      "name": "help_icon_button",
+      "file": "assets/tilemapImage/extracted/button/help_icon_button.png",
+      "size": [
+        77,
+        82
+      ]
+    },
+    {
+      "category": "button",
+      "name": "join_button",
+      "file": "assets/tilemapImage/extracted/button/join_button.png",
+      "size": [
+        178,
+        97
+      ]
+    },
+    {
+      "category": "button",
+      "name": "nav_event_icon",
+      "file": "assets/tilemapImage/extracted/button/nav_event_icon.png",
+      "size": [
+        48,
+        55
+      ]
+    },
+    {
+      "category": "button",
+      "name": "nav_friends_icon",
+      "file": "assets/tilemapImage/extracted/button/nav_friends_icon.png",
+      "size": [
+        63,
+        55
+      ]
+    },
+    {
+      "category": "button",
+      "name": "nav_home_selected",
+      "file": "assets/tilemapImage/extracted/button/nav_home_selected.png",
+      "size": [
+        192,
+        89
+      ]
+    },
+    {
+      "category": "button",
+      "name": "nav_shop_icon",
+      "file": "assets/tilemapImage/extracted/button/nav_shop_icon.png",
+      "size": [
+        53,
+        55
+      ]
+    },
+    {
+      "category": "button",
+      "name": "number_step_minus",
+      "file": "assets/tilemapImage/extracted/button/number_step_minus.png",
+      "size": [
+        98,
+        87
+      ]
+    },
+    {
+      "category": "button",
+      "name": "number_step_plus",
+      "file": "assets/tilemapImage/extracted/button/number_step_plus.png",
+      "size": [
+        99,
+        87
+      ]
+    },
+    {
+      "category": "button",
+      "name": "operator_divide",
+      "file": "assets/tilemapImage/extracted/button/operator_divide.png",
+      "size": [
+        79,
+        82
+      ]
+    },
+    {
+      "category": "button",
+      "name": "operator_minus",
+      "file": "assets/tilemapImage/extracted/button/operator_minus.png",
+      "size": [
+        79,
+        82
+      ]
+    },
+    {
+      "category": "button",
+      "name": "operator_multiply",
+      "file": "assets/tilemapImage/extracted/button/operator_multiply.png",
+      "size": [
+        79,
+        82
+      ]
+    },
+    {
+      "category": "button",
+      "name": "operator_plus",
+      "file": "assets/tilemapImage/extracted/button/operator_plus.png",
+      "size": [
+        79,
+        82
+      ]
+    },
+    {
+      "category": "button",
+      "name": "raise_hand_button",
+      "file": "assets/tilemapImage/extracted/button/raise_hand_button.png",
+      "size": [
+        226,
+        91
+      ]
+    },
+    {
+      "category": "button",
+      "name": "reset_button",
+      "file": "assets/tilemapImage/extracted/button/reset_button.png",
+      "size": [
+        205,
+        93
+      ]
+    },
+    {
+      "category": "button",
+      "name": "search_input",
+      "file": "assets/tilemapImage/extracted/button/search_input.png",
+      "size": [
+        339,
+        76
+      ]
+    },
+    {
+      "category": "button",
+      "name": "slider_knob",
+      "file": "assets/tilemapImage/extracted/button/slider_knob.png",
+      "size": [
+        58,
+        63
+      ]
+    },
+    {
+      "category": "button",
+      "name": "slider_track_with_knob",
+      "file": "assets/tilemapImage/extracted/button/slider_track_with_knob.png",
+      "size": [
+        131,
+        59
+      ]
+    },
+    {
+      "category": "button",
+      "name": "tab_selected",
+      "file": "assets/tilemapImage/extracted/button/tab_selected.png",
+      "size": [
+        128,
+        69
+      ]
+    },
+    {
+      "category": "button",
+      "name": "tab_unselected",
+      "file": "assets/tilemapImage/extracted/button/tab_unselected.png",
+      "size": [
+        132,
+        75
+      ]
+    },
+    {
+      "category": "button",
+      "name": "toggle_off",
+      "file": "assets/tilemapImage/extracted/button/toggle_off.png",
+      "size": [
+        108,
+        62
+      ]
+    },
+    {
+      "category": "button",
+      "name": "toggle_on",
+      "file": "assets/tilemapImage/extracted/button/toggle_on.png",
+      "size": [
+        112,
+        66
+      ]
+    },
+    {
+      "category": "card",
+      "name": "number_2",
+      "file": "assets/tilemapImage/extracted/card/number_2.png",
+      "size": [
+        103,
+        111
+      ]
+    },
+    {
+      "category": "card",
+      "name": "number_4",
+      "file": "assets/tilemapImage/extracted/card/number_4.png",
+      "size": [
+        101,
+        111
+      ]
+    },
+    {
+      "category": "card",
+      "name": "number_6",
+      "file": "assets/tilemapImage/extracted/card/number_6.png",
+      "size": [
+        99,
+        111
+      ]
+    },
+    {
+      "category": "card",
+      "name": "number_7",
+      "file": "assets/tilemapImage/extracted/card/number_7.png",
+      "size": [
+        104,
+        111
+      ]
+    },
+    {
+      "category": "card",
+      "name": "number_blank",
+      "file": "assets/tilemapImage/extracted/card/number_blank.png",
+      "size": [
+        94,
+        111
+      ]
+    },
+    {
+      "category": "character",
+      "name": "avatar_blue_cap",
+      "file": "assets/tilemapImage/extracted/character/avatar_blue_cap.png",
+      "size": [
+        125,
+        111
+      ]
+    },
+    {
+      "category": "character",
+      "name": "avatar_green_cap",
+      "file": "assets/tilemapImage/extracted/character/avatar_green_cap.png",
+      "size": [
+        109,
+        111
+      ]
+    },
+    {
+      "category": "character",
+      "name": "avatar_pink_cap",
+      "file": "assets/tilemapImage/extracted/character/avatar_pink_cap.png",
+      "size": [
+        97,
+        110
+      ]
+    },
+    {
+      "category": "character",
+      "name": "avatar_purple_cap",
+      "file": "assets/tilemapImage/extracted/character/avatar_purple_cap.png",
+      "size": [
+        123,
+        111
+      ]
+    },
+    {
+      "category": "character",
+      "name": "avatar_yellow_cap",
+      "file": "assets/tilemapImage/extracted/character/avatar_yellow_cap.png",
+      "size": [
+        125,
+        110
+      ]
+    },
+    {
+      "category": "character",
+      "name": "blue_ribbon_penguin",
+      "file": "assets/tilemapImage/extracted/character/blue_ribbon_penguin.png",
+      "size": [
+        302,
+        112
+      ]
+    },
+    {
+      "category": "character",
+      "name": "mascot_cheer",
+      "file": "assets/tilemapImage/extracted/character/mascot_cheer.png",
+      "size": [
+        173,
+        151
+      ]
+    },
+    {
+      "category": "character",
+      "name": "mascot_clipboard",
+      "file": "assets/tilemapImage/extracted/character/mascot_clipboard.png",
+      "size": [
+        151,
+        156
+      ]
+    },
+    {
+      "category": "character",
+      "name": "mascot_default_wave",
+      "file": "assets/tilemapImage/extracted/character/mascot_default_wave.png",
+      "size": [
+        152,
+        145
+      ]
+    },
+    {
+      "category": "character",
+      "name": "mascot_pencil",
+      "file": "assets/tilemapImage/extracted/character/mascot_pencil.png",
+      "size": [
+        154,
+        149
+      ]
+    },
+    {
+      "category": "character",
+      "name": "mascot_pointing",
+      "file": "assets/tilemapImage/extracted/character/mascot_pointing.png",
+      "size": [
+        152,
+        159
+      ]
+    },
+    {
+      "category": "character",
+      "name": "mascot_sunglasses",
+      "file": "assets/tilemapImage/extracted/character/mascot_sunglasses.png",
+      "size": [
+        145,
+        153
+      ]
+    },
+    {
+      "category": "character",
+      "name": "mascot_trophy",
+      "file": "assets/tilemapImage/extracted/character/mascot_trophy.png",
+      "size": [
+        176,
+        160
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "bell",
+      "file": "assets/tilemapImage/extracted/icon/bell.png",
+      "size": [
+        77,
+        82
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "cards",
+      "file": "assets/tilemapImage/extracted/icon/cards.png",
+      "size": [
+        92,
+        79
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "coin",
+      "file": "assets/tilemapImage/extracted/icon/coin.png",
+      "size": [
+        76,
+        73
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "confetti",
+      "file": "assets/tilemapImage/extracted/icon/confetti.png",
+      "size": [
+        75,
+        87
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "crown",
+      "file": "assets/tilemapImage/extracted/icon/crown.png",
+      "size": [
+        82,
+        77
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "diamond",
+      "file": "assets/tilemapImage/extracted/icon/diamond.png",
+      "size": [
+        83,
+        67
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "group",
+      "file": "assets/tilemapImage/extracted/icon/group.png",
+      "size": [
+        81,
+        74
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "person",
+      "file": "assets/tilemapImage/extracted/icon/person.png",
+      "size": [
+        70,
+        80
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "sparkles",
+      "file": "assets/tilemapImage/extracted/icon/sparkles.png",
+      "size": [
+        95,
+        91
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "target",
+      "file": "assets/tilemapImage/extracted/icon/target.png",
+      "size": [
+        85,
+        74
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "timer",
+      "file": "assets/tilemapImage/extracted/icon/timer.png",
+      "size": [
+        77,
+        84
+      ]
+    },
+    {
+      "category": "icon",
+      "name": "trophy",
+      "file": "assets/tilemapImage/extracted/icon/trophy.png",
+      "size": [
+        85,
+        76
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_bronze",
+      "file": "assets/tilemapImage/extracted/rank/badge_bronze.png",
+      "size": [
+        112,
+        128
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_diamond",
+      "file": "assets/tilemapImage/extracted/rank/badge_diamond.png",
+      "size": [
+        162,
+        142
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_diamond_i",
+      "file": "assets/tilemapImage/extracted/rank/badge_diamond_i.png",
+      "size": [
+        107,
+        104
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_diamond_ii",
+      "file": "assets/tilemapImage/extracted/rank/badge_diamond_ii.png",
+      "size": [
+        116,
+        103
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_diamond_iii",
+      "file": "assets/tilemapImage/extracted/rank/badge_diamond_iii.png",
+      "size": [
+        115,
+        103
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_diamond_iv",
+      "file": "assets/tilemapImage/extracted/rank/badge_diamond_iv.png",
+      "size": [
+        111,
+        103
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_gold",
+      "file": "assets/tilemapImage/extracted/rank/badge_gold.png",
+      "size": [
+        154,
+        135
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_master",
+      "file": "assets/tilemapImage/extracted/rank/badge_master.png",
+      "size": [
+        175,
+        168
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_platinum",
+      "file": "assets/tilemapImage/extracted/rank/badge_platinum.png",
+      "size": [
+        159,
+        144
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_platinum_i",
+      "file": "assets/tilemapImage/extracted/rank/badge_platinum_i.png",
+      "size": [
+        130,
+        107
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_platinum_ii",
+      "file": "assets/tilemapImage/extracted/rank/badge_platinum_ii.png",
+      "size": [
+        117,
+        102
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_platinum_iii",
+      "file": "assets/tilemapImage/extracted/rank/badge_platinum_iii.png",
+      "size": [
+        116,
+        102
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_platinum_iv",
+      "file": "assets/tilemapImage/extracted/rank/badge_platinum_iv.png",
+      "size": [
+        108,
+        102
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "badge_silver",
+      "file": "assets/tilemapImage/extracted/rank/badge_silver.png",
+      "size": [
+        115,
+        132
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "medal_1",
+      "file": "assets/tilemapImage/extracted/rank/medal_1.png",
+      "size": [
+        97,
+        90
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "medal_2",
+      "file": "assets/tilemapImage/extracted/rank/medal_2.png",
+      "size": [
+        70,
+        87
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "medal_3",
+      "file": "assets/tilemapImage/extracted/rank/medal_3.png",
+      "size": [
+        94,
+        87
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "point_coin",
+      "file": "assets/tilemapImage/extracted/rank/point_coin.png",
+      "size": [
+        88,
+        84
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "progress_bar",
+      "file": "assets/tilemapImage/extracted/rank/progress_bar.png",
+      "size": [
+        378,
+        48
+      ]
+    },
+    {
+      "category": "rank",
+      "name": "verified_check",
+      "file": "assets/tilemapImage/extracted/rank/verified_check.png",
+      "size": [
+        84,
+        85
+      ]
+    },
+    {
+      "category": "section",
+      "name": "label_button_related",
+      "file": "assets/tilemapImage/extracted/section/label_button_related.png",
+      "size": [
+        180,
+        56
+      ]
+    },
+    {
+      "category": "section",
+      "name": "label_character_related",
+      "file": "assets/tilemapImage/extracted/section/label_character_related.png",
+      "size": [
+        181,
+        56
+      ]
+    },
+    {
+      "category": "section",
+      "name": "label_misc_ui",
+      "file": "assets/tilemapImage/extracted/section/label_misc_ui.png",
+      "size": [
+        179,
+        56
+      ]
+    },
+    {
+      "category": "section",
+      "name": "label_rank_related",
+      "file": "assets/tilemapImage/extracted/section/label_rank_related.png",
+      "size": [
+        181,
+        57
+      ]
+    },
+    {
+      "category": "tag",
+      "name": "beginner_welcome",
+      "file": "assets/tilemapImage/extracted/tag/beginner_welcome.png",
+      "size": [
+        155,
+        67
+      ]
+    },
+    {
+      "category": "tag",
+      "name": "expert_welcome",
+      "file": "assets/tilemapImage/extracted/tag/expert_welcome.png",
+      "size": [
+        148,
+        67
+      ]
+    },
+    {
+      "category": "tag",
+      "name": "fast_game",
+      "file": "assets/tilemapImage/extracted/tag/fast_game.png",
+      "size": [
+        147,
+        67
+      ]
+    },
+    {
+      "category": "tag",
+      "name": "ranking_battle",
+      "file": "assets/tilemapImage/extracted/tag/ranking_battle.png",
+      "size": [
+        141,
+        67
+      ]
+    }
+  ],
+  "validation": [
+    {
+      "file": "assets/tilemapImage/extracted/button/add_small_circle.png",
+      "size": [
+        66,
+        80
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        54,
+        68
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/apply_button.png",
+      "size": [
+        299,
+        97
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        287,
+        85
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/back_icon_button.png",
+      "size": [
+        79,
+        80
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        67,
+        68
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/bottom_nav_bar.png",
+      "size": [
+        595,
+        95
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        583,
+        83
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/create_room_button.png",
+      "size": [
+        304,
+        95
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        292,
+        83
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/filter_icon_button.png",
+      "size": [
+        81,
+        78
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        69,
+        66
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/help_icon_button.png",
+      "size": [
+        77,
+        82
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        65,
+        70
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/join_button.png",
+      "size": [
+        178,
+        97
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        166,
+        85
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/nav_event_icon.png",
+      "size": [
+        48,
+        55
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        36,
+        43
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/nav_friends_icon.png",
+      "size": [
+        63,
+        55
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        51,
+        43
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/nav_home_selected.png",
+      "size": [
+        192,
+        89
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        180,
+        77
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/nav_shop_icon.png",
+      "size": [
+        53,
+        55
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        41,
+        43
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/number_step_minus.png",
+      "size": [
+        98,
+        87
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        86,
+        75
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/number_step_plus.png",
+      "size": [
+        99,
+        87
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        87,
+        75
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/operator_divide.png",
+      "size": [
+        79,
+        82
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        67,
+        70
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/operator_minus.png",
+      "size": [
+        79,
+        82
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        67,
+        70
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/operator_multiply.png",
+      "size": [
+        79,
+        82
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        67,
+        70
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/operator_plus.png",
+      "size": [
+        79,
+        82
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        67,
+        70
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/raise_hand_button.png",
+      "size": [
+        226,
+        91
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        214,
+        79
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/reset_button.png",
+      "size": [
+        205,
+        93
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        193,
+        81
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/search_input.png",
+      "size": [
+        339,
+        76
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        327,
+        64
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/slider_knob.png",
+      "size": [
+        58,
+        63
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        46,
+        51
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/slider_track_with_knob.png",
+      "size": [
+        131,
+        59
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        119,
+        47
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/tab_selected.png",
+      "size": [
+        128,
+        69
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        116,
+        57
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/tab_unselected.png",
+      "size": [
+        132,
+        75
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        120,
+        63
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/toggle_off.png",
+      "size": [
+        108,
+        62
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        96,
+        50
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/button/toggle_on.png",
+      "size": [
+        112,
+        66
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        100,
+        54
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/card/number_2.png",
+      "size": [
+        103,
+        111
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        91,
+        99
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/card/number_4.png",
+      "size": [
+        101,
+        111
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        89,
+        99
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/card/number_6.png",
+      "size": [
+        99,
+        111
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        87,
+        99
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/card/number_7.png",
+      "size": [
+        104,
+        111
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        92,
+        99
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/card/number_blank.png",
+      "size": [
+        94,
+        111
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        82,
+        99
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/avatar_blue_cap.png",
+      "size": [
+        125,
+        111
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        113,
+        99
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/avatar_green_cap.png",
+      "size": [
+        109,
+        111
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        97,
+        99
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/avatar_pink_cap.png",
+      "size": [
+        97,
+        110
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        85,
+        98
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/avatar_purple_cap.png",
+      "size": [
+        123,
+        111
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        111,
+        99
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/avatar_yellow_cap.png",
+      "size": [
+        125,
+        110
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        113,
+        98
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/blue_ribbon_penguin.png",
+      "size": [
+        302,
+        112
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        290,
+        100
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/mascot_cheer.png",
+      "size": [
+        173,
+        151
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        161,
+        139
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/mascot_clipboard.png",
+      "size": [
+        151,
+        156
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        139,
+        144
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/mascot_default_wave.png",
+      "size": [
+        152,
+        145
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        140,
+        133
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/mascot_pencil.png",
+      "size": [
+        154,
+        149
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        142,
+        137
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/mascot_pointing.png",
+      "size": [
+        152,
+        159
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        140,
+        147
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/mascot_sunglasses.png",
+      "size": [
+        145,
+        153
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        133,
+        141
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/character/mascot_trophy.png",
+      "size": [
+        176,
+        160
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        164,
+        148
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/bell.png",
+      "size": [
+        77,
+        82
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        65,
+        70
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/cards.png",
+      "size": [
+        92,
+        79
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        80,
+        67
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/coin.png",
+      "size": [
+        76,
+        73
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        64,
+        61
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/confetti.png",
+      "size": [
+        75,
+        87
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        63,
+        75
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/crown.png",
+      "size": [
+        82,
+        77
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        70,
+        65
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/diamond.png",
+      "size": [
+        83,
+        67
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        71,
+        55
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/group.png",
+      "size": [
+        81,
+        74
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        69,
+        62
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/person.png",
+      "size": [
+        70,
+        80
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        58,
+        68
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/sparkles.png",
+      "size": [
+        95,
+        91
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        83,
+        79
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/target.png",
+      "size": [
+        85,
+        74
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        73,
+        62
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/timer.png",
+      "size": [
+        77,
+        84
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        65,
+        72
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/icon/trophy.png",
+      "size": [
+        85,
+        76
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        73,
+        64
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_bronze.png",
+      "size": [
+        112,
+        128
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        100,
+        116
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_diamond.png",
+      "size": [
+        162,
+        142
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        150,
+        130
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_diamond_i.png",
+      "size": [
+        107,
+        104
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        95,
+        92
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_diamond_ii.png",
+      "size": [
+        116,
+        103
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        104,
+        91
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_diamond_iii.png",
+      "size": [
+        115,
+        103
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        103,
+        91
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_diamond_iv.png",
+      "size": [
+        111,
+        103
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        99,
+        91
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_gold.png",
+      "size": [
+        154,
+        135
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        142,
+        123
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_master.png",
+      "size": [
+        175,
+        168
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        163,
+        156
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_platinum.png",
+      "size": [
+        159,
+        144
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        147,
+        132
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_platinum_i.png",
+      "size": [
+        130,
+        107
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        118,
+        95
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_platinum_ii.png",
+      "size": [
+        117,
+        102
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        105,
+        90
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_platinum_iii.png",
+      "size": [
+        116,
+        102
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        104,
+        90
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_platinum_iv.png",
+      "size": [
+        108,
+        102
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        96,
+        90
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/badge_silver.png",
+      "size": [
+        115,
+        132
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        103,
+        120
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/medal_1.png",
+      "size": [
+        97,
+        90
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        85,
+        78
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/medal_2.png",
+      "size": [
+        70,
+        87
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        58,
+        75
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/medal_3.png",
+      "size": [
+        94,
+        87
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        82,
+        75
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/point_coin.png",
+      "size": [
+        88,
+        84
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        76,
+        72
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/progress_bar.png",
+      "size": [
+        378,
+        48
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        366,
+        36
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/rank/verified_check.png",
+      "size": [
+        84,
+        85
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        72,
+        73
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/section/label_button_related.png",
+      "size": [
+        180,
+        56
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        168,
+        44
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/section/label_character_related.png",
+      "size": [
+        181,
+        56
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        169,
+        44
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/section/label_misc_ui.png",
+      "size": [
+        179,
+        56
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        167,
+        44
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/section/label_rank_related.png",
+      "size": [
+        181,
+        57
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        169,
+        45
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/tag/beginner_welcome.png",
+      "size": [
+        155,
+        67
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        143,
+        55
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/tag/expert_welcome.png",
+      "size": [
+        148,
+        67
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        136,
+        55
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/tag/fast_game.png",
+      "size": [
+        147,
+        67
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        135,
+        55
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    },
+    {
+      "file": "assets/tilemapImage/extracted/tag/ranking_battle.png",
+      "size": [
+        141,
+        67
+      ],
+      "alpha_bbox": [
+        12,
+        12,
+        129,
+        55
+      ],
+      "transparent_corners": true,
+      "padding_ok": true
+    }
+  ],
+  "problems": []
+}
