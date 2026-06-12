@@ -5,6 +5,8 @@
   let audioContext;
   let masterGain;
   let lastSoundAt = 0;
+  let ignorePointerUntil = 0;
+  let unlocked = false;
 
   function ensureAudio() {
     if (!audioContext) {
@@ -15,14 +17,29 @@
     }
 
     if (audioContext.state === "suspended") {
-      audioContext.resume();
+      const resumePromise = audioContext.resume();
+      resumePromise?.catch?.(() => {});
     }
 
     return audioContext;
   }
 
-  function beep({ frequency, endFrequency, duration = 0.08, delay = 0, type = "sine", gain = 0.12 }) {
+  function unlockAudio() {
     const context = ensureAudio();
+
+    if (!unlocked) {
+      const source = context.createBufferSource();
+      source.buffer = context.createBuffer(1, 1, context.sampleRate);
+      source.connect(masterGain);
+      source.start(0);
+      unlocked = true;
+    }
+
+    return context;
+  }
+
+  function beep({ frequency, endFrequency, duration = 0.08, delay = 0, type = "sine", gain = 0.12 }) {
+    const context = unlockAudio();
     const start = context.currentTime + delay;
     const oscillator = context.createOscillator();
     const envelope = context.createGain();
@@ -127,13 +144,27 @@
     return "panel";
   }
 
+  function playFromEvent(event) {
+    const target = findSoundTarget(event.target);
+    const sound = getSoundName(target);
+    if (sound) playSound(sound);
+  }
+
+  document.addEventListener(
+    "touchstart",
+    (event) => {
+      ignorePointerUntil = performance.now() + 450;
+      playFromEvent(event);
+    },
+    { capture: true, passive: true }
+  );
+
   document.addEventListener(
     "pointerdown",
     (event) => {
       if (event.pointerType === "mouse" && event.button !== 0) return;
-      const target = findSoundTarget(event.target);
-      const sound = getSoundName(target);
-      if (sound) playSound(sound);
+      if (event.pointerType === "touch" && performance.now() < ignorePointerUntil) return;
+      playFromEvent(event);
     },
     { capture: true }
   );
@@ -142,9 +173,7 @@
     "keydown",
     (event) => {
       if (event.key !== "Enter" && event.key !== " ") return;
-      const target = findSoundTarget(event.target);
-      const sound = getSoundName(target);
-      if (sound) playSound(sound);
+      playFromEvent(event);
     },
     { capture: true }
   );
