@@ -1000,35 +1000,35 @@ svg {
 }
 
 .face-a {
-  background: #eaf6ff url("./assets/character/transparent/char_boy_1.png") center / 150% no-repeat;
+  background: #eaf6ff url("./assets/optimized/character/transparent/char_boy_1.webp") center / 150% no-repeat;
 }
 
 .face-b {
-  background: #fff1f7 url("./assets/character/transparent/char_girl_1.png") center / 150% no-repeat;
+  background: #fff1f7 url("./assets/optimized/character/transparent/char_girl_1.webp") center / 150% no-repeat;
 }
 
 .face-c {
-  background: #eefbf0 url("./assets/character/transparent/char_boy_2.png") center / 150% no-repeat;
+  background: #eefbf0 url("./assets/optimized/character/transparent/char_boy_2.webp") center / 150% no-repeat;
 }
 
 .face-d {
-  background: #f1edff url("./assets/character/transparent/char_girl_5.png") center / 150% no-repeat;
+  background: #f1edff url("./assets/optimized/character/transparent/char_girl_5.webp") center / 150% no-repeat;
 }
 
 .face-e {
-  background: #fff4da url("./assets/character/transparent/char_boy_3.png") center / 150% no-repeat;
+  background: #fff4da url("./assets/optimized/character/transparent/char_boy_3.webp") center / 150% no-repeat;
 }
 
 .face-f {
-  background: #e7f8ff url("./assets/character/transparent/char_girl_2.png") center / 150% no-repeat;
+  background: #e7f8ff url("./assets/optimized/character/transparent/char_girl_2.webp") center / 150% no-repeat;
 }
 
 .face-g {
-  background: #f6ebff url("./assets/character/transparent/char_boy_4.png") center / 150% no-repeat;
+  background: #f6ebff url("./assets/optimized/character/transparent/char_boy_4.webp") center / 150% no-repeat;
 }
 
 .face-h {
-  background: #fff0e6 url("./assets/character/transparent/char_girl_4.png") center / 150% no-repeat;
+  background: #fff0e6 url("./assets/optimized/character/transparent/char_girl_4.webp") center / 150% no-repeat;
 }
 
 .face-stack em {
@@ -1595,7 +1595,63 @@ svg {
 
 .challenger-avatars {
   display: flex;
+  align-items: center;
   min-width: 0;
+}
+
+.challenger-avatar,
+.challenger-avatars em {
+  position: relative;
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+  margin-left: -5px;
+  border: 3px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fff, #eaf7ff);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.72), 0 4px 8px rgba(37, 95, 170, 0.14);
+}
+
+.challenger-avatar:first-child {
+  margin-left: 0;
+}
+
+.challenger-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.challenger-avatar.active {
+  z-index: 3;
+  border-color: #27d96b;
+  box-shadow: 0 0 0 2px #1783ff, 0 5px 10px rgba(20, 91, 176, 0.2);
+}
+
+.challenger-avatar.active::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  bottom: -3px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #5be77f, #20bd58);
+  box-shadow: 0 2px 4px rgba(20, 96, 37, 0.18);
+}
+
+.challenger-avatar.waiting {
+  opacity: 0.94;
+}
+
+.challenger-avatars em {
+  color: #5478b6;
+  background: #eef7ff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 1000;
 }
 
 .animal-avatar {
@@ -3320,6 +3376,13 @@ svg {
     height: 38px;
   }
 
+  .challenger-avatar,
+  .challenger-avatars em {
+    width: 38px;
+    height: 38px;
+    border-width: 2px;
+  }
+
   .round-dashboard {
     gap: 128px;
     min-height: 147px;
@@ -3644,6 +3707,13 @@ svg {
   }
 
   .animal-avatar {
+    width: 34px;
+    height: 34px;
+    border-width: 2px;
+  }
+
+  .challenger-avatar,
+  .challenger-avatars em {
     width: 34px;
     height: 34px;
     border-width: 2px;
