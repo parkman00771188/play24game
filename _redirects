@@ -1,5 +1,2 @@
-/room/2408/game /game.html 200
-/room/* /game.html 200
-/game /game.html 200
-/rooms /rooms.html 200
-/ranking /ranking.html 200
+/room/2408/game /game 302
+/room/* /game 302
