@@ -7,18 +7,18 @@
   let lastSoundAt = 0;
   let ignorePointerUntil = 0;
   let unlocked = false;
+  let resumePromise = Promise.resolve();
 
   function ensureAudio() {
     if (!audioContext) {
       audioContext = new AudioContextClass();
       masterGain = audioContext.createGain();
-      masterGain.gain.value = 0.18;
+      masterGain.gain.value = 0.34;
       masterGain.connect(audioContext.destination);
     }
 
     if (audioContext.state === "suspended") {
-      const resumePromise = audioContext.resume();
-      resumePromise?.catch?.(() => {});
+      resumePromise = audioContext.resume().catch(() => {});
     }
 
     return audioContext;
@@ -31,7 +31,7 @@
       const source = context.createBufferSource();
       source.buffer = context.createBuffer(1, 1, context.sampleRate);
       source.connect(masterGain);
-      source.start(0);
+      source.start(context.currentTime);
       unlocked = true;
     }
 
@@ -117,7 +117,14 @@
       },
     };
 
-    (sounds[name] || sounds.panel)();
+    const run = sounds[name] || sounds.panel;
+    const context = ensureAudio();
+    if (context.state === "suspended") {
+      resumePromise.then(run).catch(() => {});
+      return;
+    }
+
+    run();
   }
 
   function findSoundTarget(eventTarget) {
@@ -150,6 +157,17 @@
     if (sound) playSound(sound);
   }
 
+  function getDelayableLink(target) {
+    const link = target?.closest?.("a[href]");
+    if (!link || link.target || link.hasAttribute("download")) return null;
+    if (link.origin !== window.location.origin) return null;
+    return link;
+  }
+
+  function isPlainPrimaryClick(event) {
+    return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+  }
+
   document.addEventListener(
     "touchstart",
     (event) => {
@@ -165,6 +183,41 @@
       if (event.pointerType === "mouse" && event.button !== 0) return;
       if (event.pointerType === "touch" && performance.now() < ignorePointerUntil) return;
       playFromEvent(event);
+    },
+    { capture: true }
+  );
+
+  document.addEventListener(
+    "mousedown",
+    (event) => {
+      if (!isPlainPrimaryClick(event)) return;
+      if (performance.now() - lastSoundAt > 90) playFromEvent(event);
+    },
+    { capture: true }
+  );
+
+  document.addEventListener(
+    "click",
+    (event) => {
+      const target = findSoundTarget(event.target);
+      const sound = getSoundName(target);
+      if (!sound) return;
+
+      const now = performance.now();
+      if (now >= ignorePointerUntil && now - lastSoundAt > 90) {
+        playSound(sound);
+      } else {
+        resumePromise.catch(() => {});
+      }
+
+      const link = getDelayableLink(target);
+      if (!link || !isPlainPrimaryClick(event) || link.dataset.soundDelayHandled === "true") return;
+
+      event.preventDefault();
+      link.dataset.soundDelayHandled = "true";
+      window.setTimeout(() => {
+        window.location.assign(link.href);
+      }, 120);
     },
     { capture: true }
   );
