@@ -16,6 +16,8 @@ document.querySelector(".js-ranking-help")?.addEventListener("click", () => {
 });
 
 document.querySelector(".js-my-rank")?.addEventListener("click", () => {
-  document.querySelector(".current-player")?.scrollIntoView({ behavior: "smooth", block: "center" });
-  showToast("현재 내 순위는 4위입니다.");
+  showToast("도전 방으로 이동합니다.");
+  window.setTimeout(() => {
+    window.location.href = "./game.html";
+  }, 260);
 });

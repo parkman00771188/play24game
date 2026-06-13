@@ -53,7 +53,7 @@ const puzzleSets = {
 
 let settings = loadSettings();
 let draftSettings = { ...settings };
-let selectedOperator = "+";
+let selectedOperator = null;
 let selectedCardIds = [];
 let cards = [];
 let puzzleIndex = 0;
@@ -185,12 +185,17 @@ function updateHistory() {
   }
 
   const [left, right] = picked;
+  if (!selectedOperator) {
+    setGameStatus(`${formatNumber(left.value)}, ${formatNumber(right.value)} 선택됨 · 연산자를 고르세요`);
+    return;
+  }
+
   setGameStatus(`${formatNumber(left.value)} ${selectedOperator} ${formatNumber(right.value)} → 연산하기`);
 }
 
 function setCalculateState() {
   if (!calculateButton) return;
-  calculateButton.disabled = selectedCardIds.length !== 2 || isResolving;
+  calculateButton.disabled = selectedCardIds.length !== 2 || !selectedOperator || isResolving;
 }
 
 function renderCards({ resultId } = {}) {
@@ -220,7 +225,9 @@ function startPuzzle(index = puzzleIndex) {
   puzzleIndex = ((index % set.length) + set.length) % set.length;
   cards = set[puzzleIndex].map((value) => ({ id: ++cardId, value }));
   selectedCardIds = [];
+  selectedOperator = null;
   isResolving = false;
+  document.querySelectorAll(".js-operator").forEach((item) => item.classList.remove("active"));
   numberBoard?.classList.remove("correct", "wrong");
   resetTimer();
   updateSettingsControls();
@@ -273,6 +280,8 @@ function showRoundFeedback(type, message) {
 function finishRound(result, expression) {
   isResolving = true;
   selectedCardIds = [];
+  selectedOperator = null;
+  document.querySelectorAll(".js-operator").forEach((item) => item.classList.remove("active"));
   cards = [{ id: ++cardId, value: result }];
   renderCards({ resultId: cardId });
 
@@ -293,10 +302,19 @@ function applyCalculation() {
     return;
   }
 
+  if (!selectedOperator) {
+    showToast("연산자를 선택해주세요.");
+    return;
+  }
+
   const [left, right] = picked;
   const result = calculate(left.value, right.value, selectedOperator);
 
   if (result === null || !Number.isFinite(result)) {
+    selectedOperator = null;
+    document.querySelectorAll(".js-operator").forEach((item) => item.classList.remove("active"));
+    updateHistory();
+    setCalculateState();
     showToast("0으로는 나눌 수 없어요.");
     return;
   }
@@ -312,6 +330,8 @@ function applyCalculation() {
   cards = cards.filter((card) => !selectedCardIds.includes(card.id));
   cards.push(resultCard);
   selectedCardIds = [];
+  selectedOperator = null;
+  document.querySelectorAll(".js-operator").forEach((item) => item.classList.remove("active"));
   setGameStatus(`${expression} · 남은 카드 ${cards.length}장`);
   renderCards({ resultId: resultCard.id });
 }
@@ -346,6 +366,7 @@ document.querySelectorAll(".js-operator").forEach((button) => {
     button.classList.add("active");
     selectedOperator = button.dataset.operator || button.textContent.trim();
     updateHistory();
+    setCalculateState();
   });
 });
 
