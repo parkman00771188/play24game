@@ -134,6 +134,7 @@
   function getSoundName(target) {
     if (!target || target.disabled || target.getAttribute("aria-disabled") === "true") return null;
     if (target.matches("input[type='range']")) return null;
+    if (target.matches("input[type='text'], input[type='number']")) return null;
 
     if (target.matches("input[type='checkbox']")) return "toggle";
     if (target.matches(".back-button, .ranking-back, .rooms-circle-button:first-child, .leave-icon")) return "back";
@@ -142,6 +143,8 @@
     if (target.matches(".js-calculate, .calculate-button, .js-apply-game-settings")) return "create";
     if (target.matches(".js-operator, .operator-button")) return "operator";
     if (target.matches(".js-hand, .hand-button")) return "hand";
+    if (target.matches(".js-chat-toggle, .js-chat-close")) return "panel";
+    if (target.matches(".chat-form button")) return "join";
     if (target.matches(".lobby-join-button, .join-button, .js-quick-start, .action-blue")) return "join";
     if (target.matches(".js-create-room, .create-room-button")) return "create";
     if (target.matches(".action-purple, .js-my-rank, .js-ranking-help")) return "rank";

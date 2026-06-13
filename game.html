@@ -21,9 +21,8 @@
 
       <section class="play-screen">
         <header class="play-top-card">
-          <a class="brand-mark play-brand" href="./index.html" aria-label="홈으로 이동">
-            <span class="brand-number">24</span>
-            <span class="brand-game">GAME</span>
+          <a class="brand-mark play-brand image-brand image-play-brand" href="./index.html" aria-label="홈으로 이동">
+            <img class="brand-logo-image" src="./assets/optimized/logo.webp" alt="" />
           </a>
           <div class="room-title">
             <strong>방 #2408</strong>
@@ -110,8 +109,7 @@
           <button class="number-card js-number-card bottom-card" type="button">2</button>
         </section>
 
-        <section class="operator-panel" aria-label="연산자 선택">
-          <div class="operator-label">연산자 선택</div>
+        <section class="operator-panel" aria-label="연산자">
           <div class="operator-grid">
             <button class="operator-button active js-operator" type="button" data-operator="+">+</button>
             <button class="operator-button js-operator" type="button" data-operator="-">−</button>
@@ -121,12 +119,37 @@
           </div>
         </section>
 
-        <section class="history-panel" aria-label="계산 히스토리">
-          <div class="history-title">
-            <span class="history-book" aria-hidden="true">24</span>
-            <strong>계산 히스토리</strong>
+        <section class="chat-dock js-chat-dock" aria-label="채팅">
+          <button class="chat-toggle js-chat-toggle" type="button" aria-expanded="false" aria-controls="gameChatPanel">
+            <span class="chat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M5 6.5h14v9.5H9.2L5 20v-3.9z" />
+                <path d="M8.5 10h7" />
+                <path d="M8.5 13h4.5" />
+              </svg>
+            </span>
+            <span>
+              <strong>채팅</strong>
+              <small>도전자들과 계산을 나눠보세요</small>
+            </span>
+            <i aria-hidden="true"></i>
+          </button>
+          <div class="chat-scrim js-chat-scrim" hidden></div>
+          <div class="chat-panel js-chat-panel" id="gameChatPanel" aria-hidden="true">
+            <div class="chat-panel-header">
+              <strong>방 채팅</strong>
+              <button class="js-chat-close" type="button">닫기</button>
+            </div>
+            <div class="chat-messages js-chat-messages" aria-live="polite">
+              <p class="chat-message other"><b>플레이어24</b><span>7이랑 4 먼저 더해볼까요?</span></p>
+              <p class="chat-message mine"><b>나</b><span>좋아요. 다음은 곱셈으로 갈게요.</span></p>
+              <p class="chat-status js-history">카드 2장과 연산자를 선택하세요</p>
+            </div>
+            <form class="chat-form js-chat-form">
+              <input class="js-chat-input" type="text" maxlength="80" placeholder="메시지를 입력하세요" aria-label="채팅 메시지" />
+              <button type="submit">전송</button>
+            </form>
           </div>
-          <p class="js-history">아직 적용된 연산이 없습니다</p>
         </section>
       </section>
 

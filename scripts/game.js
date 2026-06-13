@@ -9,6 +9,14 @@ const settingsDialog = document.querySelector("#gameSettingsDialog");
 const targetInput = document.querySelector(".js-target-input");
 const timerValue = document.querySelector(".js-timer-value");
 const cardCountButtons = document.querySelectorAll(".js-card-count");
+const chatDock = document.querySelector(".js-chat-dock");
+const chatToggle = document.querySelector(".js-chat-toggle");
+const chatPanel = document.querySelector(".js-chat-panel");
+const chatClose = document.querySelector(".js-chat-close");
+const chatScrim = document.querySelector(".js-chat-scrim");
+const chatForm = document.querySelector(".js-chat-form");
+const chatInput = document.querySelector(".js-chat-input");
+const chatMessages = document.querySelector(".js-chat-messages");
 
 const defaultSettings = Object.freeze({
   cardCount: 4,
@@ -92,6 +100,12 @@ function showToast(message) {
   }, 1900);
 }
 
+function setGameStatus(message) {
+  if (historyText) {
+    historyText.textContent = message;
+  }
+}
+
 function openDialog(dialog) {
   if (!dialog) return;
   if (typeof dialog.showModal === "function") {
@@ -159,21 +173,19 @@ function selectedCards() {
 }
 
 function updateHistory() {
-  if (!historyText) return;
-
   const picked = selectedCards();
   if (picked.length === 0) {
-    historyText.textContent = "카드 2장과 연산자를 선택하세요";
+    setGameStatus("카드 2장과 연산자를 선택하세요");
     return;
   }
 
   if (picked.length === 1) {
-    historyText.textContent = `${formatNumber(picked[0].value)} 선택됨 · 한 장 더 고르세요`;
+    setGameStatus(`${formatNumber(picked[0].value)} 선택됨 · 한 장 더 고르세요`);
     return;
   }
 
   const [left, right] = picked;
-  historyText.textContent = `${formatNumber(left.value)} ${selectedOperator} ${formatNumber(right.value)} → 연산하기`;
+  setGameStatus(`${formatNumber(left.value)} ${selectedOperator} ${formatNumber(right.value)} → 연산하기`);
 }
 
 function setCalculateState() {
@@ -265,9 +277,7 @@ function finishRound(result, expression) {
   renderCards({ resultId: cardId });
 
   const isCorrect = Math.abs(result - settings.target) < 0.000001;
-  historyText.textContent = isCorrect
-    ? `${expression} · 목표 ${settings.target} 달성!`
-    : `${expression} · 목표 ${settings.target}가 아니에요`;
+  setGameStatus(isCorrect ? `${expression} · 목표 ${settings.target} 달성!` : `${expression} · 목표 ${settings.target}가 아니에요`);
   showRoundFeedback(
     isCorrect ? "correct" : "wrong",
     isCorrect ? "정답입니다! 다음 문제로 넘어가요." : "아쉽지만 틀렸어요. 새 문제를 드릴게요."
@@ -302,7 +312,7 @@ function applyCalculation() {
   cards = cards.filter((card) => !selectedCardIds.includes(card.id));
   cards.push(resultCard);
   selectedCardIds = [];
-  historyText.textContent = `${expression} · 남은 카드 ${cards.length}장`;
+  setGameStatus(`${expression} · 남은 카드 ${cards.length}장`);
   renderCards({ resultId: resultCard.id });
 }
 
@@ -311,10 +321,22 @@ function handleTimeout() {
   isResolving = true;
   selectedCardIds = [];
   setCalculateState();
-  if (historyText) {
-    historyText.textContent = "시간 종료 · 새 문제로 넘어갑니다";
-  }
+  setGameStatus("시간 종료 · 새 문제로 넘어갑니다");
   showRoundFeedback("wrong", "시간이 끝났어요. 새 문제로 넘어가요.");
+}
+
+function setChatOpen(open) {
+  if (!chatDock || !chatToggle || !chatPanel || !chatScrim) return;
+  chatDock.classList.toggle("open", open);
+  chatToggle.setAttribute("aria-expanded", String(open));
+  chatPanel.setAttribute("aria-hidden", String(!open));
+  chatScrim.hidden = !open;
+  document.body.classList.toggle("chat-open", open);
+
+  if (open) {
+    window.setTimeout(() => chatInput?.focus(), 180);
+    chatMessages?.scrollTo({ top: chatMessages.scrollHeight, behavior: "smooth" });
+  }
 }
 
 document.querySelectorAll(".js-operator").forEach((button) => {
@@ -333,6 +355,36 @@ document.querySelector(".js-hand")?.addEventListener("click", (event) => {
   event.currentTarget.classList.add("raised");
   showToast("다음 도전권 대기열에 등록되었습니다.");
 });
+
+chatToggle?.addEventListener("click", () => {
+  setChatOpen(!chatDock?.classList.contains("open"));
+});
+
+chatClose?.addEventListener("click", () => {
+  setChatOpen(false);
+});
+
+chatScrim?.addEventListener("click", () => {
+  setChatOpen(false);
+});
+
+chatForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const message = chatInput?.value.trim();
+  if (!message || !chatMessages) return;
+
+  const row = document.createElement("p");
+  row.className = "chat-message mine";
+  row.innerHTML = `<b>나</b><span></span>`;
+  row.querySelector("span").textContent = message;
+  chatMessages.append(row);
+  chatInput.value = "";
+  chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: "smooth" });
+});
+
+if (window.location.hash === "#chat") {
+  window.setTimeout(() => setChatOpen(true), 250);
+}
 
 document.querySelector(".js-game-settings")?.addEventListener("click", () => {
   draftSettings = { ...settings };
