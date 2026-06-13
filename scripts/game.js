@@ -270,6 +270,7 @@ function showRoundFeedback(type, message) {
   if (!numberBoard) return;
 
   window.clearTimeout(feedbackTimer);
+  window.play24PlaySound?.(type === "correct" ? "success" : "wrong");
   numberBoard.classList.remove("correct", "wrong");
   requestAnimationFrame(() => numberBoard.classList.add(type));
   showToast(message);
@@ -391,6 +392,7 @@ document.querySelectorAll(".js-operator").forEach((button) => {
 calculateButton?.addEventListener("click", applyCalculation);
 
 document.querySelector(".js-hand")?.addEventListener("click", (event) => {
+  window.play24PlaySound?.("hand");
   event.currentTarget.classList.add("raised");
   showToast("다음 도전권 대기열에 등록되었습니다.");
 });
