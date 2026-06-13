@@ -138,8 +138,9 @@
     if (target.matches("input[type='checkbox']")) return "toggle";
     if (target.matches(".back-button, .ranking-back, .rooms-circle-button:first-child, .leave-icon")) return "back";
     if (target.matches(".mini-add, .wallet-pill button")) return "coin";
-    if (target.matches(".js-number-card, .number-card")) return "card";
-    if (target.matches(".js-operator, .operator-button")) return "operator";
+      if (target.matches(".js-number-card, .number-card")) return "card";
+      if (target.matches(".js-calculate, .calculate-button")) return "create";
+      if (target.matches(".js-operator, .operator-button")) return "operator";
     if (target.matches(".js-hand, .hand-button")) return "hand";
     if (target.matches(".lobby-join-button, .join-button, .js-quick-start, .action-blue")) return "join";
     if (target.matches(".js-create-room, .create-room-button")) return "create";
