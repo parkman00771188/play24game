@@ -254,6 +254,9 @@
     if (target.matches(".action-purple, .js-my-rank, .js-ranking-help")) return "rank";
     if (target.matches(".js-card-count, .js-timer-minus, .js-timer-plus, .js-reset-game-settings")) return "toggle";
     if (target.matches(".room-tab, .js-room-tab, .js-time-filter, .time-filters button")) return "tab";
+    if (target.matches(".pet-feed")) return "coin";
+    if (target.matches(".pet-play")) return "join";
+    if (target.matches(".pet-clean")) return "success";
     if (target.matches(".js-settings, .js-game-settings, .action-yellow, .logout-button, .js-tutorial, .action-tutorial, .extra-action-card")) return "warm";
     if (target.matches(".nav-item, .nav-mascot, .avatar-button, .js-profile")) return "nav";
 

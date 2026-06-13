@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>24 GAME - 펭귄 키우기</title>
+    <meta name="description" content="24 GAME 펭귄을 돌보고 성장시키는 키우기 화면" />
+    <base href="/" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell pet-app" aria-label="24 GAME 펭귄 키우기">
+      <div class="sky-layer" aria-hidden="true">
+        <span class="cloud cloud-one"></span>
+        <span class="cloud cloud-two"></span>
+        <span class="cloud cloud-three"></span>
+        <span class="spark sparkle-a"></span>
+        <span class="spark sparkle-b"></span>
+        <span class="spark sparkle-c"></span>
+      </div>
+
+      <section class="pet-screen">
+        <header class="pet-page-header">
+          <div class="pet-title-wrap">
+            <span class="pet-title-spark" aria-hidden="true"></span>
+            <h1>펭귄 키우기</h1>
+            <span class="pet-title-spark" aria-hidden="true"></span>
+          </div>
+          <div class="pet-coin-pill" aria-label="보유 코인">
+            <span class="coin-icon" aria-hidden="true"></span>
+            <strong>12,450</strong>
+          </div>
+        </header>
+
+        <section class="pet-room-panel" aria-labelledby="pet-room-title">
+          <h2 id="pet-room-title" class="visually-hidden">플레이어24의 방</h2>
+          <div class="pet-level-area">
+            <div class="pet-level-badge" aria-label="레벨 3">
+              <span>Lv.</span>
+              <strong>3</strong>
+              <i aria-hidden="true"></i>
+            </div>
+            <div class="pet-affection">
+              <strong>애정도</strong>
+              <p><span aria-hidden="true"></span>120 / 200</p>
+              <div class="pet-progress" aria-hidden="true"><i></i></div>
+            </div>
+          </div>
+
+          <div class="pet-window" aria-hidden="true">
+            <span class="window-cloud window-cloud-a"></span>
+            <span class="window-cloud window-cloud-b"></span>
+            <i></i>
+          </div>
+          <div class="pet-shelf" aria-hidden="true">
+            <span class="pet-plant"></span>
+            <span class="pet-frame"></span>
+          </div>
+
+          <div class="pet-igloo" aria-hidden="true"><i></i></div>
+          <div class="pet-food-bowl" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="pet-rug" aria-hidden="true"></div>
+          <img class="pet-main-mascot" src="./assets/optimized/mascot.webp" alt="24 모자를 쓴 펭귄" />
+          <div class="pet-ball" aria-hidden="true"></div>
+          <div class="pet-duck" aria-hidden="true"></div>
+          <div class="pet-reaction js-pet-reaction" role="status" aria-live="polite">오늘도 같이 놀아요!</div>
+
+          <div class="pet-status-panel" aria-label="펭귄 상태">
+            <div class="pet-status-item pet-status-hunger">
+              <span class="pet-status-icon" aria-hidden="true">
+                <svg viewBox="0 0 28 28"><path d="M8 4v9" /><path d="M12 4v9" /><path d="M10 13v11" /><path d="M19 4v20" /><path d="M19 4c4 4 4 9 0 12" /></svg>
+              </span>
+              <div>
+                <strong>배고픔</strong>
+                <div class="pet-segments" aria-hidden="true"><i></i><i></i><i></i></div>
+                <em>보통</em>
+              </div>
+            </div>
+            <div class="pet-status-item pet-status-mood">
+              <span class="pet-status-icon" aria-hidden="true">
+                <svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="9" /><path d="M10 12h.1" /><path d="M18 12h.1" /><path d="M10.5 17c2 2 5 2 7 0" /></svg>
+              </span>
+              <div>
+                <strong>기분</strong>
+                <div class="pet-segments" aria-hidden="true"><i></i><i></i><i></i></div>
+                <em>좋음</em>
+              </div>
+            </div>
+            <div class="pet-status-item pet-status-clean">
+              <span class="pet-status-icon" aria-hidden="true">
+                <svg viewBox="0 0 28 28"><path d="m14 4 2.6 6.1 6.4.5-4.9 4.2 1.5 6.2L14 17.7 8.4 21l1.5-6.2L5 10.6l6.4-.5z" /></svg>
+              </span>
+              <div>
+                <strong>청결</strong>
+                <div class="pet-segments" aria-hidden="true"><i></i><i></i><i></i></div>
+                <em>깨끗함</em>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="pet-action-grid" aria-label="펭귄 돌보기">
+          <button class="pet-action pet-feed js-pet-action" type="button" data-action="feed">
+            <span class="pet-action-visual pet-action-food" aria-hidden="true"><i></i></span>
+            <strong>먹이주기</strong>
+          </button>
+          <button class="pet-action pet-play js-pet-action" type="button" data-action="play">
+            <span class="pet-action-visual pet-action-ball" aria-hidden="true"></span>
+            <strong>놀아주기</strong>
+          </button>
+          <button class="pet-action pet-clean js-pet-action" type="button" data-action="clean">
+            <span class="pet-action-visual pet-action-broom" aria-hidden="true"></span>
+            <strong>청소하기</strong>
+          </button>
+        </section>
+
+        <section class="pet-card-grid" aria-label="펭귄 관리 메뉴">
+          <button class="pet-mini-card js-pet-locked" type="button">
+            <img src="./assets/tilemapImage/extracted/character/mascot_sunglasses.png" alt="" />
+            <span><strong>펫 상점</strong><small>코스튬 상점</small></span>
+          </button>
+          <button class="pet-mini-card js-pet-locked" type="button">
+            <span class="pet-room-icon" aria-hidden="true"></span>
+            <span><strong>꾸미기</strong><small>나만의 공간</small></span>
+          </button>
+          <button class="pet-mini-card js-pet-locked" type="button">
+            <span class="pet-egg-icon" aria-hidden="true"><i></i></span>
+            <span><strong>성장단계</strong><small>성장 확인</small></span>
+          </button>
+        </section>
+      </section>
+
+      <nav class="bottom-nav pet-bottom-nav" aria-label="펭귄 키우기 하단 메뉴">
+        <a class="nav-item" href="./index.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 10.7 12 3l9 7.7V21h-6v-6H9v6H3z" />
+          </svg>
+          <span>홈</span>
+        </a>
+        <a class="nav-item active pet-grow-nav" href="./pet.html" aria-current="page">
+          <img src="./assets/optimized/mascot.webp" alt="" />
+          <span>키우기</span>
+        </a>
+        <a class="nav-item" href="#">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 6h16l-2 8H7z" />
+            <path d="M8 6 7 3H3" />
+            <circle cx="9" cy="20" r="1.5" />
+            <circle cx="18" cy="20" r="1.5" />
+          </svg>
+          <span>상점</span>
+        </a>
+        <a class="nav-item gift-item" href="#">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 11h16v10H4z" />
+            <path d="M3 7h18v4H3z" />
+            <path d="M12 7v14" />
+            <path d="M12 7c-2.8 0-5-1.1-5-2.5S8.1 2 9.5 2C11.2 2 12 7 12 7z" />
+            <path d="M12 7c2.8 0 5-1.1 5-2.5S15.9 2 14.5 2C12.8 2 12 7 12 7z" />
+          </svg>
+          <span>이벤트</span>
+          <i>2</i>
+        </a>
+      </nav>
+    </main>
+
+    <div class="toast pet-toast" role="status" aria-live="polite"></div>
+    <script src="./scripts/sounds.js"></script>
+    <script src="./scripts/pet.js"></script>
+  </body>
+</html>
