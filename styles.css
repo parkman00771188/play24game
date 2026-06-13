@@ -236,6 +236,25 @@ svg {
     0 5px 0 #0b318c;
 }
 
+.image-brand {
+  width: 146px;
+  height: 92px;
+  place-items: center;
+  transform: translateX(-4px);
+}
+
+.image-brand::before {
+  display: none;
+}
+
+.brand-logo-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 9px 10px rgba(0, 61, 166, 0.28));
+}
+
 .wallet {
   display: flex;
   align-items: center;
@@ -5198,6 +5217,12 @@ body {
     align-items: center;
   }
 
+  .top-bar .image-brand {
+    width: 128px;
+    height: 82px;
+    transform: translateX(-4px);
+  }
+
   .wallet {
     flex-wrap: nowrap;
     align-items: center;
@@ -5212,9 +5237,15 @@ body {
     align-items: center;
   }
 
-  .brand-mark {
+  .brand-mark:not(.image-brand) {
     width: 112px;
     height: 72px;
+  }
+
+  .top-bar .image-brand {
+    width: 112px;
+    height: 72px;
+    transform: translateX(-4px);
   }
 
   .brand-number {

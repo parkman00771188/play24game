@@ -58,6 +58,7 @@ function formatAssetPath(originalPath, optimizedPath) {
 }
 
 function maxDimensionFor(assetPath) {
+  if (assetPath.endsWith("assets/logo.png")) return 640;
   if (assetPath.includes("/character/transparent/")) return 256;
   if (assetPath.endsWith("assets/mascot.png")) return 560;
   if (assetPath.includes("/medal/transparent/")) return 240;
@@ -66,6 +67,89 @@ function maxDimensionFor(assetPath) {
   if (assetPath.includes("/ranking/verify")) return 64;
   if (assetPath.includes("/tilemapImage/extracted/")) return 220;
   return 640;
+}
+
+function isNearWhiteBackground(data, index) {
+  const red = data[index];
+  const green = data[index + 1];
+  const blue = data[index + 2];
+  const brightest = Math.max(red, green, blue);
+  const darkest = Math.min(red, green, blue);
+  return red > 190 && green > 190 && blue > 190 && brightest - darkest < 46;
+}
+
+async function edgeTransparentLogoPipeline(absoluteSource) {
+  const { data, info } = await sharp(absoluteSource, { animated: false })
+    .rotate()
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const { width, height, channels } = info;
+  const transparent = new Uint8Array(width * height);
+  const queue = [];
+
+  function enqueue(x, y) {
+    if (x < 0 || y < 0 || x >= width || y >= height) return;
+    const pixel = y * width + x;
+    if (transparent[pixel]) return;
+    const index = pixel * channels;
+    if (!isNearWhiteBackground(data, index)) return;
+    transparent[pixel] = 1;
+    queue.push(pixel);
+  }
+
+  for (let x = 0; x < width; x += 1) {
+    enqueue(x, 0);
+    enqueue(x, height - 1);
+  }
+  for (let y = 0; y < height; y += 1) {
+    enqueue(0, y);
+    enqueue(width - 1, y);
+  }
+
+  for (let cursor = 0; cursor < queue.length; cursor += 1) {
+    const pixel = queue[cursor];
+    const x = pixel % width;
+    const y = Math.floor(pixel / width);
+    enqueue(x + 1, y);
+    enqueue(x - 1, y);
+    enqueue(x, y + 1);
+    enqueue(x, y - 1);
+  }
+
+  let left = width;
+  let top = height;
+  let right = 0;
+  let bottom = 0;
+
+  for (let pixel = 0; pixel < transparent.length; pixel += 1) {
+    if (transparent[pixel]) {
+      data[pixel * channels + 3] = 0;
+      continue;
+    }
+
+    const alpha = data[pixel * channels + 3];
+    if (alpha === 0) continue;
+    const x = pixel % width;
+    const y = Math.floor(pixel / width);
+    left = Math.min(left, x);
+    top = Math.min(top, y);
+    right = Math.max(right, x);
+    bottom = Math.max(bottom, y);
+  }
+
+  const padding = 18;
+  left = Math.max(0, left - padding);
+  top = Math.max(0, top - padding);
+  right = Math.min(width - 1, right + padding);
+  bottom = Math.min(height - 1, bottom + padding);
+
+  return sharp(data, { raw: { width, height, channels } }).extract({
+    left,
+    top,
+    width: right - left + 1,
+    height: bottom - top + 1,
+  });
 }
 
 async function walk(dir) {
@@ -129,7 +213,9 @@ async function optimizeImage(sourcePath, optimizedPath) {
   const outputDir = path.dirname(absoluteOutput);
   await fs.mkdir(outputDir, { recursive: true });
 
-  const image = sharp(absoluteSource, { animated: false }).rotate();
+  const image = sourcePath.endsWith("assets/logo.png")
+    ? await edgeTransparentLogoPipeline(absoluteSource)
+    : sharp(absoluteSource, { animated: false }).rotate();
   const metadata = await image.metadata();
   const maxDimension = maxDimensionFor(sourcePath);
   const needsResize = Math.max(metadata.width || 0, metadata.height || 0) > maxDimension;
