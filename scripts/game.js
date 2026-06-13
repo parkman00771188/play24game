@@ -17,6 +17,8 @@ const chatScrim = document.querySelector(".js-chat-scrim");
 const chatForm = document.querySelector(".js-chat-form");
 const chatInput = document.querySelector(".js-chat-input");
 const chatMessages = document.querySelector(".js-chat-messages");
+const chatPhraseButtons = document.querySelectorAll(".js-chat-phrase");
+const mascotSpeech = document.querySelector(".js-mascot-speech");
 
 const defaultSettings = Object.freeze({
   cardCount: 4,
@@ -60,6 +62,7 @@ let puzzleIndex = 0;
 let cardId = 0;
 let toastTimer;
 let feedbackTimer;
+let mascotSpeechTimer;
 let remaining = settings.timer;
 let isResolving = false;
 
@@ -354,9 +357,24 @@ function setChatOpen(open) {
   document.body.classList.toggle("chat-open", open);
 
   if (open) {
-    window.setTimeout(() => chatInput?.focus(), 180);
+    window.setTimeout(() => chatPhraseButtons[0]?.focus(), 180);
     chatMessages?.scrollTo({ top: chatMessages.scrollHeight, behavior: "smooth" });
   }
+}
+
+function showMascotSpeech(message) {
+  if (!mascotSpeech) return;
+  window.clearTimeout(mascotSpeechTimer);
+  mascotSpeech.textContent = message;
+  mascotSpeech.hidden = false;
+  mascotSpeech.classList.remove("show");
+  requestAnimationFrame(() => mascotSpeech.classList.add("show"));
+  mascotSpeechTimer = window.setTimeout(() => {
+    mascotSpeech.classList.remove("show");
+    window.setTimeout(() => {
+      mascotSpeech.hidden = true;
+    }, 180);
+  }, 3000);
 }
 
 document.querySelectorAll(".js-operator").forEach((button) => {
@@ -389,18 +407,12 @@ chatScrim?.addEventListener("click", () => {
   setChatOpen(false);
 });
 
-chatForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const message = chatInput?.value.trim();
-  if (!message || !chatMessages) return;
-
-  const row = document.createElement("p");
-  row.className = "chat-message mine";
-  row.innerHTML = `<b>나</b><span></span>`;
-  row.querySelector("span").textContent = message;
-  chatMessages.append(row);
-  chatInput.value = "";
-  chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: "smooth" });
+chatPhraseButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    showMascotSpeech(button.textContent.trim());
+    setChatOpen(false);
+    showToast("추천 문구를 보냈습니다.");
+  });
 });
 
 if (window.location.hash === "#chat") {

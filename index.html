@@ -6,7 +6,7 @@
     <title>24 GAME - 홈</title>
     <meta
       name="description"
-      content="귀여운 24게임 로비 UI. 빠른 시작, 방 리스트, 랭킹, 미션과 프로필을 한 화면에서 확인하세요."
+      content="귀여운 24게임 로비 UI. 빠른 시작, 방 리스트, 랭킹, 튜토리얼과 프로필을 한 화면에서 확인하세요."
     />
     <base href="/" />
     <link rel="stylesheet" href="./styles.css" />
@@ -118,79 +118,46 @@
           </button>
         </section>
 
-        <section class="missions panel" aria-labelledby="mission-title">
+        <section class="home-extra-actions panel" aria-labelledby="extra-actions-title">
           <div class="section-heading">
-            <h2 id="mission-title">
+            <h2 id="extra-actions-title">
               <span class="target-dot" aria-hidden="true"></span>
-              오늘의 미션
+              더 즐기기
             </h2>
-            <p>
-              <span class="clock-mini" aria-hidden="true"></span>
-              매일 00:00 초기화
-            </p>
+            <p>혼자 익히고 바로 도전해요</p>
           </div>
 
-          <div class="mission-grid">
-            <article class="mission-card mission-blue">
-              <div class="mission-illustration gamepad" aria-hidden="true">
-                <svg viewBox="0 0 80 58">
-                  <path d="M20 18h40c8 0 14 7 14 16v4c0 7-5 12-11 12-5 0-8-4-12-8H29c-4 4-7 8-12 8-6 0-11-5-11-12v-4c0-9 6-16 14-16z" />
-                  <path d="M23 31h12M29 25v12" />
-                  <circle cx="53" cy="31" r="4" />
-                  <circle cx="63" cy="26" r="3.5" />
+          <div class="extra-action-grid">
+            <button class="extra-action-card tutorial-card js-tutorial" type="button">
+              <span class="extra-action-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M7 7h12a5 5 0 0 1 5 5v13H12a5 5 0 0 0-5 3z" />
+                  <path d="M7 7v21" />
+                  <path d="M12 13h7" />
+                  <path d="M12 18h5" />
                 </svg>
-              </div>
-              <h3>게임 3판 플레이</h3>
-              <div class="progress-line" aria-label="1/3 진행">
-                <span style="width: 33%"></span>
-              </div>
-              <div class="mission-foot">
-                <span>1/3</span>
-                <strong><i class="coin-icon tiny" aria-hidden="true"></i>x200</strong>
-              </div>
-            </article>
+              </span>
+              <span>
+                <strong>튜토리얼</strong>
+                <small>기본 흐름 익히기</small>
+              </span>
+            </button>
 
-            <article class="mission-card mission-sky">
-              <div class="mission-illustration bullseye" aria-hidden="true">
-                <svg viewBox="0 0 80 58">
-                  <circle cx="40" cy="30" r="20" />
-                  <circle cx="40" cy="30" r="12" />
-                  <circle cx="40" cy="30" r="5" />
-                  <path d="M47 23l17-15" />
-                  <path d="M57 8h9v9" />
+            <a class="extra-action-card practice-card" href="./game.html">
+              <span class="extra-action-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M16 5v22" />
+                  <path d="M5 16h22" />
+                  <path d="m9 9 14 14" />
+                  <path d="m23 9-14 14" />
                 </svg>
-              </div>
-              <h3>정답 10회 맞히기</h3>
-              <div class="progress-line" aria-label="6/10 진행">
-                <span style="width: 60%"></span>
-              </div>
-              <div class="mission-foot">
-                <span>6/10</span>
-                <strong><i class="coin-icon tiny" aria-hidden="true"></i>x300</strong>
-              </div>
-            </article>
-
-            <article class="mission-card mission-gold">
-              <div class="mission-illustration friends" aria-hidden="true">
-                <svg viewBox="0 0 80 58">
-                  <circle cx="28" cy="24" r="10" />
-                  <circle cx="52" cy="24" r="10" />
-                  <path d="M12 50c2-10 10-16 16-16s14 6 16 16" />
-                  <path d="M36 50c2-10 10-16 16-16s14 6 16 16" />
-                </svg>
-              </div>
-              <h3>친구와 1판 플레이</h3>
-              <div class="progress-line warm" aria-label="0/1 진행">
-                <span style="width: 0%"></span>
-              </div>
-              <div class="mission-foot">
-                <span>0/1</span>
-                <strong><i class="star-reward" aria-hidden="true"></i>x50</strong>
-              </div>
-            </article>
+              </span>
+              <span>
+                <strong>연습하기</strong>
+                <small>혼자 바로 풀기</small>
+              </span>
+            </a>
           </div>
-
-          <button class="ribbon-link" type="button">더 많은 미션 보기</button>
         </section>
 
       </section>

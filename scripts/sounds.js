@@ -13,7 +13,7 @@
     if (!audioContext) {
       audioContext = new AudioContextClass();
       masterGain = audioContext.createGain();
-      masterGain.gain.value = 0.34;
+      masterGain.gain.value = 0.58;
       masterGain.connect(audioContext.destination);
     }
 
@@ -36,6 +36,14 @@
     }
 
     return context;
+  }
+
+  function resumeAudio() {
+    const context = ensureAudio();
+    if (context.state === "suspended") {
+      resumePromise = context.resume().catch(() => {});
+    }
+    return resumePromise.then(() => context);
   }
 
   function beep({ frequency, endFrequency, duration = 0.08, delay = 0, type = "sine", gain = 0.12 }) {
@@ -120,7 +128,7 @@
     const run = sounds[name] || sounds.panel;
     const context = ensureAudio();
     if (context.state === "suspended") {
-      resumePromise.then(run).catch(() => {});
+      resumeAudio().then(run).catch(() => {});
       return;
     }
 
@@ -138,19 +146,21 @@
 
     if (target.matches("input[type='checkbox']")) return "toggle";
     if (target.matches(".back-button, .ranking-back, .rooms-circle-button:first-child, .leave-icon")) return "back";
+    if (target.matches(".dialog-close-button")) return "panel";
     if (target.matches(".mini-add, .wallet-pill button")) return "coin";
     if (target.matches(".js-number-card, .number-card")) return "card";
     if (target.matches(".js-calculate, .calculate-button, .js-apply-game-settings")) return "create";
     if (target.matches(".js-operator, .operator-button")) return "operator";
     if (target.matches(".js-hand, .hand-button")) return "hand";
     if (target.matches(".js-chat-toggle, .js-chat-close")) return "panel";
+    if (target.matches(".js-chat-phrase")) return "join";
     if (target.matches(".chat-form button")) return "join";
     if (target.matches(".lobby-join-button, .join-button, .js-quick-start, .action-blue")) return "join";
     if (target.matches(".js-create-room, .create-room-button")) return "create";
     if (target.matches(".action-purple, .js-my-rank, .js-ranking-help")) return "rank";
     if (target.matches(".js-card-count, .js-timer-minus, .js-timer-plus, .js-reset-game-settings")) return "toggle";
     if (target.matches(".room-tab, .js-room-tab, .js-time-filter, .time-filters button")) return "tab";
-    if (target.matches(".js-settings, .js-game-settings, .action-yellow, .logout-button")) return "warm";
+    if (target.matches(".js-settings, .js-game-settings, .action-yellow, .logout-button, .js-tutorial, .extra-action-card")) return "warm";
     if (target.matches(".nav-item, .nav-mascot, .avatar-button, .js-profile")) return "nav";
 
     return "panel";
@@ -177,6 +187,7 @@
     "touchstart",
     (event) => {
       ignorePointerUntil = performance.now() + 450;
+      resumeAudio();
       playFromEvent(event);
     },
     { capture: true, passive: true }
@@ -187,6 +198,7 @@
     (event) => {
       if (event.pointerType === "mouse" && event.button !== 0) return;
       if (event.pointerType === "touch" && performance.now() < ignorePointerUntil) return;
+      resumeAudio();
       playFromEvent(event);
     },
     { capture: true }
@@ -196,6 +208,7 @@
     "mousedown",
     (event) => {
       if (!isPlainPrimaryClick(event)) return;
+      resumeAudio();
       if (performance.now() - lastSoundAt > 90) playFromEvent(event);
     },
     { capture: true }
@@ -210,6 +223,7 @@
 
       const now = performance.now();
       if (now >= ignorePointerUntil && now - lastSoundAt > 90) {
+        resumeAudio();
         playSound(sound);
       } else {
         resumePromise.catch(() => {});

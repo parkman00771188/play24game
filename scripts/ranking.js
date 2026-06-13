@@ -1,4 +1,5 @@
 const toast = document.querySelector(".toast");
+const gradeGuideDialog = document.querySelector("#gradeGuideDialog");
 let toastTimer;
 
 function showToast(message) {
@@ -12,7 +13,35 @@ function showToast(message) {
 }
 
 document.querySelector(".js-ranking-help")?.addEventListener("click", () => {
-  showToast("포인트, 승률, 연승 기록을 기준으로 순위가 계산됩니다.");
+  openDialog(gradeGuideDialog);
+});
+
+function openDialog(dialog) {
+  if (!dialog) return;
+  if (typeof dialog.showModal === "function") {
+    dialog.showModal();
+  } else {
+    dialog.setAttribute("open", "");
+  }
+}
+
+function closeDialog(dialog) {
+  if (!dialog) return;
+  if (typeof dialog.close === "function") {
+    dialog.close();
+  } else {
+    dialog.removeAttribute("open");
+  }
+}
+
+document.querySelector(".js-close-grade-guide")?.addEventListener("click", () => {
+  closeDialog(gradeGuideDialog);
+});
+
+gradeGuideDialog?.addEventListener("click", (event) => {
+  if (event.target === gradeGuideDialog) {
+    closeDialog(gradeGuideDialog);
+  }
 });
 
 document.querySelector(".js-my-rank")?.addEventListener("click", () => {

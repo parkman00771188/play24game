@@ -39,6 +39,10 @@ document.querySelector(".js-close-settings")?.addEventListener("click", () => {
   closeDialog(settingsDialog);
 });
 
+document.querySelector(".js-tutorial")?.addEventListener("click", () => {
+  showToast("튜토리얼 화면을 준비 중입니다.");
+});
+
 document.querySelectorAll(".js-profile").forEach((button) => {
   button.addEventListener("click", () => openDialog(profileDialog));
 });

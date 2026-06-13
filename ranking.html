@@ -27,7 +27,7 @@
           <h1>랭킹</h1>
           <button class="ranking-help js-ranking-help" type="button">
             <span aria-hidden="true">?</span>
-            랭킹 안내
+            등급 안내
           </button>
         </header>
 
@@ -44,7 +44,7 @@
               </div>
               <img class="rank-avatar" src="./assets/optimized/character/transparent/char_girl_5.webp" alt="" />
               <div class="rank-player">
-                <strong>수학천재윤이 <img src="./assets/optimized/ranking/verify.webp" alt="인증" /></strong>
+                <strong>수학천재윤이</strong>
               </div>
               <div class="rank-grade">
                 <img src="./assets/optimized/medal/transparent/master.webp" alt="" />
@@ -62,7 +62,7 @@
               </div>
               <img class="rank-avatar" src="./assets/optimized/character/transparent/char_girl_1.webp" alt="" />
               <div class="rank-player">
-                <strong>24의 달인 <img src="./assets/optimized/ranking/verify.webp" alt="인증" /></strong>
+                <strong>24의 달인</strong>
               </div>
               <div class="rank-grade">
                 <img src="./assets/optimized/medal/transparent/diamond.webp" alt="" />
@@ -80,7 +80,7 @@
               </div>
               <img class="rank-avatar" src="./assets/optimized/character/transparent/char_boy_2.webp" alt="" />
               <div class="rank-player">
-                <strong>계산왕지훈 <img src="./assets/optimized/ranking/verify.webp" alt="인증" /></strong>
+                <strong>계산왕지훈</strong>
               </div>
               <div class="rank-grade">
                 <img src="./assets/optimized/medal/transparent/diamond.webp" alt="" />
@@ -96,7 +96,7 @@
               <div class="ranking-place numeric">4</div>
               <img class="rank-avatar" src="./assets/optimized/character/transparent/char_boy_1.webp" alt="" />
               <div class="rank-player">
-                <strong>플레이어 <img src="./assets/optimized/ranking/verify.webp" alt="인증" /></strong>
+                <strong>플레이어</strong>
               </div>
               <div class="rank-grade">
                 <img src="./assets/optimized/medal/transparent/platinum.webp" alt="" />
@@ -112,7 +112,7 @@
               <div class="ranking-place numeric">5</div>
               <img class="rank-avatar" src="./assets/optimized/character/transparent/char_girl_2.webp" alt="" />
               <div class="rank-player">
-                <strong>두뇌짱서연 <img src="./assets/optimized/ranking/verify.webp" alt="인증" /></strong>
+                <strong>두뇌짱서연</strong>
               </div>
               <div class="rank-grade">
                 <img src="./assets/optimized/medal/transparent/platinum.webp" alt="" />
@@ -128,7 +128,7 @@
               <div class="ranking-place numeric">6</div>
               <img class="rank-avatar" src="./assets/optimized/character/transparent/char_boy_3.webp" alt="" />
               <div class="rank-player">
-                <strong>문제해결왕 <img src="./assets/optimized/ranking/verify.webp" alt="인증" /></strong>
+                <strong>문제해결왕</strong>
               </div>
               <div class="rank-grade">
                 <img src="./assets/optimized/medal/transparent/gold.webp" alt="" />
@@ -144,7 +144,7 @@
               <div class="ranking-place numeric">7</div>
               <img class="rank-avatar" src="./assets/optimized/character/transparent/char_boy_5.webp" alt="" />
               <div class="rank-player">
-                <strong>퀴즈마스터 <img src="./assets/optimized/ranking/verify.webp" alt="인증" /></strong>
+                <strong>퀴즈마스터</strong>
               </div>
               <div class="rank-grade">
                 <img src="./assets/optimized/medal/transparent/gold.webp" alt="" />
@@ -160,7 +160,7 @@
               <div class="ranking-place numeric">8</div>
               <img class="rank-avatar" src="./assets/optimized/character/transparent/char_boy_4.webp" alt="" />
               <div class="rank-player">
-                <strong>학습탐험가 <img src="./assets/optimized/ranking/verify.webp" alt="인증" /></strong>
+                <strong>학습탐험가</strong>
               </div>
               <div class="rank-grade">
                 <img src="./assets/optimized/medal/transparent/silver.webp" alt="" />
@@ -176,7 +176,7 @@
               <div class="ranking-place numeric">9</div>
               <img class="rank-avatar" src="./assets/optimized/character/transparent/char_girl_6.webp" alt="" />
               <div class="rank-player">
-                <strong>공부의신 <img src="./assets/optimized/ranking/verify.webp" alt="인증" /></strong>
+                <strong>공부의신</strong>
               </div>
               <div class="rank-grade">
                 <img src="./assets/optimized/medal/transparent/silver.webp" alt="" />
@@ -192,7 +192,7 @@
               <div class="ranking-place numeric">10</div>
               <img class="rank-avatar" src="./assets/optimized/character/transparent/char_boy_6.webp" alt="" />
               <div class="rank-player">
-                <strong>브레인파워 <img src="./assets/optimized/ranking/verify.webp" alt="인증" /></strong>
+                <strong>브레인파워</strong>
               </div>
               <div class="rank-grade">
                 <img src="./assets/optimized/medal/transparent/bronze.webp" alt="" />
@@ -223,6 +223,50 @@
 
       <div class="toast" role="status" aria-live="polite"></div>
     </main>
+
+    <dialog class="game-dialog grade-dialog" id="gradeGuideDialog" aria-labelledby="grade-guide-title">
+      <div class="dialog-card grade-guide-card">
+        <div class="dialog-header">
+          <span aria-hidden="true"></span>
+          <h2 id="grade-guide-title">등급 안내</h2>
+          <button class="dialog-close-button js-close-grade-guide" type="button" aria-label="등급 안내 닫기">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="grade-guide-list">
+          <article>
+            <img src="./assets/optimized/medal/transparent/bronze.webp" alt="" />
+            <strong>브론즈</strong>
+            <span>0 ~ 999P</span>
+          </article>
+          <article>
+            <img src="./assets/optimized/medal/transparent/silver.webp" alt="" />
+            <strong>실버</strong>
+            <span>1,000 ~ 1,999P</span>
+          </article>
+          <article>
+            <img src="./assets/optimized/medal/transparent/gold.webp" alt="" />
+            <strong>골드</strong>
+            <span>2,000 ~ 2,999P</span>
+          </article>
+          <article>
+            <img src="./assets/optimized/medal/transparent/platinum.webp" alt="" />
+            <strong>플래티넘</strong>
+            <span>3,000 ~ 4,999P</span>
+          </article>
+          <article>
+            <img src="./assets/optimized/medal/transparent/diamond.webp" alt="" />
+            <strong>다이아</strong>
+            <span>5,000 ~ 7,499P</span>
+          </article>
+          <article>
+            <img src="./assets/optimized/medal/transparent/master.webp" alt="" />
+            <strong>마스터</strong>
+            <span>7,500P 이상</span>
+          </article>
+        </div>
+      </div>
+    </dialog>
 
     <script src="./scripts/sounds.js"></script>
     <script src="./scripts/ranking.js"></script>

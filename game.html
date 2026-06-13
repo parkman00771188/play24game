@@ -85,6 +85,7 @@
 
           <div class="round-mascot" aria-hidden="true">
             <img src="./assets/optimized/mascot.webp" alt="" />
+            <p class="mascot-speech js-mascot-speech" hidden>머리를 굴려야지</p>
             <div>현재 도전자 1명</div>
           </div>
 
@@ -130,25 +131,25 @@
             </span>
             <span>
               <strong>채팅</strong>
-              <small>도전자들과 계산을 나눠보세요</small>
+              <small>추천 문구를 골라보세요</small>
             </span>
             <i aria-hidden="true"></i>
           </button>
           <div class="chat-scrim js-chat-scrim" hidden></div>
           <div class="chat-panel js-chat-panel" id="gameChatPanel" aria-hidden="true">
             <div class="chat-panel-header">
-              <strong>방 채팅</strong>
+              <strong>추천 문구</strong>
               <button class="js-chat-close" type="button">닫기</button>
             </div>
-            <div class="chat-messages js-chat-messages" aria-live="polite">
-              <p class="chat-message other"><b>플레이어24</b><span>7이랑 4 먼저 더해볼까요?</span></p>
-              <p class="chat-message mine"><b>나</b><span>좋아요. 다음은 곱셈으로 갈게요.</span></p>
+            <div class="quick-chat-options" aria-label="추천 문구 선택">
+              <button class="js-chat-phrase" type="button">머리를 굴려야지</button>
+              <button class="js-chat-phrase" type="button">주무시나요?</button>
+              <button class="js-chat-phrase" type="button">오오 대박</button>
+              <button class="js-chat-phrase" type="button">최고네요^^</button>
+            </div>
+            <div class="chat-messages compact-status js-chat-messages" aria-live="polite">
               <p class="chat-status js-history">카드 2장과 연산자를 선택하세요</p>
             </div>
-            <form class="chat-form js-chat-form">
-              <input class="js-chat-input" type="text" maxlength="80" placeholder="메시지를 입력하세요" aria-label="채팅 메시지" />
-              <button type="submit">전송</button>
-            </form>
           </div>
         </section>
       </section>
