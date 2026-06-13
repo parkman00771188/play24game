@@ -4,16 +4,47 @@ const timeText = document.querySelector(".js-time");
 const timeTrack = document.querySelector(".js-time-track");
 const numberBoard = document.querySelector(".js-number-board");
 const calculateButton = document.querySelector(".js-calculate");
+const targetText = document.querySelector(".js-target-value");
+const settingsDialog = document.querySelector("#gameSettingsDialog");
+const targetInput = document.querySelector(".js-target-input");
+const timerValue = document.querySelector(".js-timer-value");
+const cardCountButtons = document.querySelectorAll(".js-card-count");
 
-const puzzles = [
-  [7, 4, 6, 2],
-  [8, 8, 3, 5],
-  [9, 6, 4, 1],
-  [10, 2, 8, 4],
-  [5, 5, 5, 1],
-  [12, 3, 7, 2],
-];
+const defaultSettings = Object.freeze({
+  cardCount: 4,
+  target: 24,
+  timer: 6,
+});
 
+const puzzleSets = {
+  4: [
+    [7, 4, 6, 2],
+    [8, 8, 3, 5],
+    [9, 6, 4, 1],
+    [10, 2, 8, 4],
+    [5, 5, 5, 1],
+    [12, 3, 7, 2],
+  ],
+  5: [
+    [7, 4, 6, 2, 3],
+    [9, 8, 3, 2, 5],
+    [10, 6, 4, 1, 2],
+    [12, 5, 3, 2, 1],
+    [11, 7, 4, 3, 2],
+    [8, 6, 5, 5, 1],
+  ],
+  6: [
+    [7, 4, 6, 2, 3, 1],
+    [9, 8, 3, 2, 5, 1],
+    [10, 6, 4, 1, 2, 2],
+    [12, 5, 3, 2, 1, 1],
+    [11, 7, 4, 3, 2, 1],
+    [8, 6, 5, 5, 1, 2],
+  ],
+};
+
+let settings = loadSettings();
+let draftSettings = { ...settings };
 let selectedOperator = "+";
 let selectedCardIds = [];
 let cards = [];
@@ -21,8 +52,35 @@ let puzzleIndex = 0;
 let cardId = 0;
 let toastTimer;
 let feedbackTimer;
-let remaining = 6;
+let remaining = settings.timer;
 let isResolving = false;
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function normalizeSettings(value = {}) {
+  const cardCount = [4, 5, 6].includes(Number(value.cardCount)) ? Number(value.cardCount) : defaultSettings.cardCount;
+  const target = clamp(Math.round(Number(value.target) || defaultSettings.target), 1, 1000);
+  const timer = clamp(Math.round(Number(value.timer) || defaultSettings.timer), 1, 60);
+  return { cardCount, target, timer };
+}
+
+function loadSettings() {
+  try {
+    return normalizeSettings(JSON.parse(window.localStorage.getItem("play24gameSettings") || "{}"));
+  } catch {
+    return { ...defaultSettings };
+  }
+}
+
+function saveSettings() {
+  try {
+    window.localStorage.setItem("play24gameSettings", JSON.stringify(settings));
+  } catch {
+    // Storage can be blocked in private browsing; the game still works for this session.
+  }
+}
 
 function showToast(message) {
   if (!toast) return;
@@ -34,13 +92,66 @@ function showToast(message) {
   }, 1900);
 }
 
+function openDialog(dialog) {
+  if (!dialog) return;
+  if (typeof dialog.showModal === "function") {
+    dialog.showModal();
+  } else {
+    dialog.setAttribute("open", "");
+  }
+}
+
+function closeDialog(dialog) {
+  if (!dialog) return;
+  if (typeof dialog.close === "function") {
+    dialog.close();
+  } else {
+    dialog.removeAttribute("open");
+  }
+}
+
 function formatNumber(value) {
   if (Number.isInteger(value)) return String(value);
 
   const rounded = Math.round(value * 100) / 100;
-  const text = String(rounded);
+  const cleanRounded = Math.abs(rounded) < 0.000001 ? 0 : rounded;
   const hasLongDecimal = Math.abs(value - rounded) > 0.000001;
-  return `${text.replace(/\.?0+$/, "")}${hasLongDecimal ? ".." : ""}`;
+  return `${Number(cleanRounded.toFixed(2))}${hasLongDecimal ? ".." : ""}`;
+}
+
+function formatTime(seconds) {
+  return `00:${String(seconds).padStart(2, "0")}`;
+}
+
+function updateTimerDisplay() {
+  if (timeText) {
+    timeText.textContent = formatTime(remaining);
+  }
+  if (timeTrack) {
+    const percent = settings.timer > 0 ? (remaining / settings.timer) * 100 : 0;
+    timeTrack.style.width = `${clamp(percent, 8, 100)}%`;
+  }
+}
+
+function resetTimer() {
+  remaining = settings.timer;
+  updateTimerDisplay();
+}
+
+function updateSettingsControls() {
+  if (targetText) {
+    targetText.textContent = settings.target;
+  }
+  if (targetInput) {
+    targetInput.value = draftSettings.target;
+  }
+  if (timerValue) {
+    timerValue.textContent = `${draftSettings.timer}초`;
+  }
+
+  cardCountButtons.forEach((button) => {
+    button.classList.toggle("active", Number(button.dataset.count) === draftSettings.cardCount);
+  });
 }
 
 function selectedCards() {
@@ -93,11 +204,14 @@ function renderCards({ resultId } = {}) {
 }
 
 function startPuzzle(index = puzzleIndex) {
-  puzzleIndex = index % puzzles.length;
-  cards = puzzles[puzzleIndex].map((value) => ({ id: ++cardId, value }));
+  const set = puzzleSets[settings.cardCount] || puzzleSets[4];
+  puzzleIndex = ((index % set.length) + set.length) % set.length;
+  cards = set[puzzleIndex].map((value) => ({ id: ++cardId, value }));
   selectedCardIds = [];
   isResolving = false;
   numberBoard?.classList.remove("correct", "wrong");
+  resetTimer();
+  updateSettingsControls();
   renderCards();
 }
 
@@ -144,6 +258,22 @@ function showRoundFeedback(type, message) {
   }, 980);
 }
 
+function finishRound(result, expression) {
+  isResolving = true;
+  selectedCardIds = [];
+  cards = [{ id: ++cardId, value: result }];
+  renderCards({ resultId: cardId });
+
+  const isCorrect = Math.abs(result - settings.target) < 0.000001;
+  historyText.textContent = isCorrect
+    ? `${expression} · 목표 ${settings.target} 달성!`
+    : `${expression} · 목표 ${settings.target}가 아니에요`;
+  showRoundFeedback(
+    isCorrect ? "correct" : "wrong",
+    isCorrect ? "정답입니다! 다음 문제로 넘어가요." : "아쉽지만 틀렸어요. 새 문제를 드릴게요."
+  );
+}
+
 function applyCalculation() {
   if (isResolving) return;
   const picked = selectedCards();
@@ -164,14 +294,7 @@ function applyCalculation() {
   const expression = `${formatNumber(left.value)} ${selectedOperator} ${formatNumber(right.value)} = ${formatNumber(result)}`;
 
   if (cards.length === 2) {
-    isResolving = true;
-    selectedCardIds = [];
-    cards = [{ id: ++cardId, value: result }];
-    renderCards({ resultId: cardId });
-
-    const isCorrect = Math.abs(result - 24) < 0.000001;
-    historyText.textContent = isCorrect ? `${expression} · 정답!` : `${expression} · 24가 아니에요`;
-    showRoundFeedback(isCorrect ? "correct" : "wrong", isCorrect ? "정답입니다! 다음 문제로 넘어가요." : "아쉽지만 틀렸어요. 새 문제를 드릴게요.");
+    finishRound(result, expression);
     return;
   }
 
@@ -181,6 +304,17 @@ function applyCalculation() {
   selectedCardIds = [];
   historyText.textContent = `${expression} · 남은 카드 ${cards.length}장`;
   renderCards({ resultId: resultCard.id });
+}
+
+function handleTimeout() {
+  if (isResolving) return;
+  isResolving = true;
+  selectedCardIds = [];
+  setCalculateState();
+  if (historyText) {
+    historyText.textContent = "시간 종료 · 새 문제로 넘어갑니다";
+  }
+  showRoundFeedback("wrong", "시간이 끝났어요. 새 문제로 넘어가요.");
 }
 
 document.querySelectorAll(".js-operator").forEach((button) => {
@@ -200,18 +334,72 @@ document.querySelector(".js-hand")?.addEventListener("click", (event) => {
   showToast("다음 도전권 대기열에 등록되었습니다.");
 });
 
-document.querySelector(".js-fit")?.addEventListener("click", () => {
-  showToast("게임 화면을 현재 기기에 맞췄습니다.");
+document.querySelector(".js-game-settings")?.addEventListener("click", () => {
+  draftSettings = { ...settings };
+  updateSettingsControls();
+  openDialog(settingsDialog);
+});
+
+document.querySelector(".js-close-game-settings")?.addEventListener("click", () => {
+  closeDialog(settingsDialog);
+});
+
+settingsDialog?.addEventListener("click", (event) => {
+  if (event.target === settingsDialog) {
+    closeDialog(settingsDialog);
+  }
+});
+
+cardCountButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    draftSettings.cardCount = Number(button.dataset.count);
+    updateSettingsControls();
+  });
+});
+
+targetInput?.addEventListener("input", () => {
+  draftSettings.target = clamp(Math.round(Number(targetInput.value) || defaultSettings.target), 1, 1000);
+});
+
+document.querySelector(".js-timer-minus")?.addEventListener("click", () => {
+  draftSettings.timer = clamp(draftSettings.timer - 1, 1, 60);
+  updateSettingsControls();
+});
+
+document.querySelector(".js-timer-plus")?.addEventListener("click", () => {
+  draftSettings.timer = clamp(draftSettings.timer + 1, 1, 60);
+  updateSettingsControls();
+});
+
+document.querySelector(".js-reset-game-settings")?.addEventListener("click", () => {
+  draftSettings = { ...defaultSettings };
+  updateSettingsControls();
+});
+
+document.querySelector(".js-apply-game-settings")?.addEventListener("click", () => {
+  if (targetInput) {
+    draftSettings.target = clamp(Math.round(Number(targetInput.value) || defaultSettings.target), 1, 1000);
+  }
+
+  settings = normalizeSettings(draftSettings);
+  draftSettings = { ...settings };
+  saveSettings();
+  updateSettingsControls();
+  closeDialog(settingsDialog);
+  showToast("새 설정으로 게임을 시작합니다.");
+  startPuzzle(0);
 });
 
 window.setInterval(() => {
-  remaining = remaining > 0 ? remaining - 1 : 6;
-  if (timeText) {
-    timeText.textContent = `00:0${remaining}`;
+  if (isResolving) return;
+  remaining -= 1;
+  if (remaining <= 0) {
+    remaining = 0;
+    updateTimerDisplay();
+    handleTimeout();
+    return;
   }
-  if (timeTrack) {
-    timeTrack.style.width = `${Math.max(10, (remaining / 6) * 72)}%`;
-  }
+  updateTimerDisplay();
 }, 1000);
 
 startPuzzle();

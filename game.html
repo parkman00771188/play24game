@@ -37,12 +37,12 @@
               </svg>
               <span>10</span>
             </button>
-            <button class="room-icon js-fit" type="button" aria-label="화면 맞춤">
+            <button class="room-icon js-game-settings" type="button" aria-label="게임 설정 열기">
               <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M8 3H4v4" />
-                <path d="M16 3h4v4" />
-                <path d="M8 21H4v-4" />
-                <path d="M16 21h4v-4" />
+                <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
+                <path
+                  d="M19.4 14.4c.1-.5.1-1 .1-1.4s0-.9-.1-1.4l2-1.5-2-3.5-2.4 1a8.8 8.8 0 0 0-2.4-1.4L14.3 3h-4.1l-.4 3.2c-.9.3-1.7.8-2.4 1.4l-2.4-1-2 3.5 2 1.5c-.1.5-.1 1-.1 1.4s0 .9.1 1.4l-2 1.5 2 3.5 2.4-1c.7.6 1.5 1.1 2.4 1.4l.4 3.2h4.1l.4-3.2c.9-.3 1.7-.8 2.4-1.4l2.4 1 2-3.5-2.1-1.5z"
+                />
               </svg>
             </button>
             <a class="room-icon leave-icon" href="./index.html" aria-label="방 나가기">
@@ -81,7 +81,7 @@
         <section class="round-dashboard" aria-label="게임 현황">
           <article class="goal-card">
             <span>목표 숫자</span>
-            <strong><i class="target-dot flat" aria-hidden="true"></i>24</strong>
+            <strong><i class="target-dot flat" aria-hidden="true"></i><span class="js-target-value">24</span></strong>
           </article>
 
           <div class="round-mascot" aria-hidden="true">
@@ -129,6 +129,59 @@
           <p class="js-history">아직 적용된 연산이 없습니다</p>
         </section>
       </section>
+
+      <dialog class="game-dialog game-settings-dialog" id="gameSettingsDialog" aria-labelledby="game-settings-title">
+        <div class="dialog-card game-settings-card">
+          <div class="dialog-header">
+            <button class="back-button js-close-game-settings" type="button" aria-label="게임 설정 닫기">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+            </button>
+            <h2 id="game-settings-title">게임 설정</h2>
+          </div>
+
+          <div class="game-setting-stack">
+            <section class="game-setting-box" aria-labelledby="card-count-title">
+              <div>
+                <strong id="card-count-title">카드 숫자</strong>
+                <span>이번 판에 사용할 카드 개수</span>
+              </div>
+              <div class="setting-segment" role="group" aria-label="카드 숫자 선택">
+                <button class="js-card-count active" type="button" data-count="4">4장</button>
+                <button class="js-card-count" type="button" data-count="5">5장</button>
+                <button class="js-card-count" type="button" data-count="6">6장</button>
+              </div>
+            </section>
+
+            <section class="game-setting-box" aria-labelledby="target-number-title">
+              <div>
+                <strong id="target-number-title">목표 숫자</strong>
+                <span>계산 결과로 만들 숫자</span>
+              </div>
+              <label class="target-number-field">
+                <input class="js-target-input" type="number" inputmode="numeric" min="1" max="1000" value="24" />
+                <small>최대 1000</small>
+              </label>
+            </section>
+
+            <section class="game-setting-box" aria-labelledby="timer-setting-title">
+              <div>
+                <strong id="timer-setting-title">타이머 시간</strong>
+                <span>최대 60초까지 설정</span>
+              </div>
+              <div class="timer-stepper" role="group" aria-label="타이머 시간 조절">
+                <button class="js-timer-minus" type="button" aria-label="타이머 1초 줄이기">−</button>
+                <output class="js-timer-value">6초</output>
+                <button class="js-timer-plus" type="button" aria-label="타이머 1초 늘리기">+</button>
+              </div>
+            </section>
+          </div>
+
+          <div class="game-settings-actions">
+            <button class="secondary-action js-reset-game-settings" type="button">초기화</button>
+            <button class="primary-action js-apply-game-settings" type="button">적용하기</button>
+          </div>
+        </div>
+      </dialog>
 
       <div class="toast" role="status" aria-live="polite"></div>
     </main>
