@@ -5717,3 +5717,142 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Home header logo balance */
+.home-screen .top-bar {
+  min-height: 78px;
+  align-items: center;
+}
+
+.home-screen .image-brand {
+  width: 126px;
+  height: 78px;
+  transform: translateX(-3px);
+}
+
+.home-screen .coin-wallet {
+  gap: 8px;
+}
+
+.home-screen .coin-wallet .wallet-pill {
+  min-width: 136px;
+  height: 42px;
+  gap: 7px;
+  padding: 5px 7px 5px 10px;
+  font-size: 16px;
+}
+
+.home-screen .coin-wallet .coin-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.home-screen .coin-wallet .coin-icon::after {
+  width: 7px;
+  height: 7px;
+  margin-top: 6px;
+}
+
+.home-screen .coin-wallet .mini-add {
+  width: 29px;
+  height: 29px;
+  font-size: 24px;
+}
+
+.home-screen .avatar-button {
+  width: 50px;
+  height: 50px;
+}
+
+@media (min-width: 700px) {
+  .home-screen .top-bar {
+    min-height: 86px;
+    margin-bottom: 14px;
+  }
+
+  .home-screen .image-brand {
+    width: 138px;
+    height: 86px;
+  }
+
+  .home-screen .coin-wallet .wallet-pill {
+    min-width: 148px;
+    height: 44px;
+    font-size: 17px;
+  }
+
+  .home-screen .avatar-button {
+    width: 54px;
+    height: 54px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-screen .top-bar {
+    min-height: 72px;
+    gap: 8px;
+  }
+
+  .home-screen .image-brand {
+    width: 104px;
+    height: 66px;
+  }
+
+  .home-screen .coin-wallet {
+    max-width: none;
+    gap: 6px;
+  }
+
+  .home-screen .coin-wallet .wallet-pill {
+    min-width: 132px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .home-screen .avatar-button {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 374px) {
+  .home-screen .top-bar {
+    min-height: 68px;
+    gap: 5px;
+  }
+
+  .home-screen .image-brand {
+    width: 92px;
+    height: 60px;
+    transform: translateX(-2px);
+  }
+
+  .home-screen .coin-wallet {
+    gap: 5px;
+  }
+
+  .home-screen .coin-wallet .wallet-pill {
+    min-width: 118px;
+    height: 36px;
+    gap: 4px;
+    padding-right: 5px;
+    padding-left: 7px;
+    font-size: 13px;
+  }
+
+  .home-screen .coin-wallet .coin-icon {
+    width: 23px;
+    height: 23px;
+  }
+
+  .home-screen .coin-wallet .mini-add {
+    width: 25px;
+    height: 25px;
+    font-size: 21px;
+  }
+
+  .home-screen .avatar-button {
+    width: 43px;
+    height: 43px;
+  }
+}
