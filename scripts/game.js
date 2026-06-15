@@ -38,6 +38,7 @@ let draftSettings = { ...settings };
 let selectedOperator = null;
 let selectedCardIds = [];
 let cards = [];
+let lastPuzzleSignature = "";
 let cardId = 0;
 let toastTimer;
 let feedbackTimer;
@@ -50,10 +51,27 @@ function clamp(value, min, max) {
 }
 
 function randomInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  const range = max - min + 1;
+
+  if (window.crypto?.getRandomValues) {
+    const bucket = Math.floor(0xffffffff / range) * range;
+    const buffer = new Uint32Array(1);
+
+    do {
+      window.crypto.getRandomValues(buffer);
+    } while (buffer[0] >= bucket);
+
+    return min + (buffer[0] % range);
+  }
+
+  return Math.floor(Math.random() * range) + min;
 }
 
-function randomCardValues(count) {
+function cardSignature(values) {
+  return [...values].sort((left, right) => left - right).join(",");
+}
+
+function createRandomCardValues(count) {
   const values = [];
   const counts = new Map();
 
@@ -69,6 +87,21 @@ function randomCardValues(count) {
     values.push(value);
   }
 
+  return values;
+}
+
+function randomCardValues(count) {
+  let values = createRandomCardValues(count);
+  let signature = cardSignature(values);
+  let attempts = 0;
+
+  while (signature === lastPuzzleSignature && attempts < 50) {
+    values = createRandomCardValues(count);
+    signature = cardSignature(values);
+    attempts += 1;
+  }
+
+  lastPuzzleSignature = signature;
   return values;
 }
 
