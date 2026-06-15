@@ -90,7 +90,7 @@
                 <path d="M12 5a8 8 0 1 0 0 16 8 8 0 0 0 0-16z" />
               </svg>
             </div>
-            <strong class="js-time">00:06</strong>
+            <strong class="js-time">00:10</strong>
             <div class="time-track" aria-hidden="true"><span class="js-time-track"></span></div>
           </article>
         </section>
@@ -173,21 +173,23 @@
                 <strong id="target-number-title">목표 숫자</strong>
                 <span>계산 결과로 만들 숫자</span>
               </div>
-              <label class="target-number-field">
+              <div class="target-number-field" role="group" aria-label="목표 숫자 조절">
+                <button class="js-target-minus" type="button" aria-label="목표 숫자 1 줄이기">−</button>
                 <input class="js-target-input" type="number" inputmode="numeric" min="1" max="1000" value="24" />
+                <button class="js-target-plus" type="button" aria-label="목표 숫자 1 늘리기">+</button>
                 <small>최대 1000</small>
-              </label>
+              </div>
             </section>
 
             <section class="game-setting-box" aria-labelledby="timer-setting-title">
               <div>
                 <strong id="timer-setting-title">타이머 시간</strong>
-                <span>최대 60초까지 설정</span>
+                <span>이번 판 제한 시간</span>
               </div>
-              <div class="timer-stepper" role="group" aria-label="타이머 시간 조절">
-                <button class="js-timer-minus" type="button" aria-label="타이머 1초 줄이기">−</button>
-                <output class="js-timer-value">6초</output>
-                <button class="js-timer-plus" type="button" aria-label="타이머 1초 늘리기">+</button>
+              <div class="setting-segment timer-choice-segment" role="group" aria-label="타이머 시간 선택">
+                <button class="js-timer-choice active" type="button" data-timer="10">10초</button>
+                <button class="js-timer-choice" type="button" data-timer="15">15초</button>
+                <button class="js-timer-choice" type="button" data-timer="20">20초</button>
               </div>
             </section>
           </div>

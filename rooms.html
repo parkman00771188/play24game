@@ -179,6 +179,105 @@
         </section>
       </section>
 
+      <dialog class="game-dialog room-create-dialog" id="createRoomDialog" aria-labelledby="create-room-title">
+        <div class="dialog-card create-room-card">
+          <div class="dialog-header create-room-dialog-header">
+            <button class="back-button js-close-create-room" type="button" aria-label="방 만들기 닫기">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+            </button>
+            <h2 id="create-room-title">방 만들기</h2>
+            <span class="create-room-badge" aria-hidden="true">+</span>
+          </div>
+
+          <form class="create-room-form js-create-room-form" autocomplete="off" novalidate>
+            <section class="create-room-preview" aria-label="생성할 방 미리보기">
+              <div class="create-preview-heading">
+                <strong><span class="crown-icon" aria-hidden="true"></span><span class="js-create-preview-title">나만의 24 도전방</span></strong>
+                <span class="create-preview-id">#NEW</span>
+              </div>
+              <div class="room-chip-row create-preview-chip-row">
+                <span><i class="target-mini js-create-preview-target-icon" aria-hidden="true"></i>목표 <b class="js-create-preview-target">24</b></span>
+                <span><i class="clock-chip" aria-hidden="true"></i>시간 <b class="js-create-preview-time">10분</b></span>
+                <span><i class="card-chip" aria-hidden="true"></i>카드 <b class="js-create-preview-cards">4장</b></span>
+              </div>
+              <div class="create-preview-bottom">
+                <strong class="create-preview-players"><i class="player-dot" aria-hidden="true"></i>1/<span class="js-create-preview-max">10</span></strong>
+                <div class="face-stack wide" aria-label="참가자 자리 미리보기">
+                  <span class="face face-a"></span>
+                  <span class="face ghost"></span>
+                  <span class="face ghost"></span>
+                  <span class="face ghost"></span>
+                </div>
+                <span class="create-preview-join">입장</span>
+              </div>
+            </section>
+
+            <div class="create-room-settings">
+              <label class="create-field create-name-field">
+                <span class="create-field-label">
+                  <strong>방 이름</strong>
+                  <small>목록에서 크게 보이는 제목</small>
+                </span>
+                <input class="create-text-input js-create-room-name" type="text" maxlength="18" value="나만의 24 도전방" />
+              </label>
+
+              <section class="create-field" aria-labelledby="create-target-title">
+                <span class="create-field-label">
+                  <strong id="create-target-title">목표 숫자</strong>
+                  <small>도전할 결과값</small>
+                </span>
+                <div class="create-number-stepper" role="group" aria-label="목표 숫자 조절">
+                  <button class="js-create-target-minus" type="button" aria-label="목표 숫자 1 줄이기">−</button>
+                  <input class="js-create-target-input" type="number" inputmode="numeric" min="1" max="1000" value="24" />
+                  <button class="js-create-target-plus" type="button" aria-label="목표 숫자 1 늘리기">+</button>
+                </div>
+              </section>
+
+              <section class="create-field" aria-labelledby="create-time-title">
+                <span class="create-field-label">
+                  <strong id="create-time-title">시간</strong>
+                  <small>한 판 제한 시간</small>
+                </span>
+                <div class="create-segment" role="group" aria-label="시간 선택">
+                  <button class="js-create-time active" type="button" data-value="10">10분</button>
+                  <button class="js-create-time" type="button" data-value="15">15분</button>
+                  <button class="js-create-time" type="button" data-value="20">20분</button>
+                </div>
+              </section>
+
+              <section class="create-field" aria-labelledby="create-card-title">
+                <span class="create-field-label">
+                  <strong id="create-card-title">카드</strong>
+                  <small>사용할 카드 개수</small>
+                </span>
+                <div class="create-segment" role="group" aria-label="카드 개수 선택">
+                  <button class="js-create-card-count active" type="button" data-value="4">4장</button>
+                  <button class="js-create-card-count" type="button" data-value="5">5장</button>
+                  <button class="js-create-card-count" type="button" data-value="6">6장</button>
+                </div>
+              </section>
+
+              <section class="create-field" aria-labelledby="create-max-title">
+                <span class="create-field-label">
+                  <strong id="create-max-title">정원</strong>
+                  <small>함께 입장할 인원</small>
+                </span>
+                <div class="create-segment" role="group" aria-label="정원 선택">
+                  <button class="js-create-max-player" type="button" data-value="6">6명</button>
+                  <button class="js-create-max-player" type="button" data-value="8">8명</button>
+                  <button class="js-create-max-player active" type="button" data-value="10">10명</button>
+                </div>
+              </section>
+            </div>
+
+            <div class="create-room-actions">
+              <button class="create-room-cancel js-close-create-room" type="button">취소</button>
+              <button class="create-room-submit" type="submit">방 만들기</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
+
       <div class="toast" role="status" aria-live="polite"></div>
     </main>
 

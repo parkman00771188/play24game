@@ -7,8 +7,8 @@ const calculateButton = document.querySelector(".js-calculate");
 const targetText = document.querySelector(".js-target-value");
 const settingsDialog = document.querySelector("#gameSettingsDialog");
 const targetInput = document.querySelector(".js-target-input");
-const timerValue = document.querySelector(".js-timer-value");
 const cardCountButtons = document.querySelectorAll(".js-card-count");
+const timerChoiceButtons = document.querySelectorAll(".js-timer-choice");
 const chatDock = document.querySelector(".js-chat-dock");
 const chatToggle = document.querySelector(".js-chat-toggle");
 const chatPanel = document.querySelector(".js-chat-panel");
@@ -23,8 +23,10 @@ const mascotSpeech = document.querySelector(".js-mascot-speech");
 const defaultSettings = Object.freeze({
   cardCount: 4,
   target: 24,
-  timer: 6,
+  timer: 10,
 });
+
+const timerOptions = [10, 15, 20];
 
 const puzzleSets = {
   4: [
@@ -73,7 +75,8 @@ function clamp(value, min, max) {
 function normalizeSettings(value = {}) {
   const cardCount = [4, 5, 6].includes(Number(value.cardCount)) ? Number(value.cardCount) : defaultSettings.cardCount;
   const target = clamp(Math.round(Number(value.target) || defaultSettings.target), 1, 1000);
-  const timer = clamp(Math.round(Number(value.timer) || defaultSettings.timer), 1, 60);
+  const timerValue = Math.round(Number(value.timer) || defaultSettings.timer);
+  const timer = timerOptions.includes(timerValue) ? timerValue : defaultSettings.timer;
   return { cardCount, target, timer };
 }
 
@@ -162,12 +165,12 @@ function updateSettingsControls() {
   if (targetInput) {
     targetInput.value = draftSettings.target;
   }
-  if (timerValue) {
-    timerValue.textContent = `${draftSettings.timer}초`;
-  }
-
   cardCountButtons.forEach((button) => {
     button.classList.toggle("active", Number(button.dataset.count) === draftSettings.cardCount);
+  });
+
+  timerChoiceButtons.forEach((button) => {
+    button.classList.toggle("active", Number(button.dataset.timer) === draftSettings.timer);
   });
 }
 
@@ -448,14 +451,21 @@ targetInput?.addEventListener("input", () => {
   draftSettings.target = clamp(Math.round(Number(targetInput.value) || defaultSettings.target), 1, 1000);
 });
 
-document.querySelector(".js-timer-minus")?.addEventListener("click", () => {
-  draftSettings.timer = clamp(draftSettings.timer - 1, 1, 60);
+document.querySelector(".js-target-minus")?.addEventListener("click", () => {
+  draftSettings.target = clamp(draftSettings.target - 1, 1, 1000);
   updateSettingsControls();
 });
 
-document.querySelector(".js-timer-plus")?.addEventListener("click", () => {
-  draftSettings.timer = clamp(draftSettings.timer + 1, 1, 60);
+document.querySelector(".js-target-plus")?.addEventListener("click", () => {
+  draftSettings.target = clamp(draftSettings.target + 1, 1, 1000);
   updateSettingsControls();
+});
+
+timerChoiceButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    draftSettings.timer = Number(button.dataset.timer) || defaultSettings.timer;
+    updateSettingsControls();
+  });
 });
 
 document.querySelector(".js-reset-game-settings")?.addEventListener("click", () => {
