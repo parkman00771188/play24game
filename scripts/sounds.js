@@ -1,14 +1,55 @@
 (() => {
   const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-  if (!AudioContextClass && typeof Audio === "undefined") return;
+  const canUseElementAudio = typeof Audio !== "undefined";
 
   let audioContext;
   let masterGain;
   const toneDataUris = new Map();
+  const soundStorageKey = "play24SoundSettings";
+  const defaultSoundSettings = Object.freeze({
+    enabled: true,
+    volume: 0.88,
+  });
   let lastSoundAt = 0;
   let ignorePointerUntil = 0;
   let unlocked = false;
   let resumePromise = Promise.resolve();
+  let soundSettings = loadSoundSettings();
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function normalizeSoundSettings(value = {}) {
+    const volume = Number.isFinite(Number(value.volume))
+      ? clamp(Number(value.volume), 0, 1)
+      : defaultSoundSettings.volume;
+    return {
+      enabled: value.enabled !== false,
+      volume,
+    };
+  }
+
+  function loadSoundSettings() {
+    try {
+      return normalizeSoundSettings(JSON.parse(window.localStorage.getItem(soundStorageKey) || "{}"));
+    } catch {
+      return { ...defaultSoundSettings };
+    }
+  }
+
+  function saveSoundSettings() {
+    try {
+      window.localStorage.setItem(soundStorageKey, JSON.stringify(soundSettings));
+    } catch {
+      // Sound preferences are optional; audio still works for the current session.
+    }
+  }
+
+  function applySoundSettings() {
+    if (!masterGain) return;
+    masterGain.gain.value = soundSettings.enabled ? soundSettings.volume : 0;
+  }
 
   function ensureAudio() {
     if (!AudioContextClass) return null;
@@ -16,7 +57,7 @@
     if (!audioContext) {
       audioContext = new AudioContextClass();
       masterGain = audioContext.createGain();
-      masterGain.gain.value = 0.88;
+      applySoundSettings();
       masterGain.connect(audioContext.destination);
     }
 
@@ -140,7 +181,8 @@
   }
 
   function playElementSound(name) {
-    if (typeof Audio === "undefined") return false;
+    if (!soundSettings.enabled || soundSettings.volume <= 0) return false;
+    if (!canUseElementAudio) return false;
     const profile = toneProfile(name);
     const key = `${profile.frequency}-${profile.endFrequency || ""}-${profile.duration}-${profile.volume}`;
     if (!toneDataUris.has(key)) {
@@ -148,12 +190,13 @@
     }
     const audio = new Audio(toneDataUris.get(key));
     audio.preload = "auto";
-    audio.volume = 1;
+    audio.volume = soundSettings.volume;
     audio.play().catch(() => {});
     return true;
   }
 
   function playSound(name) {
+    if (!soundSettings.enabled || soundSettings.volume <= 0) return;
     const now = performance.now();
     if (now - lastSoundAt < 42) return;
     lastSoundAt = now;
@@ -347,5 +390,12 @@
     { capture: true }
   );
 
+  window.play24GetSoundSettings = () => ({ ...soundSettings });
+  window.play24SetSoundSettings = (nextSettings = {}) => {
+    soundSettings = normalizeSoundSettings({ ...soundSettings, ...nextSettings });
+    saveSoundSettings();
+    applySoundSettings();
+    window.dispatchEvent(new CustomEvent("play24SoundSettingsChange", { detail: { ...soundSettings } }));
+  };
   window.play24PlaySound = playSound;
 })();

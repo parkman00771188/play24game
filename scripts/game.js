@@ -27,40 +27,17 @@ const defaultSettings = Object.freeze({
 });
 
 const timerOptions = [10, 15, 20];
-
-const puzzleSets = {
-  4: [
-    [7, 4, 6, 2],
-    [8, 8, 3, 5],
-    [9, 6, 4, 1],
-    [10, 2, 8, 4],
-    [5, 5, 5, 1],
-    [12, 3, 7, 2],
-  ],
-  5: [
-    [7, 4, 6, 2, 3],
-    [9, 8, 3, 2, 5],
-    [10, 6, 4, 1, 2],
-    [12, 5, 3, 2, 1],
-    [11, 7, 4, 3, 2],
-    [8, 6, 5, 5, 1],
-  ],
-  6: [
-    [7, 4, 6, 2, 3, 1],
-    [9, 8, 3, 2, 5, 1],
-    [10, 6, 4, 1, 2, 2],
-    [12, 5, 3, 2, 1, 1],
-    [11, 7, 4, 3, 2, 1],
-    [8, 6, 5, 5, 1, 2],
-  ],
-};
+const randomCardRange = Object.freeze({
+  min: 1,
+  max: 12,
+  maxDuplicate: 2,
+});
 
 let settings = loadSettings();
 let draftSettings = { ...settings };
 let selectedOperator = null;
 let selectedCardIds = [];
 let cards = [];
-let puzzleIndex = 0;
 let cardId = 0;
 let toastTimer;
 let feedbackTimer;
@@ -70,6 +47,29 @@ let isResolving = false;
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
+}
+
+function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randomCardValues(count) {
+  const values = [];
+  const counts = new Map();
+
+  while (values.length < count) {
+    const value = randomInteger(randomCardRange.min, randomCardRange.max);
+    const used = counts.get(value) || 0;
+
+    if (used >= randomCardRange.maxDuplicate) {
+      continue;
+    }
+
+    counts.set(value, used + 1);
+    values.push(value);
+  }
+
+  return values;
 }
 
 function normalizeSettings(value = {}) {
@@ -226,10 +226,8 @@ function renderCards({ resultId } = {}) {
   setCalculateState();
 }
 
-function startPuzzle(index = puzzleIndex) {
-  const set = puzzleSets[settings.cardCount] || puzzleSets[4];
-  puzzleIndex = ((index % set.length) + set.length) % set.length;
-  cards = set[puzzleIndex].map((value) => ({ id: ++cardId, value }));
+function startPuzzle() {
+  cards = randomCardValues(settings.cardCount).map((value) => ({ id: ++cardId, value }));
   selectedCardIds = [];
   selectedOperator = null;
   isResolving = false;
@@ -280,7 +278,7 @@ function showRoundFeedback(type, message) {
 
   feedbackTimer = window.setTimeout(() => {
     numberBoard.classList.remove(type);
-    startPuzzle(puzzleIndex + 1);
+    startPuzzle();
   }, 980);
 }
 
@@ -484,7 +482,7 @@ document.querySelector(".js-apply-game-settings")?.addEventListener("click", () 
   updateSettingsControls();
   closeDialog(settingsDialog);
   showToast("새 설정으로 게임을 시작합니다.");
-  startPuzzle(0);
+  startPuzzle();
 });
 
 window.setInterval(() => {

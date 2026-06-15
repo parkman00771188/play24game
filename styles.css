@@ -1348,6 +1348,10 @@ svg {
   accent-color: #1687ff;
 }
 
+.setting-group .sound-volume-row {
+  grid-template-columns: minmax(0, 1fr) minmax(104px, 118px) 44px;
+}
+
 .setting-group b {
   min-width: 42px;
   color: #7895c6;
@@ -1377,9 +1381,9 @@ svg {
 
 .profile-hero {
   display: grid;
-  grid-template-columns: 130px 1fr;
+  grid-template-columns: 124px minmax(0, 1fr) 98px;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   min-height: 188px;
   padding: 15px;
   border: 2px solid #95c8ff;
@@ -1390,7 +1394,7 @@ svg {
   box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.88), 0 10px 18px rgba(38, 96, 173, 0.15);
 }
 
-.profile-hero img {
+.profile-avatar {
   width: 132px;
   height: 136px;
   object-fit: contain;
@@ -1402,6 +1406,33 @@ svg {
   color: #0b56bf;
   font-size: 15px;
   font-weight: 1000;
+}
+
+.profile-medal-card {
+  display: grid;
+  min-width: 0;
+  justify-items: center;
+  gap: 6px;
+  padding: 10px 7px 9px;
+  border: 2px solid rgba(141, 190, 255, 0.72);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(235, 246, 255, 0.9));
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.86), 0 7px 12px rgba(32, 101, 183, 0.12);
+}
+
+.profile-medal-card img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 7px rgba(81, 83, 187, 0.22));
+}
+
+.profile-medal-card span {
+  color: #7147cf;
+  font-size: 13px;
+  font-weight: 1000;
+  line-height: 1.15;
+  text-align: center;
 }
 
 .profile-stats {
@@ -9024,5 +9055,481 @@ body {
   .pet-room-icon,
   .pet-egg-icon {
     max-width: 50px;
+  }
+}
+
+@media (max-width: 430px) {
+  .profile-hero {
+    grid-template-columns: 98px minmax(0, 1fr);
+    min-height: auto;
+  }
+
+  .profile-avatar {
+    width: 102px;
+    height: 106px;
+  }
+
+  .profile-medal-card {
+    grid-column: 1 / -1;
+    grid-template-columns: 52px minmax(0, 1fr);
+    align-items: center;
+    justify-items: start;
+    padding: 8px 12px;
+  }
+
+  .profile-medal-card img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .profile-medal-card span {
+    text-align: left;
+  }
+}
+
+@media (max-width: 374px) {
+  .setting-group .sound-volume-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 7px;
+  }
+
+  .setting-group .sound-volume-row input[type="range"] {
+    width: 100%;
+  }
+
+  .setting-group .sound-volume-row b {
+    justify-self: end;
+  }
+}
+
+@media (max-height: 860px) {
+  .pet-screen {
+    padding-top: 14px;
+    padding-bottom: 100px;
+  }
+
+  .pet-page-header {
+    min-height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .pet-title-wrap {
+    gap: 9px;
+  }
+
+  .pet-title-wrap h1 {
+    font-size: clamp(25px, 6.4vw, 33px);
+  }
+
+  .pet-title-spark {
+    width: 16px;
+    height: 16px;
+  }
+
+  .pet-room-panel {
+    min-height: 432px;
+    border-radius: 24px;
+  }
+
+  .pet-level-area {
+    top: 20px;
+    left: 17px;
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 8px;
+    width: min(62%, 225px);
+  }
+
+  .pet-level-badge {
+    width: 54px;
+    height: 62px;
+  }
+
+  .pet-level-badge span {
+    font-size: 12px;
+  }
+
+  .pet-level-badge strong {
+    font-size: 29px;
+  }
+
+  .pet-level-badge i {
+    left: 17px;
+    width: 23px;
+    height: 23px;
+  }
+
+  .pet-affection strong {
+    margin-bottom: 5px;
+    font-size: 17px;
+  }
+
+  .pet-affection p {
+    gap: 7px;
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+
+  .pet-affection p span {
+    width: 21px;
+    height: 21px;
+  }
+
+  .pet-affection p span::before {
+    top: -10px;
+    width: 21px;
+    height: 21px;
+  }
+
+  .pet-affection p span::after {
+    right: -10px;
+    width: 21px;
+    height: 21px;
+  }
+
+  .pet-progress {
+    width: 162px;
+    height: 14px;
+  }
+
+  .pet-window {
+    top: 19px;
+    right: 22px;
+    width: 88px;
+    height: 88px;
+    border-width: 8px;
+  }
+
+  .pet-shelf {
+    top: 116px;
+    right: 13px;
+    transform: scale(0.72);
+    transform-origin: top right;
+  }
+
+  .pet-main-mascot {
+    top: 135px;
+    width: 184px;
+  }
+
+  .pet-igloo {
+    left: 17px;
+    top: 226px;
+    transform: scale(0.73);
+    transform-origin: top left;
+  }
+
+  .pet-food-bowl {
+    left: 28px;
+    top: 304px;
+    transform: scale(0.72);
+    transform-origin: top left;
+  }
+
+  .pet-rug {
+    top: 293px;
+    width: 176px;
+  }
+
+  .pet-ball {
+    top: 274px;
+    right: 35px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .pet-duck {
+    top: 321px;
+    right: 25px;
+    transform: scale(0.72);
+    transform-origin: top right;
+  }
+
+  .pet-reaction {
+    top: 324px;
+    padding: 7px 12px 8px;
+    font-size: 13px;
+  }
+
+  .pet-status-panel {
+    left: 10px;
+    right: 10px;
+    bottom: 9px;
+    min-height: 76px;
+    padding: 7px 6px;
+    border-radius: 18px;
+  }
+
+  .pet-status-item {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 5px;
+    padding: 0 5px;
+  }
+
+  .pet-status-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 12px;
+  }
+
+  .pet-status-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .pet-status-item strong {
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
+
+  .pet-segments {
+    gap: 3px;
+  }
+
+  .pet-segments i {
+    height: 8px;
+  }
+
+  .pet-status-item em {
+    margin-top: 4px;
+    padding: 2px 7px 3px;
+    font-size: 10px;
+  }
+
+  .pet-action-grid {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .pet-action {
+    min-height: 82px;
+    gap: 3px;
+    padding: 8px 5px;
+    border-radius: 17px;
+  }
+
+  .pet-action strong {
+    font-size: clamp(16px, 4.5vw, 20px);
+  }
+
+  .pet-action-visual {
+    transform: scale(0.74);
+  }
+
+  .pet-card-grid {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .pet-mini-card {
+    grid-template-columns: 42% minmax(0, 1fr);
+    justify-items: stretch;
+    min-height: 68px;
+    gap: 5px;
+    padding: 7px 6px;
+    border-radius: 15px;
+    text-align: left;
+  }
+
+  .pet-mini-card img {
+    max-height: 46px;
+  }
+
+  .pet-room-icon {
+    width: 46px;
+    height: 45px;
+    transform: scale(0.82);
+    transform-origin: center;
+  }
+
+  .pet-egg-icon {
+    width: 42px;
+    height: 48px;
+    transform: scale(0.82);
+    transform-origin: center;
+  }
+
+  .pet-mini-card strong {
+    font-size: clamp(13px, 3.5vw, 15px);
+  }
+
+  .pet-mini-card small {
+    font-size: 10px;
+  }
+
+  .pet-bottom-nav {
+    bottom: calc(8px + env(safe-area-inset-bottom));
+    height: 74px;
+    padding: 7px 9px 8px;
+    border-radius: 22px;
+  }
+
+  .pet-bottom-nav .nav-item {
+    height: 56px;
+  }
+
+  .pet-grow-nav img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .pet-toast {
+    bottom: calc(94px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-height: 740px) {
+  .pet-screen {
+    padding-top: 10px;
+    padding-bottom: 88px;
+  }
+
+  .pet-page-header {
+    min-height: 42px;
+    margin-bottom: 6px;
+  }
+
+  .pet-coin-pill {
+    min-width: 96px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .pet-coin-pill .coin-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .pet-room-panel {
+    min-height: 376px;
+  }
+
+  .pet-level-area {
+    top: 15px;
+    transform: scale(0.88);
+    transform-origin: top left;
+  }
+
+  .pet-window {
+    top: 15px;
+    right: 18px;
+    width: 78px;
+    height: 78px;
+    border-width: 7px;
+  }
+
+  .pet-shelf {
+    top: 98px;
+    transform: scale(0.62);
+  }
+
+  .pet-main-mascot {
+    top: 116px;
+    width: 160px;
+  }
+
+  .pet-igloo {
+    top: 194px;
+    transform: scale(0.64);
+  }
+
+  .pet-food-bowl {
+    top: 264px;
+    transform: scale(0.64);
+  }
+
+  .pet-rug {
+    top: 255px;
+    width: 154px;
+  }
+
+  .pet-ball {
+    top: 238px;
+    right: 30px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .pet-duck {
+    top: 279px;
+    right: 21px;
+    transform: scale(0.64);
+  }
+
+  .pet-reaction {
+    top: 281px;
+  }
+
+  .pet-status-panel {
+    min-height: 70px;
+    padding: 6px 5px;
+  }
+
+  .pet-status-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .pet-status-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .pet-action-grid {
+    margin-top: 8px;
+  }
+
+  .pet-action {
+    min-height: 66px;
+    padding: 6px 4px;
+  }
+
+  .pet-action::before {
+    height: 34%;
+  }
+
+  .pet-action-visual {
+    width: 45px;
+    height: 38px;
+    transform: scale(0.64);
+  }
+
+  .pet-action strong {
+    font-size: 15px;
+  }
+
+  .pet-card-grid {
+    margin-top: 6px;
+  }
+
+  .pet-mini-card {
+    min-height: 57px;
+    padding: 5px;
+  }
+
+  .pet-mini-card img {
+    max-height: 38px;
+  }
+
+  .pet-room-icon,
+  .pet-egg-icon {
+    transform: scale(0.68);
+  }
+
+  .pet-mini-card strong {
+    font-size: 12px;
+  }
+
+  .pet-mini-card small {
+    margin-top: 2px;
+    font-size: 9px;
+  }
+
+  .pet-bottom-nav {
+    bottom: calc(6px + env(safe-area-inset-bottom));
+    height: 70px;
+  }
+
+  .pet-bottom-nav .nav-item {
+    height: 52px;
   }
 }

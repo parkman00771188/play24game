@@ -1,7 +1,14 @@
 const toast = document.querySelector(".toast");
 const settingsDialog = document.querySelector("#settingsDialog");
 const profileDialog = document.querySelector("#profileDialog");
+const soundEnabledInput = document.querySelector(".js-sound-enabled");
+const soundVolumeInput = document.querySelector(".js-sound-volume");
+const soundVolumeValue = document.querySelector(".js-sound-volume-value");
 let toastTimer;
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
 
 function showToast(message) {
   if (!toast) return;
@@ -31,7 +38,32 @@ function closeDialog(dialog) {
   }
 }
 
+function getSoundSettings() {
+  return window.play24GetSoundSettings?.() || { enabled: true, volume: 0.88 };
+}
+
+function updateSoundControls(nextSettings = getSoundSettings()) {
+  const settings = {
+    enabled: nextSettings.enabled !== false,
+    volume: clamp(Number(nextSettings.volume) || 0, 0, 1),
+  };
+  const percent = Math.round(settings.volume * 100);
+
+  if (soundEnabledInput) {
+    soundEnabledInput.checked = settings.enabled;
+  }
+
+  if (soundVolumeInput) {
+    soundVolumeInput.value = String(percent);
+  }
+
+  if (soundVolumeValue) {
+    soundVolumeValue.textContent = `${percent}%`;
+  }
+}
+
 document.querySelector(".js-settings")?.addEventListener("click", () => {
+  updateSoundControls();
   openDialog(settingsDialog);
 });
 
@@ -42,6 +74,23 @@ document.querySelector(".js-close-settings")?.addEventListener("click", () => {
 document.querySelector(".js-tutorial")?.addEventListener("click", () => {
   showToast("튜토리얼 화면을 준비 중입니다.");
 });
+
+soundEnabledInput?.addEventListener("change", () => {
+  window.play24SetSoundSettings?.({ enabled: soundEnabledInput.checked });
+  updateSoundControls();
+});
+
+soundVolumeInput?.addEventListener("input", () => {
+  const volume = clamp(Number(soundVolumeInput.value) || 0, 0, 100) / 100;
+  window.play24SetSoundSettings?.({ volume });
+  updateSoundControls({ ...getSoundSettings(), volume });
+});
+
+window.addEventListener("play24SoundSettingsChange", (event) => {
+  updateSoundControls(event.detail);
+});
+
+updateSoundControls();
 
 document.querySelectorAll(".js-profile").forEach((button) => {
   button.addEventListener("click", () => openDialog(profileDialog));
