@@ -10970,11 +10970,11 @@ body {
 }
 
 .ranking-row {
-  grid-template-columns: 46px 48px minmax(0, 1fr) 120px 86px;
-  gap: 7px;
-  min-height: 66px;
+  grid-template-columns: 46px 50px minmax(0, 1fr) 126px 92px;
+  gap: 8px;
+  min-height: 70px;
   margin-top: 0;
-  padding: 7px 9px;
+  padding: 8px 10px;
   border: 1px solid #e2efff;
   border-radius: 16px;
   background: linear-gradient(180deg, #fff, #f6fbff);
@@ -10988,23 +10988,23 @@ body {
 }
 
 .ranking-place img {
-  width: 42px;
-  max-height: 42px;
+  width: 44px;
+  max-height: 44px;
 }
 
 .ranking-place.numeric {
   color: #0c3e91;
-  font-size: 28px;
+  font-size: 30px;
 }
 
 .current-player .ranking-place.numeric {
   color: #1475f4;
-  font-size: 31px;
+  font-size: 33px;
 }
 
 .rank-avatar {
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
 }
 
 .rank-player {
@@ -11019,27 +11019,10 @@ body {
   min-width: 0;
   overflow: hidden;
   color: #07347f;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 1000;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.rank-challenge-pill {
-  flex: 0 0 auto;
-  padding: 4px 8px 5px;
-  border-radius: 999px;
-  color: #fff;
-  background: linear-gradient(180deg, #51a6ff, #1469e4);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 3px 7px rgba(23, 104, 220, 0.18);
-  font-size: 11px;
-  font-weight: 1000;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.current-player .rank-player strong {
-  flex: 0 0 auto;
 }
 
 .rank-grade {
@@ -11047,24 +11030,24 @@ body {
 }
 
 .rank-grade img {
-  width: 38px;
-  height: 38px;
+  width: 41px;
+  height: 41px;
 }
 
 .rank-grade span {
   color: #164d9d;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .rank-score {
-  padding-left: 9px;
+  padding-left: 10px;
   border-left: 1px solid #d8e7fb;
 }
 
 .rank-score strong {
   gap: 4px;
   color: #07347f;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .rank-score span {
@@ -11072,12 +11055,12 @@ body {
   gap: 2px;
   margin-top: 4px;
   color: #2859a8;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .score-star {
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
 }
 
 .ranking-cta {
@@ -11267,29 +11250,29 @@ body {
   }
 
   .ranking-row {
-    grid-template-columns: 35px 38px minmax(0, 1fr) 82px 63px;
+    grid-template-columns: 36px 39px minmax(0, 1fr) 86px 72px;
     gap: 4px;
-    min-height: 60px;
-    padding: 6px;
+    min-height: 64px;
+    padding: 6px 7px;
     border-radius: 14px;
   }
 
   .ranking-place img {
-    width: 34px;
-    max-height: 34px;
+    width: 36px;
+    max-height: 36px;
   }
 
   .ranking-place.numeric {
-    font-size: 22px;
-  }
-
-  .current-player .ranking-place.numeric {
     font-size: 24px;
   }
 
+  .current-player .ranking-place.numeric {
+    font-size: 26px;
+  }
+
   .rank-avatar {
-    width: 35px;
-    height: 35px;
+    width: 38px;
+    height: 38px;
   }
 
   .rank-player {
@@ -11297,12 +11280,7 @@ body {
   }
 
   .rank-player strong {
-    font-size: 12px;
-  }
-
-  .rank-challenge-pill {
-    padding: 3px 6px 4px;
-    font-size: 9px;
+    font-size: 13px;
   }
 
   .rank-grade {
@@ -11310,29 +11288,29 @@ body {
   }
 
   .rank-grade img {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
   }
 
   .rank-grade span {
-    font-size: 9.5px;
+    font-size: 10.5px;
   }
 
   .rank-score {
-    padding-left: 5px;
+    padding-left: 6px;
   }
 
   .rank-score strong {
-    font-size: 12.5px;
+    font-size: 13.5px;
   }
 
   .rank-score span {
-    font-size: 9px;
+    font-size: 9.8px;
   }
 
   .score-star {
-    width: 13px;
-    height: 13px;
+    width: 14px;
+    height: 14px;
   }
 
   .ranking-cta {
@@ -11421,41 +11399,36 @@ body {
   }
 
   .ranking-row {
-    grid-template-columns: 30px 32px minmax(0, 1fr) 76px 57px;
+    grid-template-columns: 31px 34px minmax(0, 1fr) 78px 66px;
     gap: 3px;
-    min-height: 57px;
+    min-height: 60px;
     padding: 5px;
   }
 
   .rank-avatar {
-    width: 31px;
-    height: 31px;
+    width: 33px;
+    height: 33px;
   }
 
   .rank-player strong {
-    font-size: 11.5px;
-  }
-
-  .rank-challenge-pill {
-    padding-inline: 5px;
-    font-size: 8.5px;
+    font-size: 12.2px;
   }
 
   .rank-grade img {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
   }
 
   .rank-grade span {
-    font-size: 8px;
+    font-size: 8.8px;
   }
 
   .rank-score strong {
-    font-size: 11.5px;
+    font-size: 12.2px;
   }
 
   .rank-score span {
-    font-size: 8px;
+    font-size: 8.6px;
   }
 
   .ranking-cta {
