@@ -10787,8 +10787,9 @@ body {
   overflow: hidden;
   border-radius: 20px;
   background:
-    radial-gradient(circle at 15% 17%, rgba(185, 245, 255, 0.9) 0 7px, transparent 8px),
-    radial-gradient(circle at 76% 32%, rgba(255, 255, 255, 0.34), transparent 22%),
+    radial-gradient(circle at 14% 17%, rgba(206, 248, 255, 0.96) 0 6px, transparent 7px),
+    linear-gradient(180deg, rgba(0, 33, 117, 0.04), rgba(0, 21, 90, 0.1)),
+    url("./assets/optimized/ranking/ranking-season-bg.webp") center / cover no-repeat,
     linear-gradient(160deg, #07318e 0%, #096fe8 52%, #44c4ff 100%);
   box-shadow:
     inset 0 2px 0 rgba(255, 255, 255, 0.36),
@@ -10798,12 +10799,12 @@ body {
 .ranking-season-art img {
   position: absolute;
   left: 50%;
-  top: 51%;
-  width: 130%;
-  height: 130%;
-  object-fit: cover;
+  top: 53%;
+  width: 96%;
+  height: 98%;
+  object-fit: contain;
   object-position: center;
-  filter: saturate(1.25) contrast(1.04) drop-shadow(0 10px 16px rgba(2, 30, 88, 0.28));
+  filter: saturate(1.15) contrast(1.03) drop-shadow(0 9px 12px rgba(2, 30, 88, 0.28));
   transform: translate(-50%, -50%);
 }
 
@@ -11080,8 +11081,9 @@ body {
 }
 
 .ranking-cta {
-  grid-template-columns: 104px minmax(0, 1fr) 132px;
-  min-height: 86px;
+  grid-template-columns: 88px minmax(0, 1fr) 116px;
+  gap: 8px;
+  min-height: 84px;
   margin-top: 12px;
   padding: 10px 12px;
   overflow: hidden;
@@ -11098,22 +11100,24 @@ body {
 }
 
 .ranking-cta-mascot {
-  width: 100px;
-  height: 74px;
+  width: 92px;
+  height: 72px;
   overflow: hidden;
   border-radius: 14px;
 }
 
 .ranking-cta-mascot img {
-  left: -21px;
-  bottom: -23px;
-  width: 145px;
-  filter: saturate(1.14) drop-shadow(0 7px 10px rgba(19, 84, 181, 0.18));
+  left: -2px;
+  bottom: -3px;
+  width: 92px;
+  height: 72px;
+  object-fit: contain;
+  filter: saturate(1.12) drop-shadow(0 7px 10px rgba(19, 84, 181, 0.18));
 }
 
 .ranking-cta strong {
   color: #fff;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.15;
   text-shadow: 0 2px 0 rgba(2, 51, 135, 0.18);
 }
@@ -11124,13 +11128,13 @@ body {
 }
 
 .my-rank-button {
-  min-height: 54px;
+  min-height: 52px;
   border: 3px solid rgba(255, 255, 255, 0.88);
   border-radius: 16px;
   color: #0a4eb0;
   background: linear-gradient(180deg, #fff, #eaf6ff);
   box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.88), 0 6px 10px rgba(7, 71, 154, 0.18);
-  font-size: 15px;
+  font-size: 14px;
 }
 
 @media (max-width: 480px) {
@@ -11191,8 +11195,8 @@ body {
   }
 
   .ranking-season-art img {
-    width: 137%;
-    height: 137%;
+    width: 98%;
+    height: 98%;
   }
 
   .season-label {
@@ -11344,9 +11348,10 @@ body {
   }
 
   .ranking-cta-mascot img {
-    left: -21px;
-    bottom: -17px;
-    width: 100px;
+    left: -4px;
+    bottom: -3px;
+    width: 68px;
+    height: 60px;
   }
 
   .ranking-cta strong {
@@ -11467,7 +11472,7 @@ body {
   color: #fff;
   background:
     linear-gradient(180deg, rgba(3, 13, 51, 0.08), rgba(2, 8, 42, 0.32)),
-    url("./assets/background/ranking_tournament.png") center / cover no-repeat,
+    url("./assets/optimized/rank-match/rank-match-bg.webp") center / cover no-repeat,
     #04194f;
 }
 
