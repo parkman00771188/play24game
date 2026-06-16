@@ -1387,6 +1387,14 @@ svg {
   font-weight: 1000;
 }
 
+.profile-logout-button {
+  margin-top: 12px;
+}
+
+.profile-close-button {
+  margin-top: 8px;
+}
+
 .profile-card {
   background:
     radial-gradient(circle at 28% 21%, rgba(174, 246, 255, 0.7), transparent 31%),

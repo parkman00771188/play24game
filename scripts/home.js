@@ -100,6 +100,11 @@ document.querySelector(".js-close-profile")?.addEventListener("click", () => {
   closeDialog(profileDialog);
 });
 
+document.querySelector(".js-profile-logout")?.addEventListener("click", () => {
+  closeDialog(profileDialog);
+  showToast("로그아웃되었습니다.");
+});
+
 document.querySelectorAll(".game-dialog").forEach((dialog) => {
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) {
