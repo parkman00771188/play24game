@@ -29,7 +29,7 @@ const defaultSettings = Object.freeze({
 const timerOptions = [10, 15, 20];
 const randomCardRange = Object.freeze({
   min: 1,
-  max: 12,
+  max: 9,
   maxDuplicate: 2,
 });
 
