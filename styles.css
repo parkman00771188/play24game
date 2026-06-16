@@ -8655,7 +8655,7 @@ body {
 }
 
 .pet-bottom-nav {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr 1fr 82px 1fr 1fr;
 }
 
 .pet-bottom-nav .nav-item {
@@ -8889,6 +8889,10 @@ body {
     gap: 5px;
     padding: 9px 7px;
     border-radius: 16px;
+  }
+
+  .pet-bottom-nav {
+    grid-template-columns: 1fr 1fr 74px 1fr 1fr;
   }
 }
 
