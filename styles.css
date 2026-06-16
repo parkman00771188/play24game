@@ -1373,6 +1373,20 @@ svg {
   font-weight: 1000;
 }
 
+.settings-close-button {
+  display: block;
+  width: 100%;
+  min-height: 58px;
+  margin-top: 14px;
+  border: 2px solid #b9d9ff;
+  border-radius: 18px;
+  color: #1265dc;
+  background: linear-gradient(180deg, #fff, #eef8ff);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.82), 0 6px 11px rgba(38, 96, 173, 0.12);
+  font-size: 20px;
+  font-weight: 1000;
+}
+
 .profile-card {
   background:
     radial-gradient(circle at 28% 21%, rgba(174, 246, 255, 0.7), transparent 31%),

@@ -26,6 +26,7 @@ const defaultSettings = Object.freeze({
   timer: 10,
 });
 
+const settingsSchemaVersion = 2;
 const timerOptions = [10, 15, 20];
 const targetRange = Object.freeze({
   min: 1,
@@ -115,7 +116,8 @@ function randomCardValues(count) {
 
 function normalizeSettings(value = {}) {
   const cardCount = [4, 5, 6].includes(Number(value.cardCount)) ? Number(value.cardCount) : defaultSettings.cardCount;
-  const target = normalizeTarget(value.target);
+  const savedTarget = Number(value.target);
+  const target = Number.isFinite(savedTarget) && savedTarget > targetRange.max ? defaultSettings.target : normalizeTarget(value.target);
   const timerValue = Math.round(Number(value.timer) || defaultSettings.timer);
   const timer = timerOptions.includes(timerValue) ? timerValue : defaultSettings.timer;
   return { cardCount, target, timer };
@@ -123,7 +125,13 @@ function normalizeSettings(value = {}) {
 
 function loadSettings() {
   try {
-    return normalizeSettings(JSON.parse(window.localStorage.getItem("play24gameSettings") || "{}"));
+    const savedSettings = JSON.parse(window.localStorage.getItem("play24gameSettings") || "{}");
+    const migratedSettings =
+      savedSettings.settingsSchemaVersion === settingsSchemaVersion
+        ? savedSettings
+        : { ...savedSettings, target: defaultSettings.target };
+
+    return normalizeSettings(migratedSettings);
   } catch {
     return { ...defaultSettings };
   }
@@ -131,7 +139,7 @@ function loadSettings() {
 
 function saveSettings() {
   try {
-    window.localStorage.setItem("play24gameSettings", JSON.stringify(settings));
+    window.localStorage.setItem("play24gameSettings", JSON.stringify({ ...settings, settingsSchemaVersion }));
   } catch {
     // Storage can be blocked in private browsing; the game still works for this session.
   }

@@ -283,7 +283,7 @@
 
     if (target.matches("input[type='checkbox']")) return "toggle";
     if (target.matches(".back-button, .ranking-back, .rooms-circle-button:first-child, .leave-icon")) return "back";
-    if (target.matches(".dialog-close-button")) return "panel";
+    if (target.matches(".dialog-close-button, .settings-close-button, .js-close-settings")) return "panel";
     if (target.matches(".mini-add, .wallet-pill button")) return "coin";
     if (target.matches(".js-number-card, .number-card")) return "card";
     if (target.matches(".js-calculate, .calculate-button, .js-apply-game-settings")) return "create";

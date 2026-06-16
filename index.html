@@ -9,7 +9,7 @@
       content="귀여운 24게임 로비 UI. 빠른 시작, 방 리스트, 랭킹, 튜토리얼과 프로필을 한 화면에서 확인하세요."
     />
     <base href="/" />
-    <link rel="stylesheet" href="./styles.css?v=20260616-nav2" />
+    <link rel="stylesheet" href="./styles.css?v=20260616-home-settings" />
   </head>
   <body>
     <main class="app-shell" aria-label="24 GAME 홈">
@@ -194,10 +194,9 @@
     <dialog class="game-dialog" id="settingsDialog" aria-labelledby="settings-title">
       <div class="dialog-card">
         <div class="dialog-header">
-          <button class="back-button js-close-settings" type="button" aria-label="설정 닫기">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
-          </button>
+          <span aria-hidden="true"></span>
           <h2 id="settings-title">설정</h2>
+          <span aria-hidden="true"></span>
         </div>
         <div class="profile-strip">
           <img src="./assets/optimized/character/transparent/char_boy_1.webp" alt="" />
@@ -226,7 +225,7 @@
             <input type="checkbox" checked />
           </label>
         </div>
-        <button class="logout-button" type="button">로그아웃</button>
+        <button class="settings-close-button js-close-settings" type="button">닫기</button>
       </div>
     </dialog>
 
@@ -260,7 +259,7 @@
     </dialog>
 
     <div class="toast home-toast" role="status" aria-live="polite"></div>
-    <script src="./scripts/sounds.js?v=20260615-random2"></script>
-    <script src="./scripts/home.js?v=20260615-random2"></script>
+    <script src="./scripts/sounds.js?v=20260616-home-settings"></script>
+    <script src="./scripts/home.js?v=20260616-home-settings"></script>
   </body>
 </html>
