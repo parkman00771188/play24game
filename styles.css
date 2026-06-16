@@ -9883,19 +9883,19 @@ body {
   align-self: center;
   justify-self: end;
   width: auto;
-  min-width: 72px;
-  min-height: 42px;
-  padding: 0 13px;
-  border-radius: 14px;
-  font-size: 16px;
+  min-width: 96px;
+  min-height: 48px;
+  padding: 0 17px;
+  border-radius: 15px;
+  font-size: 17px;
   line-height: 1;
   white-space: nowrap;
 }
 
 .rooms-screen .lobby-join-button::after {
   content: ">";
-  margin-left: 4px;
-  font-size: 21px;
+  margin-left: 6px;
+  font-size: 23px;
   line-height: 0.8;
 }
 
@@ -9919,10 +9919,11 @@ body {
   }
 
   .rooms-screen .lobby-join-button {
-    min-width: 68px;
-    min-height: 38px;
-    padding: 0 12px;
-    font-size: 15px;
+    min-width: 88px;
+    min-height: 42px;
+    padding: 0 15px;
+    border-radius: 14px;
+    font-size: 16px;
   }
 }
 
@@ -9957,10 +9958,10 @@ body {
   }
 
   .rooms-screen .lobby-join-button {
-    min-width: 64px;
-    min-height: 36px;
-    border-radius: 13px;
-    font-size: 14px;
+    min-width: 84px;
+    min-height: 42px;
+    border-radius: 14px;
+    font-size: 16px;
   }
 }
 
@@ -9974,7 +9975,9 @@ body {
   }
 
   .rooms-screen .lobby-join-button {
-    min-width: 60px;
-    padding: 0 10px;
+    min-width: 80px;
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 15px;
   }
 }
