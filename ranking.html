@@ -6,7 +6,7 @@
     <title>24 GAME - 랭킹</title>
     <meta name="description" content="24 GAME 플레이어 랭킹 화면" />
     <base href="/" />
-    <link rel="stylesheet" href="./styles.css?v=20260616-ranking-redesign" />
+    <link rel="stylesheet" href="./styles.css?v=20260616-ranking-assets" />
   </head>
   <body>
     <main class="app-shell ranking-app" aria-label="24 GAME 랭킹">
@@ -33,10 +33,7 @@
 
         <section class="ranking-season-card" aria-label="내 시즌 랭킹">
           <div class="ranking-season-art" aria-hidden="true">
-            <div class="season-vs-badge">VS</div>
-            <span class="season-confetti one"></span>
-            <span class="season-confetti two"></span>
-            <span class="season-confetti three"></span>
+            <img src="./assets/optimized/ranking/ranking-tournament-transparent.png" alt="" />
           </div>
           <div class="ranking-season-info">
             <span class="season-label">시즌 12</span>
@@ -52,11 +49,11 @@
               </div>
             </div>
           </div>
-          <a class="ranking-start-button" href="./game.html">
-            <span aria-hidden="true">⚔</span>
+          <a class="ranking-start-button" href="./game.html" aria-label="랭킹전 시작">
+            <span class="ranking-sword-icon" aria-hidden="true">⚔</span>
             랭킹전 시작
           </a>
-          <p class="season-remaining"><span aria-hidden="true">◷</span> 시즌 종료까지 12일</p>
+          <p class="season-remaining"><span class="season-clock-icon" aria-hidden="true"></span> 시즌 종료까지 12일</p>
         </section>
 
         <section class="ranking-panel" aria-labelledby="ranking-list-title">
@@ -124,6 +121,7 @@
               <img class="rank-avatar" src="./assets/optimized/character/transparent/char_boy_1.webp" alt="" />
               <div class="rank-player">
                 <strong>플레이어</strong>
+                <span class="rank-challenge-pill">도전 가능</span>
               </div>
               <div class="rank-grade">
                 <img src="./assets/optimized/medal/transparent/platinum.webp" alt="" />
@@ -234,7 +232,7 @@
 
           <section class="ranking-cta" aria-label="도전 하러 가기">
             <div class="ranking-cta-mascot" aria-hidden="true">
-              <img src="./assets/optimized/ranking/mascot-trophy.webp" alt="" />
+              <img src="./assets/optimized/ranking/tournament-cta-transparent.png" alt="" />
             </div>
             <div>
               <strong>더 높은 순위를 향해 도전하세요!</strong>
@@ -296,6 +294,6 @@
     </dialog>
 
     <script src="./scripts/sounds.js?v=20260616-profile-logout"></script>
-    <script src="./scripts/ranking.js?v=20260616-ranking-redesign"></script>
+    <script src="./scripts/ranking.js?v=20260616-ranking-assets"></script>
   </body>
 </html>
