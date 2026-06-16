@@ -27,6 +27,10 @@ const defaultSettings = Object.freeze({
 });
 
 const timerOptions = [10, 15, 20];
+const targetRange = Object.freeze({
+  min: 1,
+  max: 999,
+});
 const randomCardRange = Object.freeze({
   min: 1,
   max: 9,
@@ -71,6 +75,10 @@ function cardSignature(values) {
   return [...values].sort((left, right) => left - right).join(",");
 }
 
+function normalizeTarget(value) {
+  return clamp(Math.round(Number(value) || defaultSettings.target), targetRange.min, targetRange.max);
+}
+
 function createRandomCardValues(count) {
   const values = [];
   const counts = new Map();
@@ -107,7 +115,7 @@ function randomCardValues(count) {
 
 function normalizeSettings(value = {}) {
   const cardCount = [4, 5, 6].includes(Number(value.cardCount)) ? Number(value.cardCount) : defaultSettings.cardCount;
-  const target = clamp(Math.round(Number(value.target) || defaultSettings.target), 1, 1000);
+  const target = normalizeTarget(value.target);
   const timerValue = Math.round(Number(value.timer) || defaultSettings.timer);
   const timer = timerOptions.includes(timerValue) ? timerValue : defaultSettings.timer;
   return { cardCount, target, timer };
@@ -479,16 +487,19 @@ cardCountButtons.forEach((button) => {
 });
 
 targetInput?.addEventListener("input", () => {
-  draftSettings.target = clamp(Math.round(Number(targetInput.value) || defaultSettings.target), 1, 1000);
+  draftSettings.target = normalizeTarget(targetInput.value);
+  if (Number(targetInput.value) > targetRange.max) {
+    targetInput.value = draftSettings.target;
+  }
 });
 
 document.querySelector(".js-target-minus")?.addEventListener("click", () => {
-  draftSettings.target = clamp(draftSettings.target - 1, 1, 1000);
+  draftSettings.target = clamp(draftSettings.target - 1, targetRange.min, targetRange.max);
   updateSettingsControls();
 });
 
 document.querySelector(".js-target-plus")?.addEventListener("click", () => {
-  draftSettings.target = clamp(draftSettings.target + 1, 1, 1000);
+  draftSettings.target = clamp(draftSettings.target + 1, targetRange.min, targetRange.max);
   updateSettingsControls();
 });
 
@@ -506,7 +517,7 @@ document.querySelector(".js-reset-game-settings")?.addEventListener("click", () 
 
 document.querySelector(".js-apply-game-settings")?.addEventListener("click", () => {
   if (targetInput) {
-    draftSettings.target = clamp(Math.round(Number(targetInput.value) || defaultSettings.target), 1, 1000);
+    draftSettings.target = normalizeTarget(targetInput.value);
   }
 
   settings = normalizeSettings(draftSettings);
