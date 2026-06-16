@@ -47,6 +47,6 @@ gradeGuideDialog?.addEventListener("click", (event) => {
 document.querySelector(".js-my-rank")?.addEventListener("click", () => {
   showToast("랭킹전으로 이동합니다.");
   window.setTimeout(() => {
-    window.location.href = "./game.html";
+    window.location.href = "./rank-match.html";
   }, 260);
 });

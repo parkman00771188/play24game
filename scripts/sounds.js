@@ -294,7 +294,7 @@
     if (target.matches(".chat-form button")) return "join";
     if (target.matches(".lobby-join-button, .join-button, .js-quick-start, .action-blue, .action-practice")) return "join";
     if (target.matches(".js-create-room, .create-room-button")) return "create";
-    if (target.matches(".action-purple, .js-my-rank, .js-ranking-help")) return "rank";
+    if (target.matches(".action-purple, .js-my-rank, .js-ranking-help, .rank-match-start, .js-rank-match-help")) return "rank";
     if (target.matches(".js-card-count, .js-timer-minus, .js-timer-plus, .js-reset-game-settings")) return "toggle";
     if (target.matches(".room-tab, .js-room-tab, .js-time-filter, .time-filters button")) return "tab";
     if (target.matches(".pet-feed")) return "coin";

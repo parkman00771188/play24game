@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>24 GAME - 랭킹전</title>
+    <meta name="description" content="24 GAME 랭킹전 시작 화면" />
+    <base href="/" />
+    <link rel="stylesheet" href="./styles.css?v=20260616-rank-match" />
+  </head>
+  <body>
+    <main class="app-shell rank-match-app" aria-label="24 GAME 랭킹전">
+      <section class="rank-match-screen">
+        <header class="rank-match-header">
+          <a class="rank-match-icon-button rank-match-back" href="./ranking.html" aria-label="랭킹으로 돌아가기">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+          </a>
+          <button class="rank-match-icon-button rank-match-help js-rank-match-help" type="button" aria-label="등급 안내">
+            <span aria-hidden="true">?</span>
+          </button>
+        </header>
+
+        <section class="rank-match-hero" aria-label="현재 랭킹전 등급">
+          <img class="rank-match-logo" src="./assets/optimized/rank-match/rank-match-logo.png" alt="RANK MATCH 랭킹전" />
+          <img class="rank-match-trophy" src="./assets/optimized/rank-match/rank-match-trophy.png" alt="" />
+          <div class="rank-match-current">
+            <span>현재 등급</span>
+            <strong>플래티넘 I</strong>
+            <em><i aria-hidden="true"></i> 2,480P</em>
+          </div>
+        </section>
+
+        <section class="rank-match-card" aria-label="랭킹전 등급 진행">
+          <div class="rank-match-grade-track">
+            <article class="rank-match-grade previous">
+              <img src="./assets/optimized/medal/transparent/gold.webp" alt="" />
+              <strong>골드 III</strong>
+              <span>2,000P</span>
+            </article>
+            <div class="rank-match-progress left" aria-hidden="true"><span></span></div>
+            <article class="rank-match-grade active">
+              <img src="./assets/optimized/medal/transparent/platinum.webp" alt="" />
+              <strong>플래티넘 I</strong>
+              <span>2,400P</span>
+            </article>
+            <div class="rank-match-progress right" aria-hidden="true"><span></span></div>
+            <article class="rank-match-grade next">
+              <img src="./assets/optimized/medal/transparent/silver.webp" alt="" />
+              <strong>플래티넘 II</strong>
+              <span>2,800P</span>
+            </article>
+          </div>
+
+          <a class="rank-match-start js-rank-match-start" href="./game.html" aria-label="랭킹전 게임 시작">
+            <span aria-hidden="true"></span>
+            게임 시작
+            <i aria-hidden="true"></i>
+          </a>
+
+          <div class="rank-match-actions" aria-label="랭킹전 정보 메뉴">
+            <button class="rank-match-panel-button js-rank-info" type="button">
+              <img src="./assets/optimized/rank-match/rank-user.png" alt="" />
+              <span>내 정보</span>
+            </button>
+            <button class="rank-match-panel-button js-rank-reward" type="button">
+              <img src="./assets/optimized/rank-match/rank-reward.png" alt="" />
+              <span>보상</span>
+            </button>
+            <button class="rank-match-panel-button js-rank-season" type="button">
+              <img src="./assets/optimized/rank-match/rank-calendar.png" alt="" />
+              <span>시즌 정보</span>
+            </button>
+          </div>
+        </section>
+
+        <p class="rank-match-season-note"><span aria-hidden="true"></span> 시즌 종료까지 12일 <span aria-hidden="true"></span></p>
+      </section>
+
+      <div class="toast" role="status" aria-live="polite"></div>
+    </main>
+
+    <dialog class="game-dialog grade-dialog" id="rankMatchGuideDialog" aria-labelledby="rank-match-guide-title">
+      <div class="dialog-card grade-guide-card">
+        <div class="dialog-header">
+          <span aria-hidden="true"></span>
+          <h2 id="rank-match-guide-title">등급 안내</h2>
+          <button class="dialog-close-button js-close-rank-guide" type="button" aria-label="등급 안내 닫기">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="grade-guide-list">
+          <article>
+            <img src="./assets/optimized/medal/transparent/bronze.webp" alt="" />
+            <strong>브론즈</strong>
+            <span>0 ~ 999P</span>
+          </article>
+          <article>
+            <img src="./assets/optimized/medal/transparent/silver.webp" alt="" />
+            <strong>실버</strong>
+            <span>1,000 ~ 1,999P</span>
+          </article>
+          <article>
+            <img src="./assets/optimized/medal/transparent/gold.webp" alt="" />
+            <strong>골드</strong>
+            <span>2,000 ~ 2,399P</span>
+          </article>
+          <article>
+            <img src="./assets/optimized/medal/transparent/platinum.webp" alt="" />
+            <strong>플래티넘</strong>
+            <span>2,400 ~ 4,999P</span>
+          </article>
+          <article>
+            <img src="./assets/optimized/medal/transparent/diamond.webp" alt="" />
+            <strong>다이아</strong>
+            <span>5,000 ~ 7,499P</span>
+          </article>
+          <article>
+            <img src="./assets/optimized/medal/transparent/master.webp" alt="" />
+            <strong>마스터</strong>
+            <span>7,500P 이상</span>
+          </article>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="./scripts/sounds.js?v=20260616-rank-match"></script>
+    <script src="./scripts/rank-match.js?v=20260616-rank-match"></script>
+  </body>
+</html>
