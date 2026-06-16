@@ -9989,3 +9989,675 @@ body {
     font-size: 15px;
   }
 }
+
+/* Ranking page redesign */
+.ranking-app {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.36), transparent 20%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 0 74%, rgba(230, 249, 255, 0.78) 100%),
+    linear-gradient(180deg, #0799f5 0%, #3fbdff 28%, #dff8ff 100%);
+}
+
+.ranking-screen {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 10px;
+  min-height: 100dvh;
+  padding: 14px;
+}
+
+.ranking-header,
+.ranking-season-card,
+.ranking-panel,
+.ranking-row,
+.ranking-cta {
+  border: 2px solid rgba(184, 220, 255, 0.92);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(242, 250, 255, 0.95));
+  box-shadow: 0 12px 24px rgba(19, 92, 181, 0.16), inset 0 2px 0 rgba(255, 255, 255, 0.92);
+}
+
+.ranking-header {
+  grid-template-columns: 58px minmax(0, 1fr) 124px;
+  min-height: 74px;
+  padding: 9px 10px;
+  border-radius: 24px;
+}
+
+.ranking-header h1 {
+  color: #07347f;
+  font-size: 34px;
+  letter-spacing: 0;
+}
+
+.ranking-back {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+}
+
+.ranking-help {
+  min-height: 42px;
+  border-color: #bfdcff;
+  border-radius: 14px;
+  color: #0957c5;
+  font-size: 14px;
+}
+
+.ranking-help span {
+  width: 24px;
+  height: 24px;
+}
+
+.ranking-season-card {
+  display: grid;
+  grid-template-columns: minmax(104px, 0.75fr) minmax(0, 1fr) 116px;
+  grid-template-areas:
+    "art info start"
+    "art info remain";
+  align-items: center;
+  gap: 8px 10px;
+  min-height: 128px;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.ranking-season-art {
+  position: relative;
+  grid-area: art;
+  align-self: stretch;
+  min-height: 110px;
+  overflow: hidden;
+  border-radius: 19px;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.92) 0 7px, transparent 8px),
+    radial-gradient(circle at 76% 30%, rgba(79, 234, 255, 0.85), transparent 12px),
+    linear-gradient(140deg, rgba(14, 57, 158, 0.95), rgba(47, 153, 255, 0.76)),
+    linear-gradient(180deg, #0c3d9c, #1d90ff);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), inset 0 -14px 30px rgba(2, 22, 86, 0.22);
+}
+
+.ranking-season-art::before {
+  content: "";
+  position: absolute;
+  right: -18px;
+  bottom: -24px;
+  width: 140px;
+  height: 58px;
+  border-radius: 50% 50% 0 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0));
+}
+
+.season-vs-badge {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  display: grid;
+  width: 78px;
+  height: 78px;
+  place-items: center;
+  border: 6px solid #ffe683;
+  border-radius: 23px;
+  color: #fff;
+  background: linear-gradient(180deg, #ffc735, #db7c0d);
+  box-shadow: 0 8px 0 rgba(111, 62, 0, 0.18), 0 14px 18px rgba(8, 37, 113, 0.26);
+  font-size: 27px;
+  font-weight: 1000;
+  text-shadow: 0 3px 0 rgba(120, 72, 0, 0.42);
+  transform: translateX(-50%);
+}
+
+.season-confetti {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: #ff76d8;
+  transform: rotate(36deg);
+}
+
+.season-confetti.one {
+  top: 31px;
+  left: 18px;
+  background: #ff73ce;
+}
+
+.season-confetti.two {
+  top: 70px;
+  right: 17px;
+  background: #ffe049;
+}
+
+.season-confetti.three {
+  bottom: 17px;
+  left: 31px;
+  background: #7effff;
+}
+
+.ranking-season-info {
+  grid-area: info;
+  min-width: 0;
+}
+
+.season-label {
+  display: block;
+  color: #466fa9;
+  font-size: 14px;
+  font-weight: 1000;
+}
+
+.season-grade {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.season-grade img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 8px rgba(31, 91, 184, 0.18));
+}
+
+.season-grade h2 {
+  margin: 0;
+  overflow: hidden;
+  color: #07347f;
+  font-size: 21px;
+  font-weight: 1000;
+  line-height: 1.08;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.season-grade strong {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  color: #07347f;
+  font-size: 17px;
+  font-weight: 1000;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.season-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.season-stats span {
+  min-height: 24px;
+  padding: 3px 8px;
+  border: 2px solid #cfe4ff;
+  border-radius: 9px;
+  color: #2462b7;
+  background: #f5fbff;
+  font-size: 12px;
+  font-weight: 1000;
+  line-height: 1;
+}
+
+.ranking-start-button {
+  display: flex;
+  grid-area: start;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: 2px solid #ffbd35;
+  border-radius: 17px;
+  color: #fff;
+  background: linear-gradient(180deg, #ffb832, #ff7115);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -4px 0 rgba(186, 63, 0, 0.18), 0 8px 12px rgba(211, 84, 0, 0.2);
+  font-size: 17px;
+  font-weight: 1000;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ranking-start-button span {
+  font-size: 21px;
+}
+
+.season-remaining {
+  display: flex;
+  grid-area: remain;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  color: #5679b0;
+  font-size: 12px;
+  font-weight: 1000;
+  white-space: nowrap;
+}
+
+.ranking-panel {
+  margin-top: 0;
+  padding: 12px 10px 11px;
+  border-radius: 24px;
+}
+
+.ranking-section-title {
+  margin: 0 6px 10px;
+}
+
+.ranking-section-title h2 {
+  font-size: 20px;
+}
+
+.ranking-section-title p {
+  display: none;
+}
+
+.ranking-list {
+  gap: 5px;
+}
+
+.ranking-row {
+  grid-template-columns: 44px 46px minmax(0, 1fr) 112px 80px;
+  gap: 6px;
+  min-height: 66px;
+  margin-top: 0;
+  padding: 7px 9px;
+  border-color: #e0efff;
+  border-radius: 16px;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.9), 0 5px 9px rgba(35, 96, 177, 0.06);
+}
+
+.ranking-row.current-player {
+  border-width: 2px;
+  border-color: #0e7cff;
+  background: linear-gradient(180deg, #ffffff, #edf8ff);
+  box-shadow: inset 0 0 0 1px rgba(21, 119, 255, 0.52), 0 8px 14px rgba(21, 119, 255, 0.15);
+}
+
+.ranking-place img {
+  width: 40px;
+  max-height: 40px;
+}
+
+.ranking-place.numeric {
+  font-size: 27px;
+}
+
+.current-player .ranking-place.numeric {
+  font-size: 29px;
+}
+
+.rank-avatar {
+  width: 43px;
+  height: 43px;
+}
+
+.rank-player strong {
+  font-size: 14px;
+}
+
+.rank-grade {
+  gap: 5px;
+}
+
+.rank-grade img {
+  width: 36px;
+  height: 36px;
+}
+
+.rank-grade span {
+  font-size: 12px;
+}
+
+.rank-score {
+  padding-left: 9px;
+}
+
+.rank-score strong {
+  gap: 4px;
+  font-size: 16px;
+}
+
+.rank-score span {
+  display: grid;
+  gap: 2px;
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+.score-star {
+  width: 17px;
+  height: 17px;
+}
+
+.ranking-cta {
+  grid-template-columns: 92px minmax(0, 1fr) 120px;
+  gap: 10px;
+  min-height: 86px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  overflow: hidden;
+  border-color: #0c7df4;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #188cff, #0560ce);
+  color: #fff;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.34), 0 10px 16px rgba(8, 83, 181, 0.22);
+}
+
+.ranking-cta-mascot {
+  width: 88px;
+  height: 68px;
+}
+
+.ranking-cta-mascot img {
+  left: -20px;
+  bottom: -15px;
+  width: 116px;
+}
+
+.ranking-cta strong {
+  color: #fff;
+  font-size: 17px;
+}
+
+.ranking-cta p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 12px;
+}
+
+.my-rank-button {
+  min-height: 52px;
+  border-color: rgba(255, 255, 255, 0.82);
+  color: #0a4eb0;
+  background: linear-gradient(180deg, #fff, #eaf6ff);
+  font-size: 14px;
+}
+
+@media (max-width: 430px) {
+  .ranking-screen {
+    gap: 9px;
+    padding: 12px 10px 13px;
+  }
+
+  .ranking-header {
+    grid-template-columns: 50px minmax(0, 1fr) 104px;
+    min-height: 70px;
+    padding: 8px;
+  }
+
+  .ranking-header h1 {
+    font-size: 31px;
+  }
+
+  .ranking-back {
+    width: 46px;
+    height: 46px;
+  }
+
+  .ranking-help {
+    min-height: 38px;
+    gap: 5px;
+    font-size: 12px;
+  }
+
+  .ranking-help span {
+    width: 21px;
+    height: 21px;
+  }
+
+  .ranking-season-card {
+    grid-template-columns: 84px minmax(0, 1fr) 96px;
+    gap: 7px;
+    min-height: 116px;
+    padding: 8px;
+    border-radius: 20px;
+  }
+
+  .ranking-season-art {
+    min-height: 100px;
+    border-radius: 16px;
+  }
+
+  .season-vs-badge {
+    width: 64px;
+    height: 64px;
+    border-width: 5px;
+    border-radius: 20px;
+    font-size: 22px;
+  }
+
+  .season-label {
+    font-size: 12px;
+  }
+
+  .season-grade {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 5px;
+  }
+
+  .season-grade img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .season-grade h2 {
+    font-size: 18px;
+  }
+
+  .season-grade strong {
+    font-size: 14px;
+  }
+
+  .season-stats span {
+    min-height: 22px;
+    padding: 3px 6px;
+    font-size: 11px;
+  }
+
+  .ranking-start-button {
+    min-height: 50px;
+    padding: 0 7px;
+    border-radius: 15px;
+    font-size: 13px;
+  }
+
+  .ranking-start-button span {
+    font-size: 17px;
+  }
+
+  .season-remaining {
+    font-size: 10px;
+  }
+
+  .ranking-panel {
+    padding: 10px 7px 9px;
+    border-radius: 21px;
+  }
+
+  .ranking-section-title h2 {
+    font-size: 17px;
+  }
+
+  .ranking-list {
+    gap: 4px;
+  }
+
+  .ranking-row {
+    grid-template-columns: 35px 39px minmax(0, 1fr) 84px 64px;
+    gap: 4px;
+    min-height: 61px;
+    padding: 6px;
+    border-radius: 14px;
+  }
+
+  .ranking-place img {
+    width: 34px;
+    max-height: 34px;
+  }
+
+  .ranking-place.numeric {
+    font-size: 21px;
+  }
+
+  .current-player .ranking-place.numeric {
+    font-size: 24px;
+  }
+
+  .rank-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .rank-player strong {
+    font-size: 12.5px;
+  }
+
+  .rank-grade img {
+    width: 29px;
+    height: 29px;
+  }
+
+  .rank-grade span {
+    font-size: 10px;
+  }
+
+  .rank-score {
+    padding-left: 6px;
+  }
+
+  .rank-score strong {
+    font-size: 13px;
+  }
+
+  .rank-score span {
+    font-size: 9px;
+  }
+
+  .score-star {
+    width: 13px;
+    height: 13px;
+  }
+
+  .ranking-cta {
+    grid-template-columns: 72px minmax(0, 1fr) 104px;
+    gap: 8px;
+    min-height: 78px;
+    padding: 9px;
+  }
+
+  .ranking-cta-mascot {
+    width: 68px;
+    height: 60px;
+  }
+
+  .ranking-cta-mascot img {
+    left: -20px;
+    width: 95px;
+  }
+
+  .ranking-cta strong {
+    font-size: 14px;
+  }
+
+  .ranking-cta p {
+    font-size: 10px;
+  }
+
+  .my-rank-button {
+    min-height: 46px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 374px) {
+  .ranking-header {
+    grid-template-columns: 44px minmax(0, 1fr) 96px;
+  }
+
+  .ranking-header h1 {
+    font-size: 28px;
+  }
+
+  .ranking-help {
+    width: auto;
+    min-height: 36px;
+    padding: 0 7px;
+    font-size: 11px;
+  }
+
+  .ranking-help span {
+    width: 20px;
+    height: 20px;
+    font-size: 13px;
+  }
+
+  .ranking-back {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ranking-season-card {
+    grid-template-columns: 78px minmax(0, 1fr) 88px;
+    gap: 6px;
+  }
+
+  .season-grade {
+    grid-template-columns: 40px minmax(0, 1fr);
+  }
+
+  .season-grade img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .season-grade h2 {
+    font-size: 17px;
+  }
+
+  .ranking-start-button {
+    font-size: 13px;
+  }
+
+  .ranking-row {
+    grid-template-columns: 31px 34px minmax(0, 1fr) 78px 60px;
+    gap: 4px;
+    min-height: 58px;
+  }
+
+  .rank-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .rank-player strong {
+    font-size: 12px;
+  }
+
+  .rank-grade img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .rank-grade span {
+    font-size: 8.5px;
+  }
+
+  .rank-grade {
+    gap: 3px;
+  }
+
+  .rank-score strong {
+    font-size: 12px;
+  }
+
+  .ranking-cta {
+    grid-template-columns: 62px minmax(0, 1fr) 96px;
+  }
+}

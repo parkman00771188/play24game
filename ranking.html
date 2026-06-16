@@ -6,7 +6,7 @@
     <title>24 GAME - 랭킹</title>
     <meta name="description" content="24 GAME 플레이어 랭킹 화면" />
     <base href="/" />
-    <link rel="stylesheet" href="./styles.css?v=20260616-nav2" />
+    <link rel="stylesheet" href="./styles.css?v=20260616-ranking-redesign" />
   </head>
   <body>
     <main class="app-shell ranking-app" aria-label="24 GAME 랭킹">
@@ -31,10 +31,37 @@
           </button>
         </header>
 
+        <section class="ranking-season-card" aria-label="내 시즌 랭킹">
+          <div class="ranking-season-art" aria-hidden="true">
+            <div class="season-vs-badge">VS</div>
+            <span class="season-confetti one"></span>
+            <span class="season-confetti two"></span>
+            <span class="season-confetti three"></span>
+          </div>
+          <div class="ranking-season-info">
+            <span class="season-label">시즌 12</span>
+            <div class="season-grade">
+              <img src="./assets/optimized/medal/transparent/platinum.webp" alt="" />
+              <div>
+                <h2>플래티넘 I</h2>
+                <strong><i class="score-star" aria-hidden="true"></i>2,480P</strong>
+                <div class="season-stats">
+                  <span>승률 68%</span>
+                  <span><i aria-hidden="true">🔥</i> 3연승</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="ranking-start-button" href="./game.html">
+            <span aria-hidden="true">⚔</span>
+            랭킹전 시작
+          </a>
+          <p class="season-remaining"><span aria-hidden="true">◷</span> 시즌 종료까지 12일</p>
+        </section>
+
         <section class="ranking-panel" aria-labelledby="ranking-list-title">
           <div class="ranking-section-title">
             <h2 id="ranking-list-title">플레이어 랭킹</h2>
-            <p><span class="clock-mini" aria-hidden="true"></span>시즌 종료까지 12일</p>
           </div>
 
           <ol class="ranking-list">
@@ -210,11 +237,11 @@
               <img src="./assets/optimized/ranking/mascot-trophy.webp" alt="" />
             </div>
             <div>
-              <strong>더 높은 순위를 향해 도전해보세요!</strong>
-              <p>연승을 이어가면 더 높은 곳까지 갈 수 있어요!</p>
+              <strong>더 높은 순위를 향해 도전하세요!</strong>
+              <p>랭킹전에서 실력을 증명해 보세요!</p>
             </div>
             <button class="my-rank-button js-my-rank" type="button">
-              도전 하러 가기
+              도전하러 가기
               <span aria-hidden="true"></span>
             </button>
           </section>
@@ -268,7 +295,7 @@
       </div>
     </dialog>
 
-    <script src="./scripts/sounds.js?v=20260615-random2"></script>
-    <script src="./scripts/ranking.js?v=20260615-random2"></script>
+    <script src="./scripts/sounds.js?v=20260616-profile-logout"></script>
+    <script src="./scripts/ranking.js?v=20260616-ranking-redesign"></script>
   </body>
 </html>
